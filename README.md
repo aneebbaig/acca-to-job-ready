@@ -1,5 +1,9 @@
 # ACCA → Job-Ready
 
+[![CI](https://github.com/aneebbaig/acca-to-job-ready/actions/workflows/ci.yml/badge.svg)](https://github.com/aneebbaig/acca-to-job-ready/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-informational.svg)](LICENSE)
+![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)
+
 An open-source roadmap, practice, and assessment app that takes a person who is
 **ACCA-qualified (or nearly) but has no work experience** from "lost" to
 employable — focused on the **Pakistani job market**.
@@ -143,8 +147,25 @@ Notes:
   and has branch-storage limits — fine for this app. A lightweight keep-alive
   ping is optional and not required.
 
+## Development & contributing
+
+- **Branches.** `main` is the stable, protected default. `develop` is the
+  integration branch for day-to-day work; `production` tracks what's deployed.
+  All three are protected — **no direct pushes**; changes land through pull
+  requests that must pass CI.
+- **CI.** Every push and PR runs lint, type-check, and build
+  (`.github/workflows/ci.yml`).
+- **Commits & releases.** Use [Conventional Commits](https://www.conventionalcommits.org)
+  (`feat:`, `fix:`, `chore:`, `docs:`). `release-please` maintains a release PR
+  that bumps the version and changelog automatically.
+- **Dependencies.** Dependabot opens weekly update PRs.
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md), and
+[`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
+
 ## License
 
 MIT © Aneeb Baig. See [`LICENSE`](LICENSE).
 
 Screenshots: _add here._
+

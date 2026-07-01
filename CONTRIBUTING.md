@@ -26,7 +26,10 @@ See the **Local setup** section of the [README](README.md). You'll need Node
 
 ## Workflow
 
-1. Branch off `main`.
+The protected branches (`main`, `develop`, `production`) accept **no direct
+pushes** — everything goes through a pull request that CI must pass.
+
+1. Branch off `develop` (e.g. `feat/glossary`).
 2. Keep changes focused; match the surrounding code's style.
 3. Before opening a PR, run:
 
@@ -36,7 +39,10 @@ See the **Local setup** section of the [README](README.md). You'll need Node
    npm run build
    ```
 
-4. Use clear, conventional commit messages (`feat:`, `fix:`, `chore:`, `docs:`).
+4. Use [Conventional Commits](https://www.conventionalcommits.org) (`feat:`,
+   `fix:`, `chore:`, `docs:`) — `release-please` relies on them for versioning.
+5. Open a PR into `develop`. CI (lint + type-check + build) must be green before
+   it can merge.
 
 ## Good first tasks
 

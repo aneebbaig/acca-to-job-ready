@@ -13,6 +13,16 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    rules: {
+      // This React-Compiler rule is experimental and over-fires on two
+      // legitimate patterns we rely on: hydration-safe restore of a draft from
+      // localStorage after mount (a lazy initializer would cause a hydration
+      // mismatch), and the useActionState + toast/close-dialog pattern. Keep it
+      // as a warning so it still surfaces genuine cascading-render mistakes.
+      "react-hooks/set-state-in-effect": "warn",
+    },
+  },
 ]);
 
 export default eslintConfig;

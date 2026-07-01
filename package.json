@@ -5,6 +5,17 @@
   "description": "Open-source roadmap, practice, and assessment app that takes an ACCA-qualified person with no work experience to employable in the Pakistani job market.",
   "author": "Aneeb Baig",
   "license": "MIT",
+  "homepage": "https://github.com/aneebbaig/acca-to-job-ready#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aneebbaig/acca-to-job-ready.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aneebbaig/acca-to-job-ready/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
