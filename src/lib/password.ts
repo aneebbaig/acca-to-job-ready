@@ -1,24 +1,24 @@
-import argon2 from "argon2";
+import { hash, verify } from "@node-rs/argon2";
 
-// Argon2id, modern memory-hard hashing (§5). Defaults from the argon2 lib are
-// sensible; tuned slightly for interactive login latency.
-const OPTIONS: argon2.Options = {
-  type: argon2.argon2id,
+// Argon2id via @node-rs/argon2 (prebuilt native, works on serverless hosts like
+// Vercel). Argon2id is this library's default algorithm. Same modern
+// memory-hard hashing (§5), tuned for interactive login.
+const OPTIONS = {
   memoryCost: 19456, // ~19 MiB
   timeCost: 2,
   parallelism: 1,
 };
 
 export function hashPassword(plain: string): Promise<string> {
-  return argon2.hash(plain, OPTIONS);
+  return hash(plain, OPTIONS);
 }
 
 export async function verifyPassword(
-  hash: string,
+  hashed: string,
   plain: string,
 ): Promise<boolean> {
   try {
-    return await argon2.verify(hash, plain);
+    return await verify(hashed, plain);
   } catch {
     return false;
   }
