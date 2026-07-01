@@ -11,6 +11,7 @@ import { Cheatsheet } from "@/components/cheatsheet";
 import { ResourceManager } from "@/components/resource-manager";
 import { CompleteButton } from "@/components/complete-button";
 import { TopicPractice } from "@/components/topic-practice";
+import { TopicStepper } from "@/components/topic-stepper";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -78,7 +79,16 @@ export default async function TopicPage({
         )}
       </nav>
 
-      <header className="space-y-3">
+      {/* Sequence tracker: always visible, one current step highlighted. */}
+      <div className="bg-card rounded-xl border p-2">
+        <TopicStepper
+          completed={progress?.completed ?? false}
+          hasScore={progress?.bestScore != null}
+          hasPractice={Boolean(topic.skillSpec)}
+        />
+      </div>
+
+      <header id="read" className="scroll-mt-20 space-y-3">
         <div className="flex flex-wrap items-center gap-2">
           <h1 className="text-2xl font-semibold tracking-tight">{topic.title}</h1>
           {topic.status === "stub" && (
@@ -95,7 +105,7 @@ export default async function TopicPage({
           Work top to bottom: read this intro, skim the cheatsheet, try a
           practice task, then mark it complete when you feel solid.
         </p>
-        <div className="flex items-center gap-3">
+        <div id="complete" className="flex scroll-mt-20 items-center gap-3">
           <CompleteButton slug={slug} completed={progress?.completed ?? false} />
           {progress?.bestScore != null && (
             <span className="text-muted-foreground text-sm">
@@ -109,7 +119,7 @@ export default async function TopicPage({
       </header>
 
       {/* Cheatsheet */}
-      <section className="space-y-3">
+      <section id="cheatsheet" className="scroll-mt-20 space-y-3">
         <StepHeading n={1} hint="Quick reference. Verify anything marked.">
           Cheatsheet
         </StepHeading>
@@ -117,7 +127,7 @@ export default async function TopicPage({
       </section>
 
       {/* Practice */}
-      <section className="space-y-3">
+      <section id="practice" className="scroll-mt-20 space-y-3">
         <StepHeading n={2} hint="Unlimited fresh, AI-graded tasks.">
           Practice
         </StepHeading>
@@ -129,7 +139,7 @@ export default async function TopicPage({
       </section>
 
       {/* Resources */}
-      <section className="space-y-3">
+      <section id="resources" className="scroll-mt-20 space-y-3">
         <StepHeading n={3} hint="Save your own links.">
           Your resources
         </StepHeading>
