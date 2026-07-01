@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { withKeyHeader } from "@/lib/ai/key-storage";
 
 type Column = { key: string; label: string; type: "text" | "number" };
@@ -40,14 +41,26 @@ type Grade = {
 const DISCLAIMER =
   "AI feedback is a study aid, not authoritative ACCA material. Verify anything important against an official source.";
 
+type Tier = "warmup" | "easy" | "medium" | "hard" | "adaptive";
+
+const TIER_LABEL: Record<Tier, string> = {
+  warmup: "Warm-up",
+  easy: "Easy",
+  medium: "Medium",
+  hard: "Hard",
+  adaptive: "Adaptive",
+};
+
 export function TopicPractice({
   slug,
   hasSkillSpec,
   aiReady,
+  warmupAvailable = false,
 }: {
   slug: string;
   hasSkillSpec: boolean;
   aiReady: boolean;
+  warmupAvailable?: boolean;
 }) {
   const [phase, setPhase] = useState<"idle" | "loading" | "answering" | "grading" | "done">("idle");
   const [attemptId, setAttemptId] = useState<string | null>(null);
@@ -57,6 +70,8 @@ export function TopicPractice({
   const [fields, setFields] = useState<Record<string, string>>({});
   const [grade, setGrade] = useState<Grade | null>(null);
   const [worked, setWorked] = useState<string>("");
+  const [tier, setTier] = useState<Tier>("adaptive");
+  const [testNo, setTestNo] = useState(0);
 
   const draftKey = `acca_practice_draft_${slug}`;
 
@@ -129,8 +144,9 @@ export function TopicPractice({
     );
   }
 
-  async function start() {
+  async function start(withTier: Tier = tier) {
     clearDraft();
+    setTier(withTier);
     setPhase("loading");
     setGrade(null);
     setWorked("");
@@ -138,7 +154,7 @@ export function TopicPractice({
       const res = await fetch("/api/assessment/generate", {
         method: "POST",
         headers: withKeyHeader({ "content-type": "application/json" }),
-        body: JSON.stringify({ topicSlug: slug }),
+        body: JSON.stringify({ topicSlug: slug, tier: withTier }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -149,6 +165,7 @@ export function TopicPractice({
       const t = data.task as Task;
       setTask(t);
       setAttemptId(data.attemptId);
+      setTestNo((n) => n + 1);
       // Seed inputs.
       if (t.input.kind === "rows") {
         const blank = () =>
@@ -199,13 +216,19 @@ export function TopicPractice({
     <div className="space-y-4">
       {phase === "idle" && (
         <Card>
-          <CardContent className="flex flex-wrap items-center justify-between gap-3 py-5">
+          <CardContent className="space-y-4 py-5">
             <p className="text-sm">
-              Generate a fresh, randomised task and get graded feedback.
+              Each test is a fresh, randomised task, graded instantly. Pick a
+              difficulty, or let it adapt to how you're doing.
             </p>
-            <Button onClick={start}>
+            <TierPicker
+              tier={tier}
+              setTier={setTier}
+              warmupAvailable={warmupAvailable}
+            />
+            <Button onClick={() => start(tier)}>
               <Sparkles className="size-4" />
-              Start practice
+              Start {TIER_LABEL[tier].toLowerCase()} test
             </Button>
           </CardContent>
         </Card>
@@ -223,6 +246,12 @@ export function TopicPractice({
       {task && phase !== "idle" && phase !== "loading" && (
         <Card>
           <CardContent className="space-y-4 py-5">
+            <div className="text-muted-foreground flex items-center gap-2 text-xs">
+              <span className="bg-secondary text-secondary-foreground rounded-full px-2 py-0.5 font-mono font-medium">
+                Test #{testNo}
+              </span>
+              <span>{TIER_LABEL[tier]}</span>
+            </div>
             <div className="space-y-2">
               <p className="text-sm whitespace-pre-wrap">{task.scenario}</p>
               <p className="text-sm font-medium">{task.instructions}</p>
@@ -271,7 +300,18 @@ export function TopicPractice({
       )}
 
       {phase === "done" && grade && (
-        <Feedback grade={grade} worked={worked} onRetry={start} />
+        <Feedback
+          grade={grade}
+          worked={worked}
+          onRetry={() => start(tier)}
+          tierPicker={
+            <TierPicker
+              tier={tier}
+              setTier={setTier}
+              warmupAvailable={warmupAvailable}
+            />
+          }
+        />
       )}
     </div>
   );
@@ -463,23 +503,20 @@ function Feedback({
   grade,
   worked,
   onRetry,
+  tierPicker,
 }: {
   grade: Grade;
   worked: string;
   onRetry: () => void;
+  tierPicker?: React.ReactNode;
 }) {
   const pct = Math.round(grade.score * 100);
   return (
     <Card>
       <CardContent className="space-y-4 py-5">
-        <div className="flex items-center justify-between">
-          <p className="text-lg font-semibold">
-            Score: <span className="font-mono text-brass">{pct}%</span>
-          </p>
-          <Button variant="outline" size="sm" onClick={onRetry}>
-            <RefreshCw className="size-4" /> New variant
-          </Button>
-        </div>
+        <p className="text-lg font-semibold">
+          Score: <span className="font-mono text-brass">{pct}%</span>
+        </p>
 
         <ul className="space-y-2">
           {grade.points.map((p, i) => (
@@ -534,7 +571,49 @@ function Feedback({
         )}
 
         <p className="text-muted-foreground text-xs">{DISCLAIMER}</p>
+
+        {/* Keep the loop going: pick a difficulty and take another test. */}
+        <div className="space-y-3 border-t pt-4">
+          <p className="text-sm font-medium">Take another test</p>
+          {tierPicker}
+          <Button variant="outline" size="sm" onClick={onRetry}>
+            <RefreshCw className="size-4" /> New test
+          </Button>
+        </div>
       </CardContent>
     </Card>
+  );
+}
+
+function TierPicker({
+  tier,
+  setTier,
+  warmupAvailable,
+}: {
+  tier: Tier;
+  setTier: (t: Tier) => void;
+  warmupAvailable: boolean;
+}) {
+  const tiers: Tier[] = warmupAvailable
+    ? ["warmup", "easy", "medium", "hard", "adaptive"]
+    : ["easy", "medium", "hard", "adaptive"];
+  return (
+    <div className="flex flex-wrap gap-1.5" role="group" aria-label="Difficulty">
+      {tiers.map((t) => (
+        <button
+          key={t}
+          type="button"
+          onClick={() => setTier(t)}
+          className={cn(
+            "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+            tier === t
+              ? "border-brass bg-brass/10 text-brass"
+              : "border-border text-muted-foreground hover:border-foreground/40",
+          )}
+        >
+          {TIER_LABEL[t]}
+        </button>
+      ))}
+    </div>
   );
 }
