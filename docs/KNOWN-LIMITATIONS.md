@@ -7,7 +7,7 @@ Honest list of what is intentionally incomplete or worth improving.
   starting scaffold. The overall shape of professional competencies is stable,
   well-established knowledge, but the specifics deserve a review by a qualified
   ACCA professional before this is relied on. **"Curriculum review" is the top
-  open task.** Topics marked _"Draft — pending review"_ in the UI are scaffolded
+  open task.** Topics marked _"Draft, pending review"_ in the UI are scaffolded
   stubs.
 
 - **AI feedback is a study aid, not authoritative material.** Grading runs on
@@ -17,11 +17,11 @@ Honest list of what is intentionally incomplete or worth improving.
 
 - **Resource links are user-supplied by design.** The app ships **no** learning
   URLs. Every resource slot is an empty placeholder the user fills in. This is
-  deliberate — fabricated links are worse than none.
+  deliberate, fabricated links are worse than none.
 
 - **No standard numbers, rates, fees, or pass rates are asserted.** Anything
   jurisdiction- or standard-specific links out (ACCA, FBR) or is marked
-  "verify". Don't add such figures to the curriculum data — link instead.
+  "verify". Don't add such figures to the curriculum data, link instead.
 
 - **Login rate-limiting is in-memory.** Fine for a single instance; swap for a
   durable store (e.g. Upstash/Redis) when running multiple instances.
@@ -32,7 +32,7 @@ Honest list of what is intentionally incomplete or worth improving.
   ratios, and costing compare each figure to the worked solution within a small
   tolerance (the interpretation is AI-graded and blended in). The comparison
   checks the learner's numbers against the key rather than re-deriving them from
-  first principles — good enough to catch wrong figures, but not a full symbolic
+  first principles, good enough to catch wrong figures, but not a full symbolic
   re-computation. Control-deficiency answers use free-text fields rather than a
   strict three-column table.
 

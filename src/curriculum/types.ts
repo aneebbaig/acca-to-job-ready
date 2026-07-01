@@ -5,7 +5,7 @@
 //
 // Content rules baked into these types (§3): cheatsheets carry stable
 // fundamentals only; anything needing a specific standard number, rate, fee or
-// jurisdiction figure must be a `verify` callout that links out — never an
+// jurisdiction figure must be a `verify` callout that links out, never an
 // asserted fact. No learning-resource URLs are ever stored here; topics expose
 // empty, labelled resource slots the user fills in themselves.
 // ---------------------------------------------------------------------------
@@ -33,7 +33,7 @@ export type TaskType =
   | "excel_task"
   | "explain_to_client";
 
-// Which family a task type belongs to — drives how the submission UI and the
+// Which family a task type belongs to, drives how the submission UI and the
 // grader behave (code-checked numeric vs AI-rubric text).
 export type TaskFamily = "numeric" | "structured" | "text" | "mcq";
 
@@ -42,7 +42,7 @@ export interface SkillSpec {
   concepts: string[];
   // Task types the generator is allowed to choose from for this topic.
   taskTypes: TaskType[];
-  // Inclusive difficulty band (1 = gentle … 5 = stretch).
+  // Inclusive difficulty band (1 = gentle ... 5 = stretch).
   difficulty: { min: number; max: number };
   // Plain-language grading criteria the AI grader is held to.
   rubric: string[];
@@ -64,7 +64,7 @@ export type CheatsheetBlock =
   | { kind: "verify"; heading: string; note: string; link: { label: string; url: string } };
 
 export interface Topic {
-  slug: string; // stable, globally unique — keys all per-user data
+  slug: string; // stable, globally unique, keys all per-user data
   title: string;
   // One short, plain-language paragraph: what this is and why it matters.
   intro: string;

@@ -20,7 +20,7 @@ export interface GenerateResult {
   answerKey: AnswerKey;
 }
 
-const SYSTEM = `You generate practice tasks for an accountancy training app aimed at ACCA affiliates in Pakistan. You return ONLY a single JSON object — no prose, no markdown fences.
+const SYSTEM = `You generate practice tasks for an accountancy training app aimed at ACCA affiliates in Pakistan. You return ONLY a single JSON object, no prose, no markdown fences.
 
 Rules:
 - Invent only the SURFACE: company name, industry, the scenario, and self-consistent numbers (use PKR). Never change WHAT is being tested.
@@ -72,7 +72,7 @@ ${
   {"key":"amount","label":"Amount (PKR)","type":"number"}
 ], "minRows": 5 }
 "given" must hold the trial balance to work from.
-ANSWER KEY: include "solutionRows" (the expected key IS/BS lines with {line, amount}), "valueKey":"amount", "idKeys":["line"], and "balanceA" (total assets) and "balanceB" (total liabilities + equity) — they MUST be equal.`;
+ANSWER KEY: include "solutionRows" (the expected key IS/BS lines with {line, amount}), "valueKey":"amount", "idKeys":["line"], and "balanceA" (total assets) and "balanceB" (total liabilities + equity), they MUST be equal.`;
     }
     if (taskType === "ratio_analysis") {
       return `INPUT SHAPE (rows):
@@ -102,7 +102,7 @@ ANSWER KEY: include "solutionRows" (each {item, value}), "valueKey":"value", "id
   {"key":"reconciledB","label":"Adjusted bank statement balance (PKR)","multiline":false}
 ] }
 "given" must hold the cash book balance, the bank statement balance, and the differences (unpresented cheques, outstanding lodgements, charges, etc.).
-ANSWER KEY: include "reconciledA" and "reconciledB" as numbers — they MUST be equal (the agreed reconciled figure).`;
+ANSWER KEY: include "reconciledA" and "reconciledB" as numbers, they MUST be equal (the agreed reconciled figure).`;
   }
 
   if (fam === "mcq") {
@@ -121,7 +121,7 @@ ANSWER KEY: include "solutionRows" (the correct rows using the same keys).`;
   return `INPUT SHAPE (fields):
 "input": { "kind": "fields", "fields": [ {"key":"answer","label":"Your answer","multiline":true} ] }
 (For tables like deficiency→implication→recommendation you may use several fields.)
-ANSWER KEY: include "rubricPoints" (array of {"id","point"}) — the specific points a strong answer must cover.`;
+ANSWER KEY: include "rubricPoints" (array of {"id","point"}), the specific points a strong answer must cover.`;
 }
 
 function pick<T>(arr: T[]): T {
@@ -168,7 +168,7 @@ export async function generateTask(
 
   const user = `Concept(s) to assess: ${skillSpec.concepts.join("; ")}
 Task type: ${taskType}
-Difficulty: ${difficulty} (1 easy … 5 hard)
+Difficulty: ${difficulty} (1 easy ... 5 hard)
 Randomisation hints: base it on ${pick(INDUSTRIES)}; vary names, amounts, and which sub-point you test.
 Constraints from the curriculum: ${skillSpec.generatorNotes ?? "none"}
 

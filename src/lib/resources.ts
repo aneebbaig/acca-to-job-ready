@@ -39,7 +39,7 @@ export async function updateResource(
     .where(and(eq(resourceLinks.id, id), eq(resourceLinks.userId, userId)));
 }
 
-// Ownership is enforced in the WHERE clause — a user can only touch their own
+// Ownership is enforced in the WHERE clause, a user can only touch their own
 // rows even if they guess another id (§5, app-layer isolation).
 export async function deleteResource(userId: string, id: string) {
   await db

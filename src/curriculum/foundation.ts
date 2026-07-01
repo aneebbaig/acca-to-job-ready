@@ -1,6 +1,6 @@
 import type { Module } from "./types";
 
-// Shared Foundation — both tracks (§13). AI-drafted, pending expert review.
+// Shared Foundation, both tracks (§13). AI-drafted, pending expert review.
 // Stable fundamentals only; no invented standard numbers/rates/URLs.
 
 export const foundation: Module[] = [
@@ -25,7 +25,7 @@ export const foundation: Module[] = [
                 name: "Accounting equation",
                 expr: "Assets = Liabilities + Equity",
                 means:
-                  "What the business controls equals who funded it — lenders plus owners. It must always balance.",
+                  "What the business controls equals who funded it, lenders plus owners. It must always balance.",
               },
               {
                 name: "Expanded",
@@ -42,7 +42,7 @@ export const foundation: Module[] = [
               "Debit increases: assets and expenses.",
               "Credit increases: liabilities, equity, and income.",
               "Every entry: total debits = total credits. No exceptions.",
-              "‘Debit’ and ‘credit’ are just left and right — not good and bad.",
+              "'Debit' and 'credit' are just left and right, not good and bad.",
             ],
           },
           {
@@ -73,7 +73,7 @@ export const foundation: Module[] = [
             "Account names are sensible and consistent.",
           ],
           generatorNotes:
-            "Use a small Pakistani business (PKR). Invent simple, self-consistent amounts. 3–6 everyday transactions (sales, purchases, paying rent, owner capital, taking a loan).",
+            "Use a small Pakistani business (PKR). Invent simple, self-consistent amounts. 3-6 everyday transactions (sales, purchases, paying rent, owner capital, taking a loan).",
         },
       },
       {
@@ -131,13 +131,13 @@ export const foundation: Module[] = [
         title: "Building and correcting a trial balance",
         status: "ready",
         intro:
-          "Once everything is posted, the trial balance is your first health check. When it doesn’t balance, knowing how to hunt down the error is exactly what employers test.",
+          "Once everything is posted, the trial balance is your first health check. When it doesn't balance, knowing how to hunt down the error is exactly what employers test.",
         cheatsheet: [
           {
             kind: "points",
-            heading: "When it won’t balance",
+            heading: "When it won't balance",
             points: [
-              "Find the difference. If it’s divisible by 9, suspect transposed digits (e.g. 540 vs 450).",
+              "Find the difference. If it's divisible by 9, suspect transposed digits (e.g. 540 vs 450).",
               "Half the difference can reveal an entry posted to the wrong side.",
               "Check a figure was not entered once instead of twice (one-sided entry).",
               "Re-add each column before assuming a posting error.",
@@ -171,7 +171,7 @@ export const foundation: Module[] = [
             "Corrected figures match the worked key.",
           ],
           generatorNotes:
-            "Generate a trial balance of ~8–10 accounts in PKR with one or two deliberate, self-consistent errors. The hidden key holds the corrected balances; code must confirm the corrected TB balances.",
+            "Generate a trial balance of ~8-10 accounts in PKR with one or two deliberate, self-consistent errors. The hidden key holds the corrected balances; code must confirm the corrected TB balances.",
         },
       },
     ],
@@ -180,7 +180,7 @@ export const foundation: Module[] = [
     slug: "foundation-financial-statements",
     title: "Financial statements",
     summary:
-      "Reading and building the income statement, balance sheet, and cash flow from a trial balance — and seeing how the three connect.",
+      "Reading and building the income statement, balance sheet, and cash flow from a trial balance, and seeing how the three connect.",
     topics: [
       {
         slug: "how-the-three-statements-link",
@@ -196,7 +196,7 @@ export const foundation: Module[] = [
               "Net profit from the income statement increases retained earnings on the balance sheet.",
               "The cash flow statement explains the change in the cash line on the balance sheet.",
               "Balance sheet always balances: assets = liabilities + equity.",
-              "Depreciation reduces profit but is added back in the cash flow (it isn’t a cash outflow).",
+              "Depreciation reduces profit but is added back in the cash flow (it isn't a cash outflow).",
             ],
           },
         ],
@@ -223,7 +223,7 @@ export const foundation: Module[] = [
         title: "Building statements from a trial balance",
         status: "ready",
         intro:
-          "Turning a trial balance into a tidy income statement and balance sheet is core month-end work. It’s mechanical once you know which line goes where.",
+          "Turning a trial balance into a tidy income statement and balance sheet is core month-end work. It's mechanical once you know which line goes where.",
         cheatsheet: [
           {
             kind: "points",
@@ -261,7 +261,7 @@ export const foundation: Module[] = [
             kind: "formula",
             heading: "Ratios worth knowing cold",
             formulas: [
-              { name: "Current ratio", expr: "Current assets ÷ Current liabilities", means: "Can it pay short-term bills? Around 1.5–2 is often comfortable." },
+              { name: "Current ratio", expr: "Current assets ÷ Current liabilities", means: "Can it pay short-term bills? Around 1.5-2 is often comfortable." },
               { name: "Gross margin", expr: "Gross profit ÷ Revenue", means: "How much of each sale is left after cost of sales." },
               { name: "Net margin", expr: "Net profit ÷ Revenue", means: "Profit left after all expenses." },
               { name: "Gearing", expr: "Debt ÷ Equity", means: "How reliant the business is on borrowing." },
@@ -272,7 +272,7 @@ export const foundation: Module[] = [
             heading: "Interpreting, not just computing",
             points: [
               "Always compare: prior year, a competitor, or an industry norm.",
-              "A ‘good’ ratio depends on the industry — context first.",
+              "A 'good' ratio depends on the industry, context first.",
               "One ratio rarely tells the whole story; read them together.",
             ],
           },
@@ -310,10 +310,10 @@ export const foundation: Module[] = [
             kind: "terms",
             heading: "The four cases",
             terms: [
-              { term: "Accrued expense", def: "Used it, not yet paid — recognise the expense and a liability." },
-              { term: "Prepaid expense", def: "Paid ahead — hold it as an asset until used." },
-              { term: "Accrued income", def: "Earned, not yet received — recognise income and a receivable." },
-              { term: "Deferred income", def: "Received in advance — hold as a liability until earned." },
+              { term: "Accrued expense", def: "Used it, not yet paid, recognise the expense and a liability." },
+              { term: "Prepaid expense", def: "Paid ahead, hold it as an asset until used." },
+              { term: "Accrued income", def: "Earned, not yet received, recognise income and a receivable." },
+              { term: "Deferred income", def: "Received in advance, hold as a liability until earned." },
             ],
           },
         ],
@@ -336,7 +336,7 @@ export const foundation: Module[] = [
         title: "Depreciation",
         status: "ready",
         intro:
-          "Big assets are used up over years, so their cost is spread over time rather than expensed at once. Two methods cover most of what you’ll meet.",
+          "Big assets are used up over years, so their cost is spread over time rather than expensed at once. Two methods cover most of what you'll meet.",
         cheatsheet: [
           {
             kind: "formula",
@@ -351,8 +351,8 @@ export const foundation: Module[] = [
             heading: "Watch for",
             points: [
               "Depreciation is a non-cash expense.",
-              "Accumulated depreciation reduces the asset’s carrying amount on the balance sheet.",
-              "Useful life and residual value are estimates — they can change.",
+              "Accumulated depreciation reduces the asset's carrying amount on the balance sheet.",
+              "Useful life and residual value are estimates, they can change.",
             ],
           },
         ],
@@ -367,7 +367,7 @@ export const foundation: Module[] = [
             "Charge and accumulated depreciation recorded correctly.",
           ],
           generatorNotes:
-            "Invent cost, life, residual, rate (PKR, self-consistent). Avoid quoting any tax-allowed rates — those are §3.2 facts.",
+            "Invent cost, life, residual, rate (PKR, self-consistent). Avoid quoting any tax-allowed rates, those are §3.2 facts.",
         },
       },
       {
@@ -375,14 +375,14 @@ export const foundation: Module[] = [
         title: "Bank reconciliation",
         status: "ready",
         intro:
-          "The bank’s record and your cash book rarely match to the penny on any given day. Reconciling them is a routine control that catches errors and fraud — and a classic test task.",
+          "The bank's record and your cash book rarely match to the penny on any given day. Reconciling them is a routine control that catches errors and fraud, and a classic test task.",
         cheatsheet: [
           {
             kind: "points",
             heading: "Why they differ",
             points: [
-              "Unpresented cheques: you recorded them, the bank hasn’t cleared them yet.",
-              "Outstanding lodgements: you banked it, it hasn’t hit the statement.",
+              "Unpresented cheques: you recorded them, the bank hasn't cleared them yet.",
+              "Outstanding lodgements: you banked it, it hasn't hit the statement.",
               "Bank charges/interest: on the statement, not yet in your cash book.",
               "Errors: on either side.",
             ],
@@ -431,9 +431,9 @@ export const foundation: Module[] = [
             kind: "formula",
             heading: "Lookups",
             formulas: [
-              { name: "XLOOKUP", expr: "XLOOKUP(lookup, lookup_range, return_range)", means: "The modern default — looks left or right, returns a match." },
+              { name: "XLOOKUP", expr: "XLOOKUP(lookup, lookup_range, return_range)", means: "The modern default, looks left or right, returns a match." },
               { name: "VLOOKUP", expr: "VLOOKUP(lookup, table, col_index, FALSE)", means: "Older but everywhere; always use FALSE for an exact match." },
-              { name: "INDEX/MATCH", expr: "INDEX(return_range, MATCH(lookup, lookup_range, 0))", means: "Flexible classic combo when XLOOKUP isn’t available." },
+              { name: "INDEX/MATCH", expr: "INDEX(return_range, MATCH(lookup, lookup_range, 0))", means: "Flexible classic combo when XLOOKUP isn't available." },
             ],
           },
         ],
@@ -494,18 +494,18 @@ export const foundation: Module[] = [
             heading: "The decision functions",
             formulas: [
               { name: "IF", expr: "IF(test, value_if_true, value_if_false)", means: "One yes/no decision." },
-              { name: "IFS", expr: "IFS(test1, val1, test2, val2, …)", means: "Several conditions without nesting IFs." },
-              { name: "SUMIFS", expr: "SUMIFS(sum_range, crit_range1, crit1, …)", means: "Total rows that meet all the criteria." },
-              { name: "COUNTIFS", expr: "COUNTIFS(crit_range1, crit1, …)", means: "Count rows that meet all the criteria." },
+              { name: "IFS", expr: "IFS(test1, val1, test2, val2, ...)", means: "Several conditions without nesting IFs." },
+              { name: "SUMIFS", expr: "SUMIFS(sum_range, crit_range1, crit1, ...)", means: "Total rows that meet all the criteria." },
+              { name: "COUNTIFS", expr: "COUNTIFS(crit_range1, crit1, ...)", means: "Count rows that meet all the criteria." },
             ],
           },
           {
             kind: "points",
             heading: "Watch for",
             points: [
-              "Deeply nested IFs get unreadable — reach for IFS or a lookup table.",
+              "Deeply nested IFs get unreadable, reach for IFS or a lookup table.",
               "Criteria are text like \">1000\" or \"Overdue\".",
-              "SUMIFS puts the sum range first; SUMIF puts it last — don't mix them up.",
+              "SUMIFS puts the sum range first; SUMIF puts it last, don't mix them up.",
             ],
           },
         ],
@@ -593,14 +593,14 @@ export const foundation: Module[] = [
         title: "Simple financial modelling",
         status: "ready",
         intro:
-          "A small, clean model — assumptions in one place, calculations that flow, an answer at the end — is a skill clients pay well for. Structure matters as much as formulas.",
+          "A small, clean model, assumptions in one place, calculations that flow, an answer at the end, is a skill clients pay well for. Structure matters as much as formulas.",
         cheatsheet: [
           {
             kind: "points",
             heading: "How to structure a model",
             points: [
               "Separate inputs (assumptions), calculations, and outputs.",
-              "Never hard-code a number inside a formula — reference an input cell.",
+              "Never hard-code a number inside a formula, reference an input cell.",
               "Colour-code inputs so they're obvious; keep one calculation per row.",
               "Build in checks (totals that must tie) so errors show themselves.",
             ],
@@ -643,9 +643,9 @@ export const foundation: Module[] = [
             kind: "points",
             heading: "Reading the numbers",
             points: [
-              "A favourable variance isn't always good — investigate why.",
+              "A favourable variance isn't always good, investigate why.",
               "Fixed costs stay put in the short run; variable costs move with volume.",
-              "A budget is a plan, not a promise — compare and learn.",
+              "A budget is a plan, not a promise, compare and learn.",
             ],
           },
         ],

@@ -1,6 +1,6 @@
 import argon2 from "argon2";
 
-// Argon2id — modern memory-hard hashing (§5). Defaults from the argon2 lib are
+// Argon2id, modern memory-hard hashing (§5). Defaults from the argon2 lib are
 // sensible; tuned slightly for interactive login latency.
 const OPTIONS: argon2.Options = {
   type: argon2.argon2id,

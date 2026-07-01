@@ -309,7 +309,7 @@ function CreateUserDialog({ currentRole }: { currentRole: Role }) {
           </div>
           <DialogFooter>
             <Button type="submit" disabled={pending}>
-              {pending ? "Creating…" : "Create user"}
+              {pending ? "Creating..." : "Create user"}
             </Button>
           </DialogFooter>
         </form>
@@ -365,7 +365,7 @@ function ResetPasswordDialog({
           </div>
           <DialogFooter>
             <Button type="submit" disabled={pending}>
-              {pending ? "Saving…" : "Set password"}
+              {pending ? "Saving..." : "Set password"}
             </Button>
           </DialogFooter>
         </form>

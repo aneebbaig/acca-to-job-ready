@@ -210,7 +210,7 @@ export function AiSettingsForm({
       </fieldset>
 
       <Button type="submit" disabled={saving}>
-        {saving ? "Saving…" : "Save"}
+        {saving ? "Saving..." : "Save"}
       </Button>
     </form>
   );

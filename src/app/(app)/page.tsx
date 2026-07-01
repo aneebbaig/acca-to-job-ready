@@ -27,7 +27,7 @@ export default async function HomePage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-muted-foreground text-sm">
-              Two minutes to pick a direction, then we’ll show you exactly what to
+              Two minutes to pick a direction, then we'll show you exactly what to
               learn first. Nothing is locked in.
             </p>
             <Button render={<Link href="/roadmap/choose" />}>
@@ -60,7 +60,7 @@ export default async function HomePage() {
       <Card>
         <CardHeader>
           <CardTitle className="text-base">
-            {next ? "Pick up where you left off" : "You’ve completed your roadmap"}
+            {next ? "Pick up where you left off" : "You've completed your roadmap"}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">

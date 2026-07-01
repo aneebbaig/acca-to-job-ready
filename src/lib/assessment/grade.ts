@@ -28,7 +28,7 @@ function mcqGrade(key: AnswerKey, submission: Submission): Grade {
         status: exactly ? "correct" : "wrong",
         comment: exactly
           ? "Correct."
-          : "Not quite — see the worked solution below.",
+          : "Not quite, see the worked solution below.",
       },
     ],
     tip: exactly
@@ -68,7 +68,7 @@ Worked solution (the truth): ${key.workedSolution}
 ${key.rubricPoints ? `Rubric points the answer should cover:\n${key.rubricPoints.map((p) => `- ${p.point}`).join("\n")}` : ""}
 
 Learner's submission: ${JSON.stringify(submission)}
-${codeNote ? `\nNote: an automated check already verified the arithmetic — ${codeNote}. Do NOT re-score the numbers; explain the result and give feedback.` : ""}
+${codeNote ? `\nNote: an automated check already verified the arithmetic, ${codeNote}. Do NOT re-score the numbers; explain the result and give feedback.` : ""}
 ${isInterview ? "\nThis is an interview-style task: include an interviewerNote on how an interviewer would rate this." : ""}
 
 Grade it now as JSON.`;

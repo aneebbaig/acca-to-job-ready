@@ -1,7 +1,7 @@
 import type { Track } from "./types";
 
 // AI-drafted, pending expert review (§3b). Track content beyond the flagship
-// Foundation topic is intentionally scaffolded as stubs — see step 6 / docs.
+// Foundation topic is intentionally scaffolded as stubs, see step 6 / docs.
 
 export const tracks: Track[] = [
   {
@@ -10,18 +10,18 @@ export const tracks: Track[] = [
     tagline: "The credential and experience route",
     goal: "Land a training contract at a Pakistani audit firm and build real, recognised experience.",
     description:
-      "You join a firm, work on real audits, and earn the experience that makes you a credible ‘auditor’. Harder to get in, but it opens the most doors.",
+      "You join a firm, work on real audits, and earn the experience that makes you a credible 'auditor'. Harder to get in, but it opens the most doors.",
     branches: [
       {
         id: "external-audit",
         title: "External / Statutory audit",
         description:
-          "The audit most people mean: an independent check of a company’s financial statements. This is the classic training-contract path.",
+          "The audit most people mean: an independent check of a company's financial statements. This is the classic training-contract path.",
         modules: [
           {
             slug: "ea-audit-process",
             title: "The audit process",
-            summary: "From accepting a client to signing the opinion — the shape of an audit.",
+            summary: "From accepting a client to signing the opinion, the shape of an audit.",
             topics: [
               {
                 slug: "ea-audit-overview",
@@ -34,15 +34,15 @@ export const tracks: Track[] = [
                     kind: "points",
                     heading: "The big picture",
                     points: [
-                      "Audit gives reasonable — not absolute — assurance.",
-                      "It’s about material misstatement, not catching every tiny error.",
+                      "Audit gives reasonable, not absolute, assurance.",
+                      "It's about material misstatement, not catching every tiny error.",
                       "Independence is the whole value: the auditor must be objective.",
                     ],
                   },
                   {
                     kind: "verify",
                     heading: "Standards and specifics",
-                    note: "Specific auditing-standard references and any thresholds change and are jurisdiction-specific — confirm against the official source rather than memorising a number.",
+                    note: "Specific auditing-standard references and any thresholds change and are jurisdiction-specific, confirm against the official source rather than memorising a number.",
                     link: { label: "ACCA (official)", url: "https://www.accaglobal.com" },
                   },
                 ],
@@ -53,22 +53,22 @@ export const tracks: Track[] = [
                 title: "Risk and materiality (concepts)",
                 status: "stub",
                 intro:
-                  "Auditors focus effort where things are most likely to go materially wrong. Understanding risk and materiality as ideas — not formulas — is what’s tested.",
+                  "Auditors focus effort where things are most likely to go materially wrong. Understanding risk and materiality as ideas, not formulas, is what's tested.",
                 cheatsheet: [
                   {
                     kind: "terms",
                     heading: "Core ideas",
                     terms: [
                       { term: "Inherent risk", def: "Susceptibility to misstatement before controls." },
-                      { term: "Control risk", def: "Risk controls won’t catch a misstatement." },
-                      { term: "Detection risk", def: "Risk the auditor’s work misses it." },
-                      { term: "Materiality", def: "The size of misstatement that would change a user’s decision." },
+                      { term: "Control risk", def: "Risk controls won't catch a misstatement." },
+                      { term: "Detection risk", def: "Risk the auditor's work misses it." },
+                      { term: "Materiality", def: "The size of misstatement that would change a user's decision." },
                     ],
                   },
                   {
                     kind: "verify",
                     heading: "Materiality figures",
-                    note: "Any specific materiality benchmark or percentage is a judgement and firm/standard specific — don’t treat a number as a rule.",
+                    note: "Any specific materiality benchmark or percentage is a judgement and firm/standard specific, don't treat a number as a rule.",
                     link: { label: "ACCA (official)", url: "https://www.accaglobal.com" },
                   },
                 ],
@@ -95,7 +95,7 @@ export const tracks: Track[] = [
                 cheatsheet: [
                   {
                     kind: "terms",
-                    heading: "Assertions (what we’re proving)",
+                    heading: "Assertions (what we're proving)",
                     terms: [
                       { term: "Existence", def: "The asset/transaction is real." },
                       { term: "Completeness", def: "Nothing is missing." },
@@ -125,7 +125,7 @@ export const tracks: Track[] = [
                 title: "Documentation and working papers",
                 status: "stub",
                 intro:
-                  "If it isn’t documented, it didn’t happen. Clear working papers are most of a junior’s actual output.",
+                  "If it isn't documented, it didn't happen. Clear working papers are most of a junior's actual output.",
                 cheatsheet: [
                   {
                     kind: "points",
@@ -152,7 +152,7 @@ export const tracks: Track[] = [
           {
             slug: "ea-firm-interview-prep",
             title: "Firm interview & training-contract prep",
-            summary: "Getting through a Pakistani firm’s interview and into a training contract.",
+            summary: "Getting through a Pakistani firm's interview and into a training contract.",
             topics: [
               {
                 slug: "ea-technical-interview",
@@ -197,10 +197,10 @@ export const tracks: Track[] = [
                     kind: "points",
                     heading: "Use STAR",
                     points: [
-                      "Situation — set the scene briefly.",
-                      "Task — what you needed to do.",
-                      "Action — what you actually did.",
-                      "Result — the outcome, ideally measurable.",
+                      "Situation, set the scene briefly.",
+                      "Task, what you needed to do.",
+                      "Action, what you actually did.",
+                      "Result, the outcome, ideally measurable.",
                     ],
                   },
                 ],
@@ -221,7 +221,7 @@ export const tracks: Track[] = [
         id: "internal-audit",
         title: "Internal audit",
         description:
-          "Looking inward: testing a company’s own controls and reporting to its management, rather than giving an external opinion.",
+          "Looking inward: testing a company's own controls and reporting to its management, rather than giving an external opinion.",
         modules: [
           {
             slug: "ia-governance-risk-controls",
@@ -258,7 +258,7 @@ export const tracks: Track[] = [
                     kind: "points",
                     heading: "The three columns",
                     points: [
-                      "Deficiency: what’s weak or missing.",
+                      "Deficiency: what's weak or missing.",
                       "Implication: what could go wrong because of it.",
                       "Recommendation: a practical fix.",
                     ],
@@ -286,7 +286,7 @@ export const tracks: Track[] = [
         title: "IT / Information-systems audit",
         advanced: true,
         description:
-          "An advanced specialism: auditing controls in computerised systems — access, data integrity, change management.",
+          "An advanced specialism: auditing controls in computerised systems, access, data integrity, change management.",
         modules: [
           {
             slug: "ita-foundations",
@@ -304,8 +304,8 @@ export const tracks: Track[] = [
                     kind: "points",
                     heading: "Areas to know",
                     points: [
-                      "Access controls — least privilege, segregation of duties.",
-                      "Change management — controlled, tested changes.",
+                      "Access controls, least privilege, segregation of duties.",
+                      "Change management, controlled, tested changes.",
                       "Data integrity and backups.",
                     ],
                   },
@@ -321,7 +321,7 @@ export const tracks: Track[] = [
         title: "Forensic / investigative audit",
         advanced: true,
         description:
-          "An advanced specialism: investigating suspected fraud — indicators, approach, and handling evidence carefully.",
+          "An advanced specialism: investigating suspected fraud, indicators, approach, and handling evidence carefully.",
         modules: [
           {
             slug: "fa-foundations",
@@ -333,7 +333,7 @@ export const tracks: Track[] = [
                 title: "Fraud indicators (red flags)",
                 status: "stub",
                 intro:
-                  "Forensic work starts with noticing what doesn’t add up. Knowing common red flags and handling evidence properly is the core idea.",
+                  "Forensic work starts with noticing what doesn't add up. Knowing common red flags and handling evidence properly is the core idea.",
                 cheatsheet: [
                   {
                     kind: "points",
@@ -358,7 +358,7 @@ export const tracks: Track[] = [
     id: "freelance",
     title: "Freelance / Accounting",
     tagline: "The income and flexibility route",
-    goal: "Earn by doing bookkeeping and accounts for clients — locally and on platforms like Upwork.",
+    goal: "Earn by doing bookkeeping and accounts for clients, locally and on platforms like Upwork.",
     description:
       "You build practical bookkeeping skills and a portfolio, then find clients. Faster to income, more flexible, but you build credibility yourself.",
     branches: [
@@ -371,14 +371,14 @@ export const tracks: Track[] = [
           {
             slug: "fl-cloud-tools",
             title: "Cloud bookkeeping tools",
-            summary: "QuickBooks Online and Xero — the two platforms most clients use.",
+            summary: "QuickBooks Online and Xero, the two platforms most clients use.",
             topics: [
               {
                 slug: "fl-quickbooks",
                 title: "QuickBooks Online basics",
                 status: "stub",
                 intro:
-                  "Most small-business clients are on QuickBooks Online. Knowing the day-to-day flow — invoices, bills, bank feeds, reconciliation — is what they hire for.",
+                  "Most small-business clients are on QuickBooks Online. Knowing the day-to-day flow, invoices, bills, bank feeds, reconciliation, is what they hire for.",
                 cheatsheet: [
                   {
                     kind: "points",
@@ -424,7 +424,7 @@ export const tracks: Track[] = [
                 title: "The month-end close",
                 status: "stub",
                 intro:
-                  "A reliable monthly close is what separates a bookkeeper a client trusts from one they don’t. It’s a checklist done consistently.",
+                  "A reliable monthly close is what separates a bookkeeper a client trusts from one they don't. It's a checklist done consistently.",
                 cheatsheet: [
                   {
                     kind: "points",
@@ -444,7 +444,7 @@ export const tracks: Track[] = [
           {
             slug: "fl-fbr",
             title: "FBR IRIS basics (Pakistan)",
-            summary: "Where Pakistani tax filing happens — without inventing any rates.",
+            summary: "Where Pakistani tax filing happens, without inventing any rates.",
             topics: [
               {
                 slug: "fl-fbr-iris",
@@ -456,7 +456,7 @@ export const tracks: Track[] = [
                   {
                     kind: "verify",
                     heading: "Rates, deadlines, and rules",
-                    note: "Every Pakistan tax rate, FBR rule, and filing deadline changes and is official — never memorise or quote a number here. Always confirm on the FBR site for the client’s situation.",
+                    note: "Every Pakistan tax rate, FBR rule, and filing deadline changes and is official, never memorise or quote a number here. Always confirm on the FBR site for the client's situation.",
                     link: { label: "FBR (official)", url: "https://www.fbr.gov.pk" },
                   },
                   {
@@ -489,9 +489,9 @@ export const tracks: Track[] = [
                     kind: "points",
                     heading: "A profile that wins work",
                     points: [
-                      "Pick a clear niche (e.g. ‘QuickBooks bookkeeping for small UK/US firms’).",
+                      "Pick a clear niche (e.g. 'QuickBooks bookkeeping for small UK/US firms').",
                       "Show proof: sample work, a portfolio piece, a certification.",
-                      "Write the headline around the client’s problem, not your titles.",
+                      "Write the headline around the client's problem, not your titles.",
                     ],
                   },
                 ],
@@ -502,14 +502,14 @@ export const tracks: Track[] = [
                 title: "Explaining numbers to clients",
                 status: "stub",
                 intro:
-                  "Freelancing rewards clear communication. Clients aren’t accountants — explaining plainly builds trust and repeat work.",
+                  "Freelancing rewards clear communication. Clients aren't accountants, explaining plainly builds trust and repeat work.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Communicate well",
                     points: [
                       "Lead with the answer, then the detail.",
-                      "Avoid jargon; use the client’s words.",
+                      "Avoid jargon; use the client's words.",
                       "Set expectations on timing and scope early.",
                     ],
                   },

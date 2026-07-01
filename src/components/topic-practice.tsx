@@ -215,7 +215,7 @@ export function TopicPractice({
         <Card>
           <CardContent className="text-muted-foreground flex items-center gap-2 py-6 text-sm">
             <Loader2 className="size-4 animate-spin" />
-            Generating a task and checking the maths…
+            Generating a task and checking the maths...
           </CardContent>
         </Card>
       )}
@@ -263,7 +263,7 @@ export function TopicPractice({
             )}
             {phase === "grading" && (
               <Button disabled>
-                <Loader2 className="size-4 animate-spin" /> Grading…
+                <Loader2 className="size-4 animate-spin" /> Grading...
               </Button>
             )}
           </CardContent>

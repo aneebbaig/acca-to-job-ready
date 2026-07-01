@@ -12,11 +12,11 @@ triaged.
 This app handles authentication and users' own AI API keys, so the sensitive
 areas are:
 
-- **Auth & sessions** — password hashing (argon2id), session cookies, CSRF,
+- **Auth & sessions**, password hashing (argon2id), session cookies, CSRF,
   login rate-limiting, user enumeration.
-- **Per-user data isolation** — every query is scoped to the authenticated user;
+- **Per-user data isolation**, every query is scoped to the authenticated user;
   a way to read or modify another user's data is a valid report.
-- **API key handling** — by default a user's AI key is stored only in their
+- **API key handling**, by default a user's AI key is stored only in their
   browser and forwarded per request; it must never be logged, persisted, or
   exposed to other users. Opt-in server storage is AES-256-GCM encrypted.
 

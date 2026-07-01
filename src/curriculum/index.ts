@@ -16,7 +16,7 @@ export function getBranch(trackId: string, branchId: string): Branch | undefined
   return getTrack(trackId)?.branches.find((b) => b.id === branchId);
 }
 
-// Every topic across foundation + all tracks/branches — used to resolve a slug.
+// Every topic across foundation + all tracks/branches, used to resolve a slug.
 function allModules(): Module[] {
   return [
     ...foundation,

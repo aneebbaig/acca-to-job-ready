@@ -57,11 +57,11 @@ export async function POST(req: Request) {
         taskType,
         difficulty,
         task,
-        answerKey, // hidden — never returned until after submission
+        answerKey, // hidden, never returned until after submission
       })
       .returning({ id: assessmentAttempts.id });
 
-    // Return the task only — never the answer key (§8.3).
+    // Return the task only, never the answer key (§8.3).
     return NextResponse.json({ attemptId: attempt.id, taskType, difficulty, task });
   } catch (e) {
     const message =

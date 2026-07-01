@@ -60,7 +60,7 @@ export function ResourceManager({
         <div className="border-border/70 rounded-lg border border-dashed p-4">
           <p className="text-sm font-medium">No resources yet</p>
           <p className="text-muted-foreground mt-1 text-sm">
-            This is your space. Add links you actually find useful — there are no
+            This is your space. Add links you actually find useful, there are no
             pre-filled URLs here on purpose. A few ideas for this topic:
           </p>
           <ul className="text-muted-foreground mt-2 list-disc space-y-1 pl-5 text-sm">
@@ -94,17 +94,17 @@ export function ResourceManager({
               id="res-url"
               name="url"
               type="url"
-              placeholder="https://…"
+              placeholder="https://..."
               required
             />
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="res-note">Note (optional)</Label>
-            <Input id="res-note" name="note" placeholder="Why it’s useful" />
+            <Input id="res-note" name="note" placeholder="Why it's useful" />
           </div>
           <div className="flex gap-2">
             <Button type="submit" size="sm" disabled={pending}>
-              {pending ? "Adding…" : "Add link"}
+              {pending ? "Adding..." : "Add link"}
             </Button>
             <Button
               type="button"
@@ -196,7 +196,7 @@ function ResourceItem({ slug, resource }: { slug: string; resource: Resource }) 
           </div>
           <div className="flex gap-2">
             <Button type="submit" size="sm" disabled={editPending}>
-              {editPending ? "Saving…" : "Save"}
+              {editPending ? "Saving..." : "Save"}
             </Button>
             <Button
               type="button"

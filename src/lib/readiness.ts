@@ -3,7 +3,7 @@ import type { Progress } from "@/db/schema";
 
 // Honest readiness (§8.4): the mean practice mastery across the topics on this
 // path that actually have practice. Unpractised topics count as 0, so it
-// reflects completed practice — not engagement points. Not a promise you'll pass.
+// reflects completed practice, not engagement points. Not a promise you'll pass.
 export function computeReadiness(
   modules: Module[],
   progressMap: Map<string, Progress>,
@@ -25,8 +25,8 @@ export function computeReadiness(
 }
 
 export function readinessLabel(pct: number): string {
-  if (pct >= 75) return "Strong — you're interview-ready on your practised topics.";
-  if (pct >= 45) return "Getting there — keep practising the weak ones.";
-  if (pct > 0) return "Early days — practise builds this up honestly.";
-  return "No practice yet — start a task to build this.";
+  if (pct >= 75) return "Strong, you're interview-ready on your practised topics.";
+  if (pct >= 45) return "Getting there, keep practising the weak ones.";
+  if (pct > 0) return "Early days, practise builds this up honestly.";
+  return "No practice yet, start a task to build this.";
 }

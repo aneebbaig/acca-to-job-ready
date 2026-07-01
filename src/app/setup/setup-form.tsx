@@ -52,7 +52,7 @@ export function SetupForm() {
       </div>
 
       <Button type="submit" className="w-full" disabled={pending}>
-        {pending ? "Creating account…" : "Create account and continue"}
+        {pending ? "Creating account..." : "Create account and continue"}
       </Button>
     </form>
   );

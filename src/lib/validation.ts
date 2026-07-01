@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-// Plain-language messages — surfaced directly in the UI (§10: errors explain
+// Plain-language messages, surfaced directly in the UI (§10: errors explain
 // what happened and how to fix it).
 export const emailSchema = z
   .string()

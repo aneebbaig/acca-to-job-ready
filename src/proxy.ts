@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import { authConfig } from "@/auth.config";
 
 // Next 16 proxy (formerly middleware), runs on the Node runtime. Auth gating
-// only — the authorized callback in auth.config decides page access. The
+// only, the authorized callback in auth.config decides page access. The
 // first-run setup redirect lives in server components, which can query the DB.
 const { auth } = NextAuth(authConfig);
 
