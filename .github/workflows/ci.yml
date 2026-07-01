@@ -23,7 +23,11 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        # `npm install` (not `npm ci`) installs deterministically from the
+        # committed lockfile while tolerating npm's cross-platform optional-dep
+        # graph (the Tailwind oxide wasm fallback pulls platform-specific deps
+        # that npm ci flags as out-of-sync on Linux).
+        run: npm install --no-audit --no-fund
 
       - name: Lint
         run: npm run lint
