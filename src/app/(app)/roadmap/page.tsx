@@ -3,6 +3,7 @@ import { requireUser } from "@/lib/auth-guards";
 import { getProfile } from "@/lib/profile";
 import { getProgressMap } from "@/lib/progress";
 import { getRoadmapModules, getTrack, getBranch } from "@/curriculum";
+import { computeReadiness, readinessLabel } from "@/lib/readiness";
 import {
   RoadmapView,
   type RoadmapSection,
@@ -58,6 +59,8 @@ export default async function RoadmapPage() {
   const done = allTopics.filter((t) => t.completed).length;
   const nextSlug = allTopics.find((t) => !t.completed)?.slug ?? null;
 
+  const r = computeReadiness([...foundation, ...branchModules], progressMap);
+
   return (
     <RoadmapView
       sections={sections}
@@ -66,6 +69,7 @@ export default async function RoadmapPage() {
       total={total}
       trackTitle={track.title}
       branchTitle={branch.title}
+      readiness={{ ...r, label: readinessLabel(r.pct) }}
     />
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import {
   AlertTriangle,
@@ -58,6 +58,50 @@ export function TopicPractice({
   const [grade, setGrade] = useState<Grade | null>(null);
   const [worked, setWorked] = useState<string>("");
 
+  const draftKey = `acca_practice_draft_${slug}`;
+
+  // Restore an in-progress attempt after a reload (autosave drafts, §8.3).
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(draftKey);
+      if (!raw) return;
+      const d = JSON.parse(raw);
+      if (d?.attemptId && d?.task) {
+        setAttemptId(d.attemptId);
+        setTask(d.task);
+        setRows(d.rows ?? []);
+        setSelected(d.selected ?? []);
+        setFields(d.fields ?? {});
+        setPhase("answering");
+      }
+    } catch {
+      /* ignore malformed draft */
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Save the draft whenever the answer changes while answering.
+  useEffect(() => {
+    if (phase !== "answering" || !attemptId || !task) return;
+    try {
+      localStorage.setItem(
+        draftKey,
+        JSON.stringify({ attemptId, task, rows, selected, fields }),
+      );
+    } catch {
+      /* storage unavailable */
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rows, selected, fields, phase, attemptId]);
+
+  function clearDraft() {
+    try {
+      localStorage.removeItem(draftKey);
+    } catch {
+      /* ignore */
+    }
+  }
+
   if (!hasSkillSpec) {
     return (
       <Card>
@@ -86,6 +130,7 @@ export function TopicPractice({
   }
 
   async function start() {
+    clearDraft();
     setPhase("loading");
     setGrade(null);
     setWorked("");
@@ -142,6 +187,7 @@ export function TopicPractice({
       }
       setGrade(data.grade);
       setWorked(data.workedSolution ?? "");
+      clearDraft();
       setPhase("done");
     } catch {
       toast.error("Couldn't reach the server.");

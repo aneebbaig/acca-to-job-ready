@@ -4,6 +4,7 @@ import { db } from "@/db";
 import { assessmentAttempts } from "@/db/schema";
 import { getTopic } from "@/curriculum";
 import { resolveKey } from "@/lib/ai/settings";
+import { getTopicProgress } from "@/lib/progress";
 import { generateTask } from "@/lib/assessment/generate";
 import { AIError } from "@/lib/ai/types";
 
@@ -36,12 +37,16 @@ export async function POST(req: Request) {
     );
   }
 
+  // Adapt difficulty to the learner's recent best score on this topic (§8.4).
+  const progress = await getTopicProgress(userId, topic.slug);
+
   try {
     const { taskType, difficulty, task, answerKey } = await generateTask(
       resolved.provider,
       resolved.apiKey,
       resolved.model,
       topic.skillSpec,
+      { recentScore: progress?.masteryEstimate ?? progress?.bestScore ?? null },
     );
 
     const [attempt] = await db

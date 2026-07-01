@@ -26,6 +26,7 @@ export function RoadmapView({
   total,
   trackTitle,
   branchTitle,
+  readiness,
 }: {
   sections: RoadmapSection[];
   nextSlug: string | null;
@@ -33,6 +34,7 @@ export function RoadmapView({
   total: number;
   trackTitle: string;
   branchTitle: string;
+  readiness: { pct: number; practised: number; total: number; label: string };
 }) {
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
 
@@ -61,6 +63,25 @@ export function RoadmapView({
             <span className="font-mono">{pct}%</span>
           </div>
           <Progress value={pct} />
+        </div>
+
+        {/* Honest readiness signal (§8.4). */}
+        <div className="border-brass/40 bg-brass/5 flex flex-wrap items-center justify-between gap-2 rounded-xl border p-4">
+          <div>
+            <p className="text-brass text-xs font-medium uppercase tracking-wide">
+              Readiness
+            </p>
+            <p className="text-sm">{readiness.label}</p>
+            <p className="text-muted-foreground text-xs">
+              Based on{" "}
+              <span className="font-mono">{readiness.practised}</span> of{" "}
+              <span className="font-mono">{readiness.total}</span> topics with
+              practice.
+            </p>
+          </div>
+          <p className="text-brass font-heading text-3xl font-semibold">
+            <span className="font-mono">{readiness.pct}</span>%
+          </p>
         </div>
 
         {nextSlug && (

@@ -9,6 +9,7 @@ import {
   addResource,
   deleteResource,
   toggleResourceWatched,
+  updateResource,
 } from "@/lib/resources";
 
 function pathFor(slug: string) {
@@ -59,6 +60,28 @@ export async function addResourceAction(
   await addResource(user.id, slug, parsed.data);
   revalidatePath(pathFor(slug));
   return { ok: true, message: "Link added." };
+}
+
+export async function editResourceAction(
+  _prev: ResourceState,
+  formData: FormData,
+): Promise<ResourceState> {
+  const user = await requireUser();
+  const slug = String(formData.get("slug"));
+  const id = String(formData.get("id"));
+  assertTopic(slug);
+
+  const parsed = resourceSchema.safeParse({
+    title: formData.get("title"),
+    url: formData.get("url"),
+    note: formData.get("note") || undefined,
+  });
+  if (!parsed.success) {
+    return { ok: false, message: parsed.error.issues[0].message };
+  }
+  await updateResource(user.id, id, parsed.data);
+  revalidatePath(pathFor(slug));
+  return { ok: true, message: "Link updated." };
 }
 
 export async function deleteResourceAction(formData: FormData) {
