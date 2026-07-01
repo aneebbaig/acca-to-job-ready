@@ -1,6 +1,6 @@
 import type { Track } from "./types";
 
-// AI-drafted, pending expert review (§3b). Track content beyond the flagship
+// Initial draft, pending expert review (§3b). Track content beyond the flagship
 // Foundation topic is intentionally scaffolded as stubs, see step 6 / docs.
 
 export const tracks: Track[] = [
@@ -893,6 +893,141 @@ export const tracks: Track[] = [
                 ],
                 resourceSlotHints: ["An official Xero tutorial", "A practice file"],
               },
+              {
+                slug: "fl-bank-feeds",
+                title: "Bank feeds and reconciliation",
+                status: "stub",
+                intro:
+                  "Most day-to-day bookkeeping is categorising bank transactions and reconciling. Get fast and accurate at this and clients keep you.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "The routine",
+                    points: [
+                      "Connect the bank feed so transactions import automatically.",
+                      "Categorise each transaction to the right account.",
+                      "Match payments to invoices and bills.",
+                      "Reconcile so the software balance ties to the bank statement.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A bank-reconciliation walkthrough in QuickBooks or Xero"],
+              },
+              {
+                slug: "fl-chart-of-accounts",
+                title: "Setting up a chart of accounts",
+                status: "stub",
+                intro:
+                  "The chart of accounts is the list of categories everything gets sorted into. A clean one makes every report readable.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Keep it usable",
+                    points: [
+                      "Group by type: income, cost of sales, expenses, assets, liabilities, equity.",
+                      "Enough detail to be useful, not so much it's noise.",
+                      "Match it to how the owner thinks about the business.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A chart-of-accounts template"],
+              },
+            ],
+          },
+          {
+            slug: "fl-bookkeeping-core",
+            title: "Core bookkeeping for clients",
+            summary: "The everyday work clients pay for, done right.",
+            topics: [
+              {
+                slug: "fl-recording-transactions",
+                title: "Recording transactions cleanly",
+                status: "stub",
+                intro:
+                  "Sales, purchases, expenses, and payments recorded consistently, with the right dates and categories. Boring done well is the job.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Habits that keep books clean",
+                    points: [
+                      "One consistent method for each transaction type.",
+                      "Attach the receipt or invoice where you can.",
+                      "Never guess a category, ask the client if unsure.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A bookkeeping basics course"],
+                skillSpec: {
+                  concepts: ["Recording everyday business transactions correctly"],
+                  taskTypes: ["journal_entries", "warmup_mcq"],
+                  difficulty: { min: 1, max: 3 },
+                  rubric: ["Correct accounts", "Balanced entries", "Consistent method"],
+                  generatorNotes: "Use a small Pakistani business (PKR). Invent simple transactions.",
+                },
+              },
+              {
+                slug: "fl-ap-ar",
+                title: "Managing bills and invoices",
+                status: "stub",
+                intro:
+                  "Keeping track of what the client owes and what they're owed, and chasing the gaps, is a service owners value highly.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "What good looks like",
+                    points: [
+                      "Raise and send invoices promptly; record bills when they arrive.",
+                      "Keep the aged receivables and payables lists current.",
+                      "Flag overdue amounts so nothing slips.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A guide to accounts payable and receivable"],
+              },
+              {
+                slug: "fl-sales-tax-basics",
+                title: "Sales tax basics (Pakistan)",
+                status: "stub",
+                intro:
+                  "Some clients are registered for sales tax. Know the mechanics of recording it, and always confirm current rates and rules at the source.",
+                cheatsheet: [
+                  {
+                    kind: "verify",
+                    heading: "Rates, thresholds, and rules",
+                    note: "Sales tax rates, registration thresholds, and filing rules change and are official. Never memorise or quote a figure, confirm on the FBR site for the client's situation.",
+                    link: { label: "FBR (official)", url: "https://www.fbr.gov.pk" },
+                  },
+                  {
+                    kind: "points",
+                    heading: "Stable basics",
+                    points: [
+                      "Track input tax (on purchases) and output tax (on sales) separately.",
+                      "Keep clean records so a return is quick to prepare.",
+                      "Know when to bring in a tax specialist.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["The official FBR sales tax guide"],
+              },
+              {
+                slug: "fl-bookkeeping-cleanup",
+                title: "Cleaning up messy books",
+                status: "stub",
+                intro:
+                  "New clients often arrive with a year of muddled records. Fixing them is a common, well-paid first job.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "A clean-up approach",
+                    points: [
+                      "Reconcile every account to a known-correct balance first.",
+                      "Fix miscategorised and duplicated transactions.",
+                      "Document what you changed and why.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A bookkeeping clean-up checklist"],
+              },
             ],
           },
           {
@@ -919,6 +1054,58 @@ export const tracks: Track[] = [
                   },
                 ],
                 resourceSlotHints: ["A month-end checklist", "A management-accounts example"],
+              },
+              {
+                slug: "fl-management-accounts",
+                title: "Management accounts owners actually use",
+                status: "stub",
+                intro:
+                  "Owners want a short monthly read on how the business is doing, not a pile of numbers. Turning the books into a clear summary is a premium service.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "A useful monthly pack",
+                    points: [
+                      "Profit and loss vs last month and vs plan.",
+                      "Cash position and what's owed both ways.",
+                      "A few plain-language notes on what changed.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A management-accounts template"],
+                skillSpec: {
+                  concepts: ["Explaining monthly numbers to a business owner clearly"],
+                  taskTypes: ["explain_to_client"],
+                  difficulty: { min: 2, max: 4 },
+                  rubric: ["Leads with the answer", "Plain language", "Highlights what matters"],
+                  generatorNotes: "Invent monthly figures for a small business (PKR).",
+                },
+              },
+              {
+                slug: "fl-cash-flow-forecast",
+                title: "Simple cash flow forecasting",
+                status: "stub",
+                intro:
+                  "Profit is not cash. A short forecast of money in and out over the coming weeks is often the most valued thing you can give an owner.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Building a rolling forecast",
+                    points: [
+                      "Start with the opening cash balance.",
+                      "Add expected receipts, subtract expected payments, week by week.",
+                      "Update it as reality comes in.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A cash-flow forecast template"],
+                skillSpec: {
+                  concepts: ["Building and reading a simple cash flow forecast"],
+                  taskTypes: ["costing", "explain_to_client"],
+                  difficulty: { min: 2, max: 4 },
+                  rubric: ["Correct arithmetic (code-checked)", "Sensible read of the result"],
+                  generatorNotes: "Invent receipts/payments (PKR, self-consistent).",
+                },
               },
             ],
           },
@@ -1003,6 +1190,89 @@ export const tracks: Track[] = [
                   rubric: ["Accurate", "Genuinely simple and clear", "No unexplained jargon"],
                   generatorNotes: "Pick a concept a small-business owner would ask about.",
                 },
+              },
+              {
+                slug: "fl-pricing",
+                title: "Pricing your services",
+                status: "stub",
+                intro:
+                  "Charging too little is the most common mistake new freelancers make. Price for the value and the time, not just the hour.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Ways to price",
+                    points: [
+                      "Fixed monthly fee for a defined scope (owners like predictability).",
+                      "Per-project for one-off jobs like a clean-up.",
+                      "Raise your rate as your proof and speed grow.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A guide to pricing bookkeeping services"],
+              },
+              {
+                slug: "fl-proposals",
+                title: "Writing proposals that win",
+                status: "stub",
+                intro:
+                  "A good proposal shows you understood the client's problem and can solve it. Most freelancers write about themselves instead.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "A proposal that lands",
+                    points: [
+                      "Open with the client's problem in their words.",
+                      "Say exactly what you'll do and what they get.",
+                      "Show one piece of proof, then a clear next step.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A proposal template you can adapt"],
+                skillSpec: {
+                  concepts: ["Writing a short, client-focused proposal"],
+                  taskTypes: ["explain_to_client", "case_analysis"],
+                  difficulty: { min: 2, max: 4 },
+                  rubric: ["Leads with the client's problem", "Clear scope and next step", "Not all about you"],
+                  generatorNotes: "Invent a small-business client and a bookkeeping need.",
+                },
+              },
+              {
+                slug: "fl-client-onboarding",
+                title: "Onboarding a new client",
+                status: "stub",
+                intro:
+                  "A smooth start sets the tone. Agreeing scope, getting access, and setting expectations early prevents most later problems.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "First-week checklist",
+                    points: [
+                      "Agree scope and fee in writing.",
+                      "Get access to the accounting software and bank feeds.",
+                      "Set how and when you'll communicate and report.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A client-onboarding checklist"],
+              },
+              {
+                slug: "fl-portfolio",
+                title: "Building a portfolio",
+                status: "stub",
+                intro:
+                  "With no job history, proof of work is what wins clients. A small portfolio of clean sample work does the job.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "What to include",
+                    points: [
+                      "A sample month-end pack (with made-up figures).",
+                      "A before-and-after of a books clean-up.",
+                      "A short note on the tools you use.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["Examples of freelance bookkeeping portfolios"],
               },
             ],
           },

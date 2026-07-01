@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Curriculum types. The curriculum is AI-DRAFTED, pending domain-expert review
+// Curriculum types. The curriculum is an initial draft, pending domain-expert review
 // (see docs/known-limitations). It lives in editable data files (curriculum/*),
 // NOT in UI markup, so a maintainer can correct it without touching app logic.
 //
