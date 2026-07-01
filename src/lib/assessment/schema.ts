@@ -5,7 +5,12 @@ import type { TaskType } from "@/curriculum/types";
 // re-verified in code before serving and on grading (§8.1); everything else is
 // AI-graded against a rubric.
 export type Family = "mcq" | "rows" | "text";
-export type CodeCheck = "journal_balanced" | "tb_balanced" | "reconciles" | null;
+export type CodeCheck =
+  | "journal_balanced"
+  | "tb_balanced"
+  | "reconciles"
+  | "numeric_match"
+  | null;
 
 export function familyOf(t: TaskType): Family {
   if (t === "warmup_mcq") return "mcq";
@@ -14,7 +19,9 @@ export function familyOf(t: TaskType): Family {
     t === "trial_balance_correction" ||
     t === "bank_reconciliation" ||
     t === "adjusting_entries" ||
-    t === "financial_statement_prep"
+    t === "financial_statement_prep" ||
+    t === "ratio_analysis" ||
+    t === "costing"
   )
     return "rows";
   return "text";
@@ -22,10 +29,22 @@ export function familyOf(t: TaskType): Family {
 
 // Which tasks get hard arithmetic verification in code (never trust the model's
 // numbers, §8.1). The rest are AI-graded.
+// - journal/adjusting: debit=credit balance + row match.
+// - trial balance: corrected TB balances.
+// - reconciliation: the two adjusted balances tie.
+// - numeric_match: the learner's figures are compared to the key in code
+//   (statements from a TB, ratios, costing), with the interpretation AI-graded.
 export function codeCheckOf(t: TaskType): CodeCheck {
-  if (t === "journal_entries") return "journal_balanced";
+  if (t === "journal_entries" || t === "adjusting_entries")
+    return "journal_balanced";
   if (t === "trial_balance_correction") return "tb_balanced";
   if (t === "bank_reconciliation") return "reconciles";
+  if (
+    t === "financial_statement_prep" ||
+    t === "ratio_analysis" ||
+    t === "costing"
+  )
+    return "numeric_match";
   return null;
 }
 
@@ -89,6 +108,13 @@ export const answerKeySchema = z.object({
   // Reconciliation: two figures that must end equal.
   reconciledA: z.number().optional(),
   reconciledB: z.number().optional(),
+  // numeric_match: which column holds the learner's number, and which
+  // column(s) identify a row. Optional balance identity the key must satisfy
+  // (e.g. total assets == total liabilities + equity).
+  valueKey: z.string().optional(),
+  idKeys: z.array(z.string()).optional(),
+  balanceA: z.number().optional(),
+  balanceB: z.number().optional(),
   // MCQ correct answers.
   correctOptionIds: z.array(z.string()).optional(),
   // AI-graded rubric points.
