@@ -5,6 +5,7 @@ import { requireUser } from "@/lib/auth-guards";
 import { getTopic, locateTopic } from "@/curriculum";
 import { getTopicProgress } from "@/lib/progress";
 import { listResources } from "@/lib/resources";
+import { getAiSettings } from "@/lib/ai/settings";
 import { Cheatsheet } from "@/components/cheatsheet";
 import { ResourceManager } from "@/components/resource-manager";
 import { CompleteButton } from "@/components/complete-button";
@@ -34,10 +35,12 @@ export default async function TopicPage({
 
   const user = await requireUser();
   const located = locateTopic(slug);
-  const [progress, resources] = await Promise.all([
+  const [progress, resources, aiSettings] = await Promise.all([
     getTopicProgress(user.id, slug),
     listResources(user.id, slug),
+    getAiSettings(user.id),
   ]);
+  const aiReady = Boolean(aiSettings?.provider && aiSettings?.model);
 
   return (
     <article className="space-y-8">
@@ -88,7 +91,11 @@ export default async function TopicPage({
       {/* Practice */}
       <section className="space-y-3">
         <h2 className="text-lg font-semibold">Practice</h2>
-        <TopicPractice slug={slug} hasSkillSpec={Boolean(topic.skillSpec)} />
+        <TopicPractice
+          slug={slug}
+          hasSkillSpec={Boolean(topic.skillSpec)}
+          aiReady={aiReady}
+        />
       </section>
 
       {/* Resources */}

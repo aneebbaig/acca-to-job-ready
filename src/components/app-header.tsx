@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Compass, LogOut, Users } from "lucide-react";
+import { Compass, ListChecks, LogOut, Settings, Users } from "lucide-react";
 import { signOutAction } from "@/lib/actions/auth-actions";
 import { Button } from "@/components/ui/button";
 import { isAdminRole } from "@/lib/auth-guards";
@@ -22,6 +22,14 @@ export function AppHeader({
         <nav className="ml-auto flex items-center gap-1">
           <Button render={<Link href="/roadmap" />} variant="ghost" size="sm">
             Roadmap
+          </Button>
+          <Button render={<Link href="/review" />} variant="ghost" size="sm">
+            <ListChecks className="size-4" aria-hidden />
+            Review
+          </Button>
+          <Button render={<Link href="/settings/ai" />} variant="ghost" size="sm">
+            <Settings className="size-4" aria-hidden />
+            Settings
           </Button>
           {isAdminRole(role) && (
             <Button
