@@ -135,6 +135,9 @@ export default async function TopicPage({
           slug={slug}
           hasSkillSpec={Boolean(topic.skillSpec)}
           aiReady={aiReady}
+          warmupAvailable={Boolean(
+            topic.skillSpec?.taskTypes.includes("warmup_mcq"),
+          )}
         />
       </section>
 
