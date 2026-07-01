@@ -1,13 +1,21 @@
 "use client";
 
-import { useActionState, useEffect, useRef, useState } from "react";
+import { useActionState, useEffect, useRef, useState, useTransition } from "react";
 import { toast } from "sonner";
-import { CheckSquare, ExternalLink, Plus, Square, Trash2 } from "lucide-react";
+import {
+  CheckSquare,
+  ExternalLink,
+  Pencil,
+  Plus,
+  Square,
+  Trash2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   addResourceAction,
+  editResourceAction,
   deleteResourceAction,
   toggleWatchedAction,
   type ResourceState,
@@ -64,59 +72,7 @@ export function ResourceManager({
       ) : (
         <ul className="space-y-2">
           {resources.map((r) => (
-            <li
-              key={r.id}
-              className="border-border/70 flex items-start gap-3 rounded-lg border p-3"
-            >
-              <form action={toggleWatchedAction} className="pt-0.5">
-                <input type="hidden" name="slug" value={slug} />
-                <input type="hidden" name="id" value={r.id} />
-                <input type="hidden" name="watched" value={(!r.watched).toString()} />
-                <Button
-                  type="submit"
-                  variant="ghost"
-                  size="icon"
-                  className="text-muted-foreground size-6"
-                  aria-label={r.watched ? "Mark as not watched" : "Mark as watched"}
-                  title={r.watched ? "Watched" : "Mark as watched"}
-                >
-                  {r.watched ? (
-                    <CheckSquare className="size-4" />
-                  ) : (
-                    <Square className="size-4" />
-                  )}
-                </Button>
-              </form>
-              <div className="min-w-0 flex-1">
-                <a
-                  href={r.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 font-medium hover:underline"
-                >
-                  <span className={r.watched ? "text-muted-foreground line-through" : ""}>
-                    {r.title}
-                  </span>
-                  <ExternalLink className="size-3.5 shrink-0" aria-hidden />
-                </a>
-                {r.note && (
-                  <p className="text-muted-foreground mt-0.5 text-sm">{r.note}</p>
-                )}
-              </div>
-              <form action={deleteResourceAction}>
-                <input type="hidden" name="slug" value={slug} />
-                <input type="hidden" name="id" value={r.id} />
-                <Button
-                  type="submit"
-                  variant="ghost"
-                  size="icon"
-                  className="size-8"
-                  aria-label={`Remove ${r.title}`}
-                >
-                  <Trash2 className="size-4" />
-                </Button>
-              </form>
-            </li>
+            <ResourceItem key={r.id} slug={slug} resource={r} />
           ))}
         </ul>
       )}
@@ -167,5 +123,144 @@ export function ResourceManager({
         </Button>
       )}
     </div>
+  );
+}
+
+function ResourceItem({ slug, resource }: { slug: string; resource: Resource }) {
+  const [editing, setEditing] = useState(false);
+  const [pending, startTransition] = useTransition();
+  const [editState, editAction, editPending] = useActionState(
+    editResourceAction,
+    initial,
+  );
+
+  useEffect(() => {
+    if (editState.ok) {
+      toast.success(editState.message);
+      setEditing(false);
+    } else if (editState.message) {
+      toast.error(editState.message);
+    }
+  }, [editState]);
+
+  // Delete with confirm + undo (§10): remove immediately, then offer to restore.
+  function remove() {
+    const fd = new FormData();
+    fd.set("slug", slug);
+    fd.set("id", resource.id);
+    startTransition(async () => {
+      await deleteResourceAction(fd);
+      toast("Resource removed", {
+        action: {
+          label: "Undo",
+          onClick: () => {
+            const re = new FormData();
+            re.set("slug", slug);
+            re.set("title", resource.title);
+            re.set("url", resource.url);
+            if (resource.note) re.set("note", resource.note);
+            startTransition(async () => {
+              await addResourceAction(initial, re);
+            });
+          },
+        },
+      });
+    });
+  }
+
+  function toggleWatched() {
+    const fd = new FormData();
+    fd.set("slug", slug);
+    fd.set("id", resource.id);
+    fd.set("watched", String(!resource.watched));
+    startTransition(() => toggleWatchedAction(fd));
+  }
+
+  if (editing) {
+    return (
+      <li className="border-border/70 rounded-lg border p-3">
+        <form action={editAction} className="space-y-3">
+          <input type="hidden" name="slug" value={slug} />
+          <input type="hidden" name="id" value={resource.id} />
+          <div className="space-y-1.5">
+            <Label>Title</Label>
+            <Input name="title" defaultValue={resource.title} required />
+          </div>
+          <div className="space-y-1.5">
+            <Label>Link</Label>
+            <Input name="url" type="url" defaultValue={resource.url} required />
+          </div>
+          <div className="space-y-1.5">
+            <Label>Note (optional)</Label>
+            <Input name="note" defaultValue={resource.note ?? ""} />
+          </div>
+          <div className="flex gap-2">
+            <Button type="submit" size="sm" disabled={editPending}>
+              {editPending ? "Saving…" : "Save"}
+            </Button>
+            <Button
+              type="button"
+              size="sm"
+              variant="ghost"
+              onClick={() => setEditing(false)}
+            >
+              Cancel
+            </Button>
+          </div>
+        </form>
+      </li>
+    );
+  }
+
+  return (
+    <li className="border-border/70 flex items-start gap-3 rounded-lg border p-3">
+      <button
+        type="button"
+        onClick={toggleWatched}
+        disabled={pending}
+        className="text-muted-foreground pt-0.5"
+        aria-label={resource.watched ? "Mark as not watched" : "Mark as watched"}
+        title={resource.watched ? "Watched" : "Mark as watched"}
+      >
+        {resource.watched ? (
+          <CheckSquare className="size-4" />
+        ) : (
+          <Square className="size-4" />
+        )}
+      </button>
+      <div className="min-w-0 flex-1">
+        <a
+          href={resource.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 font-medium hover:underline"
+        >
+          <span className={resource.watched ? "text-muted-foreground line-through" : ""}>
+            {resource.title}
+          </span>
+          <ExternalLink className="size-3.5 shrink-0" aria-hidden />
+        </a>
+        {resource.note && (
+          <p className="text-muted-foreground mt-0.5 text-sm">{resource.note}</p>
+        )}
+      </div>
+      <button
+        type="button"
+        onClick={() => setEditing(true)}
+        className="text-muted-foreground hover:text-foreground pt-0.5"
+        aria-label={`Edit ${resource.title}`}
+      >
+        <Pencil className="size-4" />
+      </button>
+      <button
+        type="button"
+        onClick={remove}
+        disabled={pending}
+        className="text-muted-foreground hover:text-destructive pt-0.5"
+        aria-label={`Remove ${resource.title}`}
+      >
+        <Trash2 className="size-4" />
+      </button>
+    </li>
   );
 }

@@ -28,6 +28,17 @@ export async function addResource(
   return row;
 }
 
+export async function updateResource(
+  userId: string,
+  id: string,
+  data: { title: string; url: string; note?: string },
+) {
+  await db
+    .update(resourceLinks)
+    .set(data)
+    .where(and(eq(resourceLinks.id, id), eq(resourceLinks.userId, userId)));
+}
+
 // Ownership is enforced in the WHERE clause — a user can only touch their own
 // rows even if they guess another id (§5, app-layer isolation).
 export async function deleteResource(userId: string, id: string) {

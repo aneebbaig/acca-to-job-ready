@@ -132,6 +132,7 @@ function RowActions({
   currentRole: Role;
 }) {
   const [resetOpen, setResetOpen] = useState(false);
+  const [deactivateOpen, setDeactivateOpen] = useState(false);
   const isSelf = row.id === currentUserId;
   const canManageRole =
     currentRole === "super_admin" || row.role !== "super_admin";
@@ -168,16 +169,25 @@ function RowActions({
           <DropdownMenuItem onClick={() => setResetOpen(true)}>
             Reset password
           </DropdownMenuItem>
-          <form action={toggleStatusAction}>
-            <input type="hidden" name="userId" value={row.id} />
+          {row.status === "active" ? (
             <DropdownMenuItem
-              render={<button type="submit" className="w-full" />}
+              onClick={() => setDeactivateOpen(true)}
               disabled={isSelf || !canManageRole}
-              variant={row.status === "active" ? "destructive" : "default"}
+              variant="destructive"
             >
-              {row.status === "active" ? "Deactivate" : "Reactivate"}
+              Deactivate
             </DropdownMenuItem>
-          </form>
+          ) : (
+            <form action={toggleStatusAction}>
+              <input type="hidden" name="userId" value={row.id} />
+              <DropdownMenuItem
+                render={<button type="submit" className="w-full" />}
+                disabled={isSelf || !canManageRole}
+              >
+                Reactivate
+              </DropdownMenuItem>
+            </form>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
 
@@ -186,7 +196,51 @@ function RowActions({
         onOpenChange={setResetOpen}
         row={row}
       />
+      <ConfirmDeactivateDialog
+        open={deactivateOpen}
+        onOpenChange={setDeactivateOpen}
+        row={row}
+      />
     </>
+  );
+}
+
+function ConfirmDeactivateDialog({
+  open,
+  onOpenChange,
+  row,
+}: {
+  open: boolean;
+  onOpenChange: (v: boolean) => void;
+  row: Row;
+}) {
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Deactivate {row.name}?</DialogTitle>
+          <DialogDescription>
+            They won&apos;t be able to sign in until you reactivate them. Their
+            data is kept, and you can reverse this any time.
+          </DialogDescription>
+        </DialogHeader>
+        <form action={toggleStatusAction} onSubmit={() => onOpenChange(false)}>
+          <input type="hidden" name="userId" value={row.id} />
+          <DialogFooter>
+            <Button
+              type="button"
+              variant="ghost"
+              onClick={() => onOpenChange(false)}
+            >
+              Cancel
+            </Button>
+            <Button type="submit" variant="destructive">
+              Deactivate
+            </Button>
+          </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
   );
 }
 

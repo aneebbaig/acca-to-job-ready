@@ -108,16 +108,27 @@ export async function generateTask(
   apiKey: string,
   model: string,
   skillSpec: SkillSpec,
-  preferredType?: TaskType,
+  opts: { preferredType?: TaskType; recentScore?: number | null } = {},
 ): Promise<GenerateResult> {
+  const { min, max } = skillSpec.difficulty;
   const taskType =
-    preferredType && skillSpec.taskTypes.includes(preferredType)
-      ? preferredType
+    opts.preferredType && skillSpec.taskTypes.includes(opts.preferredType)
+      ? opts.preferredType
       : pick(skillSpec.taskTypes);
-  const difficulty =
-    Math.floor(
-      Math.random() * (skillSpec.difficulty.max - skillSpec.difficulty.min + 1),
-    ) + skillSpec.difficulty.min;
+
+  // Adaptive difficulty (§8.4): scale to the learner's recent score on this
+  // topic. Strong recent scores push toward the hard end; weak ones stay gentle.
+  // With no history, pick from the easier half so first attempts aren't brutal.
+  let difficulty: number;
+  if (typeof opts.recentScore === "number") {
+    const t = Math.max(0, Math.min(1, opts.recentScore));
+    // Centre on the score, nudge up slightly to keep it stretching.
+    difficulty = Math.round(min + Math.min(1, t + 0.1) * (max - min));
+  } else {
+    const mid = Math.floor((min + max) / 2);
+    difficulty = Math.floor(Math.random() * (mid - min + 1)) + min;
+  }
+  difficulty = Math.max(min, Math.min(max, difficulty));
 
   const user = `Concept(s) to assess: ${skillSpec.concepts.join("; ")}
 Task type: ${taskType}

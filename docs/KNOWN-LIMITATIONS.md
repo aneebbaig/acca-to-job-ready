@@ -26,6 +26,17 @@ Honest list of what is intentionally incomplete or worth improving.
 - **Login rate-limiting is in-memory.** Fine for a single instance; swap for a
   durable store (e.g. Upstash/Redis) when running multiple instances.
 
+- **Code arithmetic validation covers the three core numeric types** — journal
+  entries, trial-balance correction, and bank reconciliation are re-checked in
+  code before serving and on grading. Adjusting entries, financial-statement
+  prep, ratios, and costing are AI-graded; extending the in-code arithmetic
+  re-check to those is a good next step. Control-deficiency answers use free-text
+  fields rather than a strict three-column table.
+
+- **Excel module is a starting slice** — lookups and pivot tables are authored;
+  conditional logic, data validation, Power Query, and simple modelling are
+  worth adding as topics.
+
 - **Practice depth varies by topic.** The assessment engine is wired across the
   foundation and the audit/freelance skill-specs, but not every topic has a
   skill-spec yet. Topics without one show a "practice coming" note.
