@@ -3,7 +3,7 @@ import type { CheatsheetBlock } from "@/curriculum/types";
 
 // Renders a topic cheatsheet. Uses native <details> so sections are collapsible
 // and print-friendly without client JS (§9). `verify` blocks never assert a
-// figure — they link to the official source (§3.2).
+// figure, they link to the official source (§3.2).
 export function Cheatsheet({ blocks }: { blocks: CheatsheetBlock[] }) {
   return (
     <div className="space-y-3 print:space-y-2">

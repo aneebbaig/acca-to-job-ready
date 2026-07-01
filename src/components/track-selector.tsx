@@ -49,20 +49,20 @@ export function TrackSelector({
 
   return (
     <div className="space-y-8">
-      {/* Honest framing (§13) — guidance, not a rule. */}
+      {/* Honest framing (§13), guidance, not a rule. */}
       <Alert>
         <Compass className="size-4" />
         <AlertTitle>Two honest paths</AlertTitle>
         <AlertDescription className="text-muted-foreground">
           <span>
             <strong className="text-foreground">Firm / Audit</strong> is the
-            credential route — you become an auditor and earn recognised
+            credential route, you become an auditor and earn recognised
             experience.{" "}
             <strong className="text-foreground">Freelance / Accounting</strong> is
-            the income route — bookkeeping and accounts for clients. You can’t
+            the income route, bookkeeping and accounts for clients. You can't
             freelance as a statutory auditor. With no experience, many people go
             firm-first, then freelance later with credibility. This is guidance,
-            not a rule — you can switch any time.
+            not a rule, you can switch any time.
           </span>
         </AlertDescription>
       </Alert>
@@ -139,7 +139,7 @@ export function TrackSelector({
 
       <div className="flex items-center gap-3">
         <Button onClick={submit} disabled={!trackId || !branchId || pending}>
-          {pending ? "Saving…" : "Start this path"}
+          {pending ? "Saving..." : "Start this path"}
           <ArrowRight className="size-4" />
         </Button>
         {(!trackId || !branchId) && (

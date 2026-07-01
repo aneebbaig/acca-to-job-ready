@@ -13,7 +13,7 @@ function getKey(): Buffer {
   const secret = process.env.KEY_ENCRYPTION_SECRET;
   if (!secret) {
     throw new Error(
-      "KEY_ENCRYPTION_SECRET is not set — required to store AI keys at rest.",
+      "KEY_ENCRYPTION_SECRET is not set, required to store AI keys at rest.",
     );
   }
   const buf = Buffer.from(secret, "base64");

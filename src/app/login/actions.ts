@@ -18,7 +18,7 @@ export async function loginAction(
     password: formData.get("password"),
   });
   // Same generic message whether the input is malformed or the credentials are
-  // wrong — never reveal whether an account exists (§5).
+  // wrong, never reveal whether an account exists (§5).
   const generic = { error: "Email or password is incorrect." };
   if (!parsed.success) return generic;
 
@@ -42,7 +42,7 @@ export async function loginAction(
       redirectTo: "/",
     });
   } catch (error) {
-    // signIn throws a redirect on success — let framework errors propagate.
+    // signIn throws a redirect on success, let framework errors propagate.
     unstable_rethrow(error);
     if (error instanceof AuthError) return generic;
     throw error;

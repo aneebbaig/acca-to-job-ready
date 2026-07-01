@@ -58,7 +58,7 @@ export const users = pgTable(
 );
 
 // One profile per user: chosen track/branch, optional personalized welcome
-// text (the ONLY place a personal welcome may live — never in source, §1/§12),
+// text (the ONLY place a personal welcome may live, never in source, §1/§12),
 // and free-form preferences.
 export const profiles = pgTable("profiles", {
   userId: uuid("user_id")
@@ -80,7 +80,7 @@ export const profiles = pgTable("profiles", {
 // every row here is keyed by a stable topic slug + scoped to one user).
 // ---------------------------------------------------------------------------
 
-// User-added learning links. Seeded as nothing — the app ships ZERO URLs (§3.2).
+// User-added learning links. Seeded as nothing, the app ships ZERO URLs (§3.2).
 export const resourceLinks = pgTable(
   "resource_links",
   {
@@ -136,7 +136,7 @@ export const assessmentAttempts = pgTable(
     difficulty: integer("difficulty").notNull().default(1),
     // The generated task as shown to the user (scenario, inputs, prompt).
     task: jsonb("task").$type<Record<string, unknown>>().notNull(),
-    // Hidden worked solution / rubric — revealed only after submission (§8.3).
+    // Hidden worked solution / rubric, revealed only after submission (§8.3).
     answerKey: jsonb("answer_key").$type<Record<string, unknown>>().notNull(),
     submission: jsonb("submission").$type<Record<string, unknown>>(),
     score: real("score"),
@@ -149,7 +149,7 @@ export const assessmentAttempts = pgTable(
   (t) => [index("attempts_user_topic_idx").on(t.userId, t.topicSlug)],
 );
 
-// AI provider choice per user. By default the API key is NOT stored here —
+// AI provider choice per user. By default the API key is NOT stored here -
 // it is forwarded per-request from the browser (§6). encryptedKey is only set
 // when the user explicitly opts into encrypted-at-rest storage.
 export const aiSettings = pgTable("ai_settings", {

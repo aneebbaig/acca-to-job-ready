@@ -25,7 +25,7 @@ export default async function AiSettingsPage() {
         <p className="text-muted-foreground mt-1 text-sm">
           Practice grading uses your own API key. Pick a provider, paste a key,
           and we&apos;ll test it. Roadmap, cheatsheets, and resources work without
-          this — only practice needs it.
+          this, only practice needs it.
         </p>
       </div>
       <AiSettingsForm

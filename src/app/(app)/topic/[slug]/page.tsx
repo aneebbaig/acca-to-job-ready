@@ -62,7 +62,7 @@ export default async function TopicPage({
           <h1 className="text-2xl font-semibold tracking-tight">{topic.title}</h1>
           {topic.status === "stub" && (
             <Badge variant="outline" className="text-amber-700">
-              Draft — pending review
+              Draft, pending review
             </Badge>
           )}
         </div>

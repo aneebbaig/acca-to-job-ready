@@ -128,7 +128,7 @@ export function gradeNumericRows(
       status: ties ? "correct" : "wrong",
       comment: ties
         ? "Your two adjusted balances reconcile."
-        : "Your adjusted balances don't yet agree — recheck the reconciling items.",
+        : "Your adjusted balances don't yet agree, recheck the reconciling items.",
     });
     const expected = key.reconciledA ?? 0;
     const right = ties && Math.abs(a - expected) < EPS;

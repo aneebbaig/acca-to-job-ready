@@ -27,7 +27,7 @@ See the **Local setup** section of the [README](README.md). You'll need Node
 ## Workflow
 
 The protected branches (`main`, `develop`, `production`) accept **no direct
-pushes** — everything goes through a pull request that CI must pass.
+pushes**, everything goes through a pull request that CI must pass.
 
 1. Branch off `develop` (e.g. `feat/glossary`).
 2. Keep changes focused; match the surrounding code's style.
@@ -40,7 +40,7 @@ pushes** — everything goes through a pull request that CI must pass.
    ```
 
 4. Use [Conventional Commits](https://www.conventionalcommits.org) (`feat:`,
-   `fix:`, `chore:`, `docs:`) — `release-please` relies on them for versioning.
+   `fix:`, `chore:`, `docs:`), `release-please` relies on them for versioning.
 5. Open a PR into `develop`. CI (lint + type-check + build) must be green before
    it can merge.
 

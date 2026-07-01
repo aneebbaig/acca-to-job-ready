@@ -10,12 +10,12 @@ The app never talks to an AI provider directly. It uses a small, self-owned
 adapter layer (`src/lib/ai/`) with **one internal interface** and **one thin
 adapter per provider**:
 
-- `run.ts` exposes `runLLM(provider, request)` — the single call the rest of the
+- `run.ts` exposes `runLLM(provider, request)`, the single call the rest of the
   app makes. Internally it dispatches to a per-provider function that calls that
   provider's **official REST endpoint** (Anthropic Messages API, OpenAI /
   xAI chat-completions, Google Gemini `generateContent`).
 - `providers.ts` is the catalogue (label, default model, keys URL). Adding a
-  fifth provider is one entry here plus one adapter branch — no feature code
+  fifth provider is one entry here plus one adapter branch, no feature code
   changes.
 - All provider calls run **server-side** (API routes), so keys never touch the
   browser network and there are no CORS problems. HTTP failures are turned into
@@ -41,7 +41,7 @@ The engine (`src/lib/assessment/`) is built so the model invents only the
    rows, correct options, or rubric points). Both are validated with zod
    (`schema.ts`).
 3. **Code-level validation before serving.** For numeric task types
-   (`validate.ts`), the generator's own key is re-checked in code — the journal
+   (`validate.ts`), the generator's own key is re-checked in code, the journal
    balances, the trial balance ties, the reconciliation agrees. If the model's
    key fails the arithmetic check, the task is **regenerated** rather than
    served (up to a few attempts). Code verifies arithmetic; the model's
@@ -60,7 +60,7 @@ The engine (`src/lib/assessment/`) is built so the model invents only the
 
 ## Auth and roles
 
-Self-managed on Auth.js v5 + Neon — no hosted auth product.
+Self-managed on Auth.js v5 + Neon, no hosted auth product.
 
 - **First-run setup.** If the users table is empty, the root layout's guard
   sends every route to a one-time `/setup` page that creates the **super
@@ -74,7 +74,7 @@ Self-managed on Auth.js v5 + Neon — no hosted auth product.
   (create, deactivate/reactivate, reset password, change role) is guarded
   server-side in every action (`requireAdmin`), not just hidden in the UI.
 - **Per-user isolation.** Every data query is scoped to the authenticated user
-  with explicit ownership checks in the `WHERE` clause — the app does not rely
+  with explicit ownership checks in the `WHERE` clause, the app does not rely
   on Postgres RLS.
 - **Security.** argon2id password hashing, secure HTTP-only session cookies,
   CSRF handled by Auth.js, login rate-limiting, generic auth errors (no user

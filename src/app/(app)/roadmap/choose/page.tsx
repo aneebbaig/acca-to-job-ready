@@ -31,11 +31,11 @@ export default async function ChoosePage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">
-          {returning ? "Change your path" : `Let’s get you oriented, ${firstName}`}
+          {returning ? "Change your path" : `Let's get you oriented, ${firstName}`}
         </h1>
         <p className="text-muted-foreground mt-1 text-sm">
           {returning
-            ? "Switching is fine — your progress is kept."
+            ? "Switching is fine, your progress is kept."
             : "Pick a direction to follow. You can change it any time, and nothing is locked in."}
         </p>
       </div>

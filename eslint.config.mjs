@@ -21,6 +21,8 @@ const eslintConfig = defineConfig([
       // mismatch), and the useActionState + toast/close-dialog pattern. Keep it
       // as a warning so it still surfaces genuine cascading-render mistakes.
       "react-hooks/set-state-in-effect": "warn",
+      // Allow plain straight quotes/apostrophes in JSX copy.
+      "react/no-unescaped-entities": "off",
     },
   },
 ]);
