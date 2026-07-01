@@ -36,10 +36,13 @@ export default async function HomePage() {
         <StartPanel />
       )}
 
-      <section className="space-y-3">
-        <h2 className="text-sm font-medium">How Job-Ready works</h2>
-        <HowItWorks />
-      </section>
+      {/* Keep the explainer for new users only; returning users stay focused. */}
+      {!onboarded && (
+        <section className="space-y-3">
+          <h2 className="text-sm font-medium">How Job-Ready works</h2>
+          <HowItWorks />
+        </section>
+      )}
     </div>
   );
 }
