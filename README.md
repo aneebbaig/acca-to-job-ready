@@ -147,6 +147,40 @@ Notes:
   and has branch-storage limits, fine for this app. A lightweight keep-alive
   ping is optional and not required.
 
+### Deploy to Vercel (concrete walkthrough)
+
+1. Push your fork to GitHub, then in Vercel: **Add New -> Project** and import
+   the repo. Framework preset is detected as Next.js; leave build and output
+   settings at their defaults.
+2. Create a free [Neon](https://neon.tech) database and copy the **pooled**
+   connection string.
+3. In the Vercel project, **Settings -> Environment Variables**, add (Production,
+   and Preview if you want preview deploys to work):
+
+   | Name | Value |
+   | --- | --- |
+   | `DATABASE_URL` | Your Neon pooled connection string (`postgresql://...?sslmode=require`). |
+   | `AUTH_SECRET` | `openssl rand -base64 32` |
+   | `AUTH_URL` | Your production URL, e.g. `https://your-domain.com` |
+   | `KEY_ENCRYPTION_SECRET` | `openssl rand -base64 32` (only needed if users opt to store their AI key on the server). |
+
+4. Run migrations against the production database once, from your machine:
+
+   ```bash
+   DATABASE_URL="<your prod Neon URL>" npm run db:migrate
+   ```
+
+   (If your local dev already uses the same Neon database, the schema is already
+   applied and you can skip this.)
+
+5. Deploy. Open the site: with an empty users table it redirects to the one-time
+   **Create administrator account** page.
+6. **Custom domain:** Vercel **Settings -> Domains**, add your domain and follow
+   the DNS instructions. Then set `AUTH_URL` to that domain and redeploy.
+
+Password hashing uses `@node-rs/argon2`, a prebuilt native module that runs on
+Vercel's serverless functions without a build step.
+
 ## Development & contributing
 
 - **Branches.** `main` is the stable, protected default. `develop` is the
