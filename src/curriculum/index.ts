@@ -43,6 +43,31 @@ export function getAllTopicSlugs(): string[] {
   return [...index().keys()];
 }
 
+// The learner's topics in the order they appear on the roadmap: shared
+// foundation first, then the chosen branch.
+export function getOrderedTopics(
+  trackId: string | null,
+  branchId: string | null,
+): Topic[] {
+  const { foundation: f, branchModules } = getRoadmapModules(trackId, branchId);
+  return [...f, ...branchModules].flatMap((m) => m.topics);
+}
+
+// The topic that comes right after a given one on the roadmap (for "Next up").
+export function getAdjacentTopics(
+  trackId: string | null,
+  branchId: string | null,
+  slug: string,
+): { prev: Topic | null; next: Topic | null } {
+  const ordered = getOrderedTopics(trackId, branchId);
+  const i = ordered.findIndex((t) => t.slug === slug);
+  if (i === -1) return { prev: null, next: null };
+  return {
+    prev: i > 0 ? ordered[i - 1] : null,
+    next: i < ordered.length - 1 ? ordered[i + 1] : null,
+  };
+}
+
 // The ordered set of modules a learner sees: shared foundation first, then the
 // modules of their chosen branch (§13).
 export function getRoadmapModules(
