@@ -751,6 +751,115 @@ export const tracks: Track[] = [
                   generatorNotes: "Invent a process scenario with a real control weakness (PKR where relevant).",
                 },
               },
+              {
+                slug: "ia-governance",
+                title: "Corporate governance basics",
+                status: "stub",
+                intro:
+                  "Internal audit exists to serve good governance. Knowing what governance is, and who internal audit answers to, frames the whole role.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "The essentials",
+                    points: [
+                      "Governance is how an organisation is directed and held to account.",
+                      "Internal audit reports to the audit committee, not just management.",
+                      "That reporting line protects its independence.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A plain intro to corporate governance"],
+              },
+              {
+                slug: "ia-three-lines",
+                title: "The three lines model",
+                status: "stub",
+                intro:
+                  "A simple map of who owns risk. It shows where internal audit sits and why it stays independent of the work it reviews.",
+                cheatsheet: [
+                  {
+                    kind: "terms",
+                    heading: "The three lines",
+                    terms: [
+                      { term: "First line", def: "Management, who own and manage risk day to day." },
+                      { term: "Second line", def: "Risk and compliance functions that support and monitor." },
+                      { term: "Third line", def: "Internal audit, independent assurance to the board." },
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An overview of the three lines model"],
+              },
+              {
+                slug: "ia-risk-management",
+                title: "Risk management",
+                status: "stub",
+                intro:
+                  "Internal audit checks that risks are identified and managed. Understanding the risk cycle lets you judge whether that's happening.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "The risk cycle",
+                    points: [
+                      "Identify risks, assess likelihood and impact.",
+                      "Respond: accept, reduce, transfer, or avoid.",
+                      "Monitor and review as things change.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An intro to enterprise risk management"],
+                skillSpec: {
+                  concepts: ["Identifying business risks and sensible responses"],
+                  taskTypes: ["risk_identification", "case_analysis"],
+                  difficulty: { min: 2, max: 5 },
+                  rubric: ["Real, relevant risks", "Sensible responses", "Clear reasoning"],
+                  generatorNotes: "Invent a business scenario (PKR where relevant). No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "ia-planning",
+                title: "Planning an internal audit",
+                status: "stub",
+                intro:
+                  "Internal audit works to a plan driven by risk, and each review has its own scope and objectives. Planning is where the value is set.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "How a review is scoped",
+                    points: [
+                      "Pick areas by risk, not by habit.",
+                      "Set clear objectives and scope for each assignment.",
+                      "Agree what good looks like before you start testing.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An internal-audit planning guide"],
+              },
+              {
+                slug: "ia-reporting",
+                title: "Reporting to management",
+                status: "stub",
+                intro:
+                  "Findings only matter if they land. A good internal audit report is clear, fair, and drives action, not defensiveness.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "A report that gets acted on",
+                    points: [
+                      "Rank findings by risk so attention goes to what matters.",
+                      "Be factual and balanced; agree facts with management first.",
+                      "Every finding has an owner and a date.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An example internal-audit report"],
+                skillSpec: {
+                  concepts: ["Writing a clear internal-audit finding"],
+                  taskTypes: ["working_paper_note", "control_deficiency"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Factual and fair", "Ranked by risk", "Actionable recommendation"],
+                  generatorNotes: "Invent a control finding. No standard numbers (§3.2).",
+                },
+              },
             ],
           },
         ],
@@ -785,6 +894,89 @@ export const tracks: Track[] = [
                   },
                 ],
                 resourceSlotHints: ["An IT general controls overview"],
+              },
+              {
+                slug: "ita-application-controls",
+                title: "Application controls",
+                status: "stub",
+                intro:
+                  "Controls built into a specific system: the checks that stop bad data going in and catch it if it does.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Types to know",
+                    points: [
+                      "Input controls: validation, range checks, mandatory fields.",
+                      "Processing controls: totals that must reconcile.",
+                      "Output controls: reviews of what the system produced.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An application-controls overview"],
+              },
+              {
+                slug: "ita-access-management",
+                title: "Access and segregation of duties",
+                status: "stub",
+                intro:
+                  "Who can do what in a system is a top risk. The goal is least privilege and no one person controlling a whole transaction.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "What to check",
+                    points: [
+                      "Users have only the access their job needs.",
+                      "Incompatible duties are split across people.",
+                      "Leavers lose access promptly; access is reviewed.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A guide to access controls and SoD"],
+                skillSpec: {
+                  concepts: ["Spotting access and segregation weaknesses"],
+                  taskTypes: ["control_deficiency", "risk_identification"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Real weakness identified", "Sensible fix"],
+                  generatorNotes: "Invent a system-access scenario. No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "ita-change-management",
+                title: "Change management",
+                status: "stub",
+                intro:
+                  "When systems change, uncontrolled changes break things or hide fraud. Changes should be requested, tested, approved, and logged.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "A controlled change",
+                    points: [
+                      "Requested and approved before it happens.",
+                      "Tested away from live data.",
+                      "Logged, so you can see who changed what and when.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A change-management overview"],
+              },
+              {
+                slug: "ita-caats",
+                title: "Computer-assisted audit techniques",
+                status: "stub",
+                intro:
+                  "Instead of testing a sample, tools let you test whole populations: every transaction, checked by rule. This is where audit is heading.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "What CAATs let you do",
+                    points: [
+                      "Test 100% of transactions against rules, not just a sample.",
+                      "Spot duplicates, gaps, and outliers automatically.",
+                      "Re-run the same tests next year in seconds.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An intro to CAATs and data analytics in audit"],
               },
             ],
           },
@@ -821,6 +1013,70 @@ export const tracks: Track[] = [
                   },
                 ],
                 resourceSlotHints: ["A primer on fraud red flags"],
+              },
+              {
+                slug: "fa-fraud-triangle",
+                title: "The fraud triangle",
+                status: "stub",
+                intro:
+                  "A simple model for why people commit fraud. It helps you see where risk builds up and where to look.",
+                cheatsheet: [
+                  {
+                    kind: "terms",
+                    heading: "Three conditions",
+                    terms: [
+                      { term: "Pressure", def: "A financial or personal need driving the person." },
+                      { term: "Opportunity", def: "Weak controls that make fraud possible." },
+                      { term: "Rationalisation", def: "The story they tell themselves to justify it." },
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An explainer on the fraud triangle"],
+                skillSpec: {
+                  concepts: ["Applying the fraud triangle to a scenario"],
+                  taskTypes: ["case_analysis", "risk_identification"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Identifies pressure, opportunity, rationalisation", "Tied to the scenario"],
+                  generatorNotes: "Invent a workplace fraud scenario. No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "fa-investigation-approach",
+                title: "The investigative approach",
+                status: "stub",
+                intro:
+                  "A forensic investigation is careful and planned, not a witch-hunt. You gather facts quietly, keep an open mind, and protect the evidence.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "How to work",
+                    points: [
+                      "Plan the scope before you start.",
+                      "Stay objective; follow the evidence, not a hunch.",
+                      "Keep it confidential to protect people and the case.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A high-level guide to fraud investigation"],
+              },
+              {
+                slug: "fa-evidence-handling",
+                title: "Handling evidence",
+                status: "stub",
+                intro:
+                  "If evidence might be used in a dispute or court, how you handle it matters as much as what it says. Sloppy handling can sink a case.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Protecting evidence",
+                    points: [
+                      "Keep an unbroken chain of custody: who held it, when.",
+                      "Preserve originals; work from copies.",
+                      "Document everything you do to it.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An overview of evidence and chain of custody"],
               },
             ],
           },
