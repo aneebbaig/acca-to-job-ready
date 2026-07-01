@@ -100,6 +100,9 @@ export interface Track {
   description: string;
   // Honest framing shown at selection time (§13).
   goal: string;
+  // Real software worth getting comfortable with on this track. Names only, no
+  // invented feature/pricing claims; firm-only tools are marked "on the job".
+  tools: { name: string; note: string }[];
   branches: Branch[];
 }
 

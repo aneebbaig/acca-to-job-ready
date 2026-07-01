@@ -70,6 +70,7 @@ export default async function RoadmapPage() {
       trackTitle={track.title}
       branchTitle={branch.title}
       readiness={{ ...r, label: readinessLabel(r.pct) }}
+      tools={track.tools}
     />
   );
 }
