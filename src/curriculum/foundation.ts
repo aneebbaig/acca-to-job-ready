@@ -1,6 +1,6 @@
 import type { Module } from "./types";
 
-// Shared Foundation, both tracks (§13). AI-drafted, pending expert review.
+// Shared Foundation, both tracks (§13). Initial draft, pending expert review.
 // Stable fundamentals only; no invented standard numbers/rates/URLs.
 
 export const foundation: Module[] = [
