@@ -2,7 +2,7 @@
 
 Honest list of what is intentionally incomplete or worth improving.
 
-- **The curriculum is AI-drafted, pending domain-expert review.** The track →
+- **The curriculum is an initial draft, pending domain-expert review.** The track →
   branch → module → topic structure and topic content were generated as a
   starting scaffold. The overall shape of professional competencies is stable,
   well-established knowledge, but the specifics deserve a review by a qualified

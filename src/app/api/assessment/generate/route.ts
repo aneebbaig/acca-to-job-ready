@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   }
   const userId = session.user.id;
 
-  let body: { topicSlug?: string };
+  let body: { topicSlug?: string; tier?: string };
   try {
     body = await req.json();
   } catch {
@@ -27,6 +27,32 @@ export async function POST(req: Request) {
       { message: "This topic has no practice yet." },
       { status: 400 },
     );
+  }
+  const spec = topic.skillSpec;
+
+  // Map the picked tier to a concrete difficulty + optional task type. The
+  // difficulty range lives in the skill-spec, so the client never needs it.
+  const { min, max } = spec.difficulty;
+  const mid = Math.round((min + max) / 2);
+  let tierDifficulty: number | null = null;
+  let preferredType: typeof spec.taskTypes[number] | undefined;
+  switch (body.tier) {
+    case "warmup":
+      if (spec.taskTypes.includes("warmup_mcq")) {
+        preferredType = "warmup_mcq";
+        tierDifficulty = min;
+      }
+      break;
+    case "easy":
+      tierDifficulty = min;
+      break;
+    case "medium":
+      tierDifficulty = mid;
+      break;
+    case "hard":
+      tierDifficulty = max;
+      break;
+    // "adaptive" or unset: fall through to score-based adaptation.
   }
 
   const resolved = await resolveKey(userId, req.headers.get("x-ai-key"));
@@ -45,8 +71,12 @@ export async function POST(req: Request) {
       resolved.provider,
       resolved.apiKey,
       resolved.model,
-      topic.skillSpec,
-      { recentScore: progress?.masteryEstimate ?? progress?.bestScore ?? null },
+      spec,
+      {
+        preferredType,
+        difficulty: tierDifficulty,
+        recentScore: progress?.masteryEstimate ?? progress?.bestScore ?? null,
+      },
     );
 
     const [attempt] = await db

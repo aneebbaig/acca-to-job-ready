@@ -27,6 +27,7 @@ export function RoadmapView({
   trackTitle,
   branchTitle,
   readiness,
+  tools,
 }: {
   sections: RoadmapSection[];
   nextSlug: string | null;
@@ -35,6 +36,7 @@ export function RoadmapView({
   trackTitle: string;
   branchTitle: string;
   readiness: { pct: number; practised: number; total: number; label: string };
+  tools: { name: string; note: string }[];
 }) {
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
 
@@ -100,6 +102,25 @@ export function RoadmapView({
         )}
       </div>
 
+      {/* Legend: make the node states self-explaining. */}
+      <div className="text-muted-foreground flex flex-wrap items-center gap-x-4 gap-y-1 text-xs">
+        <span>Tap any topic to open it.</span>
+        <span className="flex items-center gap-1.5">
+          <span className="bg-primary text-primary-foreground flex size-4 items-center justify-center rounded-full">
+            <Check className="size-2.5" />
+          </span>
+          Done
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="border-brass flex size-4 items-center justify-center rounded-full border-2" />
+          Do next
+        </span>
+        <span className="flex items-center gap-1.5">
+          <Circle className="text-muted-foreground/50 size-4" />
+          To do
+        </span>
+      </div>
+
       {/* Sections */}
       <div className="space-y-7">
         {sections.map((section) => (
@@ -148,6 +169,26 @@ export function RoadmapView({
           </section>
         ))}
       </div>
+
+      {/* Software to learn on this track. */}
+      {tools.length > 0 && (
+        <section className="space-y-3">
+          <div>
+            <h2 className="font-semibold">Software to get comfortable with</h2>
+            <p className="text-muted-foreground text-sm">
+              The tools employers and clients on this track expect you to know.
+            </p>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {tools.map((t) => (
+              <div key={t.name} className="border-border/70 rounded-lg border p-3">
+                <p className="text-sm font-medium">{t.name}</p>
+                <p className="text-muted-foreground text-sm">{t.note}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
