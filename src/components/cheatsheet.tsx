@@ -10,7 +10,9 @@ export function Cheatsheet({ blocks }: { blocks: CheatsheetBlock[] }) {
       {blocks.map((block, i) => (
         <details
           key={i}
-          open
+          // Progressive disclosure: open the first block, collapse the rest so
+          // the page isn't a wall of text.
+          open={i === 0}
           className="group border-border/70 rounded-lg border bg-card"
         >
           <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 text-sm font-medium">
