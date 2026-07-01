@@ -21,7 +21,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         // real argon2id hash of a random string.
         const hashToCheck =
           user?.passwordHash ??
-          "$argon2id$v=19$m=19456,t=2,p=1$c29tZXNhbHRzb21lc2FsdA$RdescudvU8sQUgU5xH0rXl2yX1f8sN0u1mO9wA3oZ2k";
+          "$argon2id$v=19$m=19456,t=2,p=1$HxlqGKIUVHry89Vv6x3pjg$BZ82WdA39YWrbo0P4xfDnbhu2ZHQYJWArGM+ESb+1lQ";
         const ok = await verifyPassword(hashToCheck, parsed.data.password);
 
         if (!user || !ok) return null;
