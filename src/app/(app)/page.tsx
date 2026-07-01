@@ -69,7 +69,7 @@ export default async function HomePage() {
               <span>
                 {track?.title} · {branch?.title}
               </span>
-              <span>
+              <span className="font-mono">
                 {done}/{total} · {pct}%
               </span>
             </div>
@@ -79,7 +79,7 @@ export default async function HomePage() {
           {next ? (
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="text-muted-foreground text-xs font-medium uppercase tracking-wide">
+                <p className="text-brass text-xs font-medium uppercase tracking-wide">
                   Next step
                 </p>
                 <p className="font-medium">{next.title}</p>

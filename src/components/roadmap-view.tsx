@@ -55,9 +55,10 @@ export function RoadmapView({
         <div className="space-y-1.5">
           <div className="text-muted-foreground flex justify-between text-sm">
             <span>
-              {done} of {total} topics complete
+              <span className="font-mono">{done}</span> of{" "}
+              <span className="font-mono">{total}</span> topics complete
             </span>
-            <span>{pct}%</span>
+            <span className="font-mono">{pct}%</span>
           </div>
           <Progress value={pct} />
         </div>
@@ -65,7 +66,7 @@ export function RoadmapView({
         {nextSlug && (
           <div className="bg-muted/50 flex flex-wrap items-center justify-between gap-3 rounded-xl border p-4">
             <div>
-              <p className="text-muted-foreground text-xs font-medium uppercase tracking-wide">
+              <p className="text-brass text-xs font-medium uppercase tracking-wide">
                 Your next step
               </p>
               <p className="font-medium">{titleOf(sections, nextSlug)}</p>
@@ -145,7 +146,7 @@ function NodeIcon({
     );
   if (isNext)
     return (
-      <span className="border-primary text-primary flex size-5 shrink-0 items-center justify-center rounded-full border-2">
+      <span className="border-brass text-brass flex size-5 shrink-0 items-center justify-center rounded-full border-2">
         <Dot className="size-4" />
       </span>
     );
