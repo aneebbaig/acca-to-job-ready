@@ -14,9 +14,11 @@ export function AppHeader({
   return (
     <header className="border-b">
       <div className="mx-auto flex h-14 max-w-5xl items-center gap-4 px-4">
-        <Link href="/" className="flex items-center gap-2 font-semibold">
-          <Compass className="size-5" aria-hidden />
-          <span>Job-Ready</span>
+        <Link href="/" className="flex items-center gap-2">
+          <Compass className="text-brass size-5" aria-hidden />
+          <span className="font-heading text-lg font-semibold tracking-tight">
+            Job-Ready
+          </span>
         </Link>
 
         <nav className="ml-auto flex items-center gap-1">

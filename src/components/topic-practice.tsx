@@ -427,7 +427,9 @@ function Feedback({
     <Card>
       <CardContent className="space-y-4 py-5">
         <div className="flex items-center justify-between">
-          <p className="text-lg font-semibold">Score: {pct}%</p>
+          <p className="text-lg font-semibold">
+            Score: <span className="font-mono text-brass">{pct}%</span>
+          </p>
           <Button variant="outline" size="sm" onClick={onRetry}>
             <RefreshCw className="size-4" /> New variant
           </Button>
