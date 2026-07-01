@@ -2,6 +2,7 @@ import { requireUser } from "@/lib/auth-guards";
 import { getProfile } from "@/lib/profile";
 import { curriculum } from "@/curriculum";
 import { TrackSelector } from "@/components/track-selector";
+import { HowItWorks } from "@/components/how-it-works";
 
 export const metadata = { title: "Choose your path" };
 export const dynamic = "force-dynamic";
@@ -39,6 +40,14 @@ export default async function ChoosePage() {
             : "Pick a direction to follow. You can change it any time, and nothing is locked in."}
         </p>
       </div>
+
+      {!returning && (
+        <section className="space-y-3">
+          <p className="text-sm font-medium">Here's how the whole thing works:</p>
+          <HowItWorks />
+        </section>
+      )}
+
       <TrackSelector
         tracks={tracks}
         current={
