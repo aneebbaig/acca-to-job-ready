@@ -30,7 +30,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files — ignore real secrets but keep the committed template
+# env files, ignore real secrets but keep the committed template
 .env*
 !.env.example
 
@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI agent / assistant tool files, never commit (attribution policy)
+AGENTS.md
+CLAUDE.md
+.cursor/
+.github/copilot-instructions.md
