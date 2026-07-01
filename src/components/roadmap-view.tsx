@@ -100,6 +100,25 @@ export function RoadmapView({
         )}
       </div>
 
+      {/* Legend: make the node states self-explaining. */}
+      <div className="text-muted-foreground flex flex-wrap items-center gap-x-4 gap-y-1 text-xs">
+        <span>Tap any topic to open it.</span>
+        <span className="flex items-center gap-1.5">
+          <span className="bg-primary text-primary-foreground flex size-4 items-center justify-center rounded-full">
+            <Check className="size-2.5" />
+          </span>
+          Done
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="border-brass flex size-4 items-center justify-center rounded-full border-2" />
+          Do next
+        </span>
+        <span className="flex items-center gap-1.5">
+          <Circle className="text-muted-foreground/50 size-4" />
+          To do
+        </span>
+      </div>
+
       {/* Sections */}
       <div className="space-y-7">
         {sections.map((section) => (

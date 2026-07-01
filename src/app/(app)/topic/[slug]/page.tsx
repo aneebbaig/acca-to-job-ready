@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { requireUser } from "@/lib/auth-guards";
-import { getTopic, locateTopic } from "@/curriculum";
+import { getTopic, locateTopic, getAdjacentTopics } from "@/curriculum";
+import { getProfile } from "@/lib/profile";
 import { getTopicProgress } from "@/lib/progress";
 import { listResources } from "@/lib/resources";
 import { getAiSettings } from "@/lib/ai/settings";
@@ -11,6 +12,7 @@ import { ResourceManager } from "@/components/resource-manager";
 import { CompleteButton } from "@/components/complete-button";
 import { TopicPractice } from "@/components/topic-practice";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export const dynamic = "force-dynamic";
 
@@ -24,6 +26,19 @@ export async function generateMetadata({
   return { title: topic?.title ?? "Topic" };
 }
 
+// A small numbered marker so the flow of a topic reads as steps.
+function StepHeading({ n, children, hint }: { n: number; children: React.ReactNode; hint?: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="bg-secondary text-secondary-foreground flex size-6 shrink-0 items-center justify-center rounded-full font-mono text-xs font-semibold">
+        {n}
+      </span>
+      <h2 className="text-lg font-semibold">{children}</h2>
+      {hint && <p className="text-muted-foreground ml-auto text-xs">{hint}</p>}
+    </div>
+  );
+}
+
 export default async function TopicPage({
   params,
 }: {
@@ -35,12 +50,18 @@ export default async function TopicPage({
 
   const user = await requireUser();
   const located = locateTopic(slug);
-  const [progress, resources, aiSettings] = await Promise.all([
+  const [progress, resources, aiSettings, profile] = await Promise.all([
     getTopicProgress(user.id, slug),
     listResources(user.id, slug),
     getAiSettings(user.id),
+    getProfile(user.id),
   ]);
   const aiReady = Boolean(aiSettings?.provider && aiSettings?.model);
+  const { next } = getAdjacentTopics(
+    profile?.trackId ?? null,
+    profile?.branchId ?? null,
+    slug,
+  );
 
   return (
     <article className="space-y-8">
@@ -69,11 +90,19 @@ export default async function TopicPage({
         <p className="text-muted-foreground max-w-2xl leading-relaxed">
           {topic.intro}
         </p>
+        {/* Self-explaining: how to work through this topic. */}
+        <p className="text-muted-foreground bg-muted/50 rounded-lg px-3 py-2 text-xs">
+          Work top to bottom: read this intro, skim the cheatsheet, try a
+          practice task, then mark it complete when you feel solid.
+        </p>
         <div className="flex items-center gap-3">
           <CompleteButton slug={slug} completed={progress?.completed ?? false} />
           {progress?.bestScore != null && (
             <span className="text-muted-foreground text-sm">
-              Best practice score: {Math.round(progress.bestScore * 100)}%
+              Best practice score:{" "}
+              <span className="font-mono">
+                {Math.round(progress.bestScore * 100)}%
+              </span>
             </span>
           )}
         </div>
@@ -81,16 +110,17 @@ export default async function TopicPage({
 
       {/* Cheatsheet */}
       <section className="space-y-3">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Cheatsheet</h2>
-          <p className="text-muted-foreground text-xs">Quick reference. Verify anything marked.</p>
-        </div>
+        <StepHeading n={1} hint="Quick reference. Verify anything marked.">
+          Cheatsheet
+        </StepHeading>
         <Cheatsheet blocks={topic.cheatsheet} />
       </section>
 
       {/* Practice */}
       <section className="space-y-3">
-        <h2 className="text-lg font-semibold">Practice</h2>
+        <StepHeading n={2} hint="Unlimited fresh, AI-graded tasks.">
+          Practice
+        </StepHeading>
         <TopicPractice
           slug={slug}
           hasSkillSpec={Boolean(topic.skillSpec)}
@@ -100,13 +130,31 @@ export default async function TopicPage({
 
       {/* Resources */}
       <section className="space-y-3">
-        <h2 className="text-lg font-semibold">Your resources</h2>
+        <StepHeading n={3} hint="Save your own links.">
+          Your resources
+        </StepHeading>
         <ResourceManager
           slug={slug}
           resources={resources}
           slotHints={topic.resourceSlotHints}
         />
       </section>
+
+      {/* Always show what comes next so the path is never a dead end. */}
+      {next && (
+        <div className="bg-muted/50 flex flex-wrap items-center justify-between gap-3 rounded-xl border p-4">
+          <div>
+            <p className="text-brass text-xs font-medium uppercase tracking-wide">
+              Next up
+            </p>
+            <p className="font-medium">{next.title}</p>
+          </div>
+          <Button render={<Link href={`/topic/${next.slug}`} />} variant="outline">
+            Go to next topic
+            <ArrowRight className="size-4" />
+          </Button>
+        </div>
+      )}
     </article>
   );
 }
