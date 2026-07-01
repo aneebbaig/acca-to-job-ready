@@ -12,6 +12,7 @@ import { ResourceManager } from "@/components/resource-manager";
 import { CompleteButton } from "@/components/complete-button";
 import { TopicPractice } from "@/components/topic-practice";
 import { TopicStepper } from "@/components/topic-stepper";
+import { DatasetPractice } from "@/components/dataset-practice";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -139,6 +140,9 @@ export default async function TopicPage({
             topic.skillSpec?.taskTypes.includes("warmup_mcq"),
           )}
         />
+        {topic.skillSpec?.taskTypes.includes("excel_task") && (
+          <DatasetPractice slug={slug} aiReady={aiReady} />
+        )}
       </section>
 
       {/* Resources */}

@@ -11,6 +11,12 @@ export const tracks: Track[] = [
     goal: "Land a training contract at a Pakistani audit firm and build real, recognised experience.",
     description:
       "You join a firm, work on real audits, and earn the experience that makes you a credible 'auditor'. Harder to get in, but it opens the most doors.",
+    tools: [
+      { name: "Microsoft Excel", note: "Non-negotiable. Lookups, pivots, clean data." },
+      { name: "Audit file software", note: "Firm-specific (e.g. CaseWare). You learn it on the job." },
+      { name: "Data analytics basics", note: "The ideas behind tools like IDEA/ACL: sampling, filtering, testing whole populations." },
+      { name: "Word / PowerPoint", note: "Working papers, memos, client presentations." },
+    ],
     branches: [
       {
         id: "external-audit",
@@ -361,6 +367,13 @@ export const tracks: Track[] = [
     goal: "Earn by doing bookkeeping and accounts for clients, locally and on platforms like Upwork.",
     description:
       "You build practical bookkeeping skills and a portfolio, then find clients. Faster to income, more flexible, but you build credibility yourself.",
+    tools: [
+      { name: "QuickBooks Online", note: "The platform most small-business clients use." },
+      { name: "Xero", note: "The other major cloud platform. Concepts carry over from QuickBooks." },
+      { name: "Excel / Google Sheets", note: "For clean-up, reconciliations, and reports." },
+      { name: "FBR IRIS", note: "Pakistan's official tax portal. Always check current rates and deadlines at the source." },
+      { name: "Upwork / LinkedIn", note: "Where you set up a profile and find clients." },
+    ],
     branches: [
       {
         id: "bookkeeping-services",
