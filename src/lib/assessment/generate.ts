@@ -55,7 +55,43 @@ function contractFor(taskType: TaskType): string {
 ], "minRows": 4 }
 ANSWER KEY: include "solutionRows" (array of {account,debit,credit}), "debitKey":"debit", "creditKey":"credit".
 Total debits MUST equal total credits in solutionRows. Use 0 (not blank) for the unused side of each line.
-${check === "tb_balanced" ? 'For trial-balance correction, "given" must hold the unbalanced/mis-posted trial balance to fix, and solutionRows the corrected balances.' : 'For journal entries, "given" may hold the list of transactions, and solutionRows the correct journal lines.'}`;
+${
+        check === "tb_balanced"
+          ? 'For trial-balance correction, "given" must hold the unbalanced/mis-posted trial balance to fix, and solutionRows the corrected balances.'
+          : taskType === "adjusting_entries"
+            ? 'For adjusting entries, "given" holds the period-end information (accruals, prepayments, depreciation, bad debts), and solutionRows the correct adjusting journal lines.'
+            : 'For journal entries, "given" may hold the list of transactions, and solutionRows the correct journal lines.'
+      }`;
+  }
+
+  if (check === "numeric_match") {
+    if (taskType === "financial_statement_prep") {
+      return `INPUT SHAPE (rows):
+"input": { "kind": "rows", "columns": [
+  {"key":"line","label":"Line item","type":"text"},
+  {"key":"amount","label":"Amount (PKR)","type":"number"}
+], "minRows": 5 }
+"given" must hold the trial balance to work from.
+ANSWER KEY: include "solutionRows" (the expected key IS/BS lines with {line, amount}), "valueKey":"amount", "idKeys":["line"], and "balanceA" (total assets) and "balanceB" (total liabilities + equity) — they MUST be equal.`;
+    }
+    if (taskType === "ratio_analysis") {
+      return `INPUT SHAPE (rows):
+"input": { "kind": "rows", "columns": [
+  {"key":"ratio","label":"Ratio","type":"text"},
+  {"key":"value","label":"Your value","type":"number"},
+  {"key":"meaning","label":"What it tells you","type":"text"}
+], "minRows": 3 }
+"given" must hold the summarised figures (PKR) needed to compute the ratios. Use only universal ratio formulas (current ratio, gross/net margin, gearing, etc.).
+ANSWER KEY: include "solutionRows" (each {ratio, value, meaning}), "valueKey":"value", "idKeys":["ratio"]. The value must equal your own correct computation from the given figures.`;
+    }
+    // costing
+    return `INPUT SHAPE (rows):
+"input": { "kind": "rows", "columns": [
+  {"key":"item","label":"Item","type":"text"},
+  {"key":"value","label":"Value (PKR or units)","type":"number"}
+], "minRows": 3 }
+"given" must hold the cost / volume / budget data needed (variance, breakeven, or a simple budget).
+ANSWER KEY: include "solutionRows" (each {item, value}), "valueKey":"value", "idKeys":["item"]. Every value must be arithmetically correct from the given data.`;
   }
 
   if (check === "reconciles") {

@@ -117,7 +117,9 @@ export async function gradeSubmission(
 
   const check = codeCheckOf(taskType);
   if (check) {
-    // Numbers are code-authoritative; AI only explains (§8.1).
+    // Numbers are code-authoritative; AI explains. For numeric_match tasks
+    // (statements/ratios/costing) there's also an interpretation to grade, so
+    // blend the code number score with the AI's rubric score (§8.2 #6).
     const code = gradeNumericRows(taskType, key, submission);
     const aiPart = await aiGrade(
       provider,
@@ -127,10 +129,14 @@ export async function gradeSubmission(
       task,
       key,
       submission,
-      code ? `score ${(code.score * 100).toFixed(0)}%` : null,
+      code ? `numbers scored ${(code.score * 100).toFixed(0)}% in code` : null,
     );
+    let score = code ? code.score : aiPart.score;
+    if (check === "numeric_match" && code) {
+      score = code.score * 0.7 + aiPart.score * 0.3;
+    }
     return {
-      score: code ? code.score : aiPart.score,
+      score,
       points: [...(code?.points ?? []), ...aiPart.points],
       tip: aiPart.tip,
       interviewerNote: aiPart.interviewerNote,

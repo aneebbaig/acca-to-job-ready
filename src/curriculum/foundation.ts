@@ -482,6 +482,190 @@ export const foundation: Module[] = [
           generatorNotes: "Describe a dataset and a summarising goal; user explains the pivot setup. AI grades.",
         },
       },
+      {
+        slug: "excel-conditional-logic",
+        title: "Conditional logic",
+        status: "ready",
+        intro:
+          "Real spreadsheets make decisions: flag overdue invoices, band customers, total only what matches. IF and its friends are how you encode those rules.",
+        cheatsheet: [
+          {
+            kind: "formula",
+            heading: "The decision functions",
+            formulas: [
+              { name: "IF", expr: "IF(test, value_if_true, value_if_false)", means: "One yes/no decision." },
+              { name: "IFS", expr: "IFS(test1, val1, test2, val2, …)", means: "Several conditions without nesting IFs." },
+              { name: "SUMIFS", expr: "SUMIFS(sum_range, crit_range1, crit1, …)", means: "Total rows that meet all the criteria." },
+              { name: "COUNTIFS", expr: "COUNTIFS(crit_range1, crit1, …)", means: "Count rows that meet all the criteria." },
+            ],
+          },
+          {
+            kind: "points",
+            heading: "Watch for",
+            points: [
+              "Deeply nested IFs get unreadable — reach for IFS or a lookup table.",
+              "Criteria are text like \">1000\" or \"Overdue\".",
+              "SUMIFS puts the sum range first; SUMIF puts it last — don't mix them up.",
+            ],
+          },
+        ],
+        resourceSlotHints: ["A guide to IF/IFS/SUMIFS", "A practice workbook"],
+        skillSpec: {
+          concepts: ["Writing conditional formulas to flag, band, or total data"],
+          taskTypes: ["excel_task", "warmup_mcq"],
+          difficulty: { min: 1, max: 4 },
+          rubric: ["Formula logic is correct", "Handles the criteria properly", "Explained clearly"],
+          generatorNotes: "Describe a dataset and a conditional goal; the user submits the formula/approach as text. AI grades.",
+        },
+      },
+      {
+        slug: "excel-data-validation",
+        title: "Data validation and clean data",
+        status: "ready",
+        intro:
+          "Garbage in, garbage out. Data validation stops bad entries at the door, and a few cleaning habits keep a workbook trustworthy.",
+        cheatsheet: [
+          {
+            kind: "points",
+            heading: "Validation basics",
+            points: [
+              "Data → Data Validation restricts a cell to a list, a number range, or a date.",
+              "A dropdown list prevents typos and inconsistent categories.",
+              "Use it on input cells so downstream formulas can trust the data.",
+            ],
+          },
+          {
+            kind: "points",
+            heading: "Cleaning habits",
+            points: [
+              "TRIM removes stray spaces; CLEAN removes non-printing characters.",
+              "Convert text-numbers with VALUE (or a paste-special multiply by 1).",
+              "Keep one fact per column; don't merge cells in data ranges.",
+            ],
+          },
+        ],
+        resourceSlotHints: ["A data-validation tutorial", "A messy dataset to clean"],
+        skillSpec: {
+          concepts: ["Setting up data validation and cleaning a messy range"],
+          taskTypes: ["excel_task", "warmup_mcq"],
+          difficulty: { min: 1, max: 3 },
+          rubric: ["Correct validation rule", "Sensible cleaning approach", "Explained clearly"],
+          generatorNotes: "Describe a messy dataset and a validation/cleaning goal; the user submits their approach as text. AI grades.",
+        },
+      },
+      {
+        slug: "excel-power-query",
+        title: "Power Query concepts",
+        status: "ready",
+        intro:
+          "When you find yourself re-doing the same copy-paste-clean every month, Power Query records the steps once and replays them on next month's file. It's the biggest time-saver most bookkeepers never learn.",
+        cheatsheet: [
+          {
+            kind: "points",
+            heading: "The idea",
+            points: [
+              "Get & Transform (Power Query) imports data and records each cleaning step.",
+              "Re-run the query on new data and every step re-applies automatically.",
+              "Great for combining files, unpivoting, and repeatable month-end imports.",
+            ],
+          },
+          {
+            kind: "points",
+            heading: "Common steps",
+            points: [
+              "Remove columns, filter rows, split columns, change types.",
+              "Merge (join) and Append (stack) queries.",
+              "Load the cleaned result back to a table or the data model.",
+            ],
+          },
+        ],
+        resourceSlotHints: ["An intro to Power Query", "A repeatable-import example"],
+        skillSpec: {
+          concepts: ["Explaining how Power Query automates a repeatable clean/import"],
+          taskTypes: ["excel_task", "explain_to_client", "warmup_mcq"],
+          difficulty: { min: 2, max: 4 },
+          rubric: ["Correct understanding of the query-steps model", "Sensible steps for the goal", "Clear explanation"],
+          generatorNotes: "Describe a repetitive monthly import/clean; the user explains how Power Query would handle it. AI grades.",
+        },
+      },
+      {
+        slug: "excel-modeling",
+        title: "Simple financial modelling",
+        status: "ready",
+        intro:
+          "A small, clean model — assumptions in one place, calculations that flow, an answer at the end — is a skill clients pay well for. Structure matters as much as formulas.",
+        cheatsheet: [
+          {
+            kind: "points",
+            heading: "How to structure a model",
+            points: [
+              "Separate inputs (assumptions), calculations, and outputs.",
+              "Never hard-code a number inside a formula — reference an input cell.",
+              "Colour-code inputs so they're obvious; keep one calculation per row.",
+              "Build in checks (totals that must tie) so errors show themselves.",
+            ],
+          },
+        ],
+        resourceSlotHints: ["A modelling best-practices guide", "A simple model to rebuild"],
+        skillSpec: {
+          concepts: ["Structuring a simple, auditable spreadsheet model"],
+          taskTypes: ["excel_task", "explain_to_client", "warmup_mcq"],
+          difficulty: { min: 2, max: 5 },
+          rubric: ["Inputs separated from calculations", "No hard-coded numbers in formulas", "Includes a check"],
+          generatorNotes: "Describe a small modelling goal (e.g. a 12-month cash projection); the user explains their structure. AI grades.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "foundation-management",
+    title: "Costing and management basics",
+    summary:
+      "The management-accounting numbers owners actually ask for: variances, breakeven, and simple budgets.",
+    topics: [
+      {
+        slug: "costing-basics",
+        title: "Costing: variance, breakeven, and budgets",
+        status: "ready",
+        intro:
+          "Beyond recording the past, businesses want help planning. Knowing whether you beat budget, how many units cover your costs, and how to build a simple budget makes you useful to an owner.",
+        cheatsheet: [
+          {
+            kind: "formula",
+            heading: "The core calculations",
+            formulas: [
+              { name: "Contribution", expr: "Selling price − Variable cost (per unit)", means: "What each sale contributes toward fixed costs and profit." },
+              { name: "Breakeven (units)", expr: "Fixed costs ÷ Contribution per unit", means: "Units you must sell to cover all costs." },
+              { name: "Variance", expr: "Actual − Budget", means: "How far you landed from plan; label it favourable or adverse." },
+            ],
+          },
+          {
+            kind: "points",
+            heading: "Reading the numbers",
+            points: [
+              "A favourable variance isn't always good — investigate why.",
+              "Fixed costs stay put in the short run; variable costs move with volume.",
+              "A budget is a plan, not a promise — compare and learn.",
+            ],
+          },
+        ],
+        resourceSlotHints: ["A costing/breakeven walkthrough", "A budget-vs-actual example"],
+        skillSpec: {
+          concepts: [
+            "Computing contribution, breakeven, and simple variances",
+            "Explaining what the numbers mean",
+          ],
+          taskTypes: ["costing", "warmup_mcq", "explain_to_client"],
+          difficulty: { min: 2, max: 5 },
+          rubric: [
+            "Figures are arithmetically correct (code-checked).",
+            "Correct method for the question.",
+            "Sensible interpretation.",
+          ],
+          generatorNotes:
+            "Invent cost/volume/budget data (PKR, self-consistent). Provide the data in 'given'; the learner computes values the code re-checks.",
+        },
+      },
     ],
   },
 ];

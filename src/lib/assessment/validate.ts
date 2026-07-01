@@ -44,6 +44,21 @@ export function keyArithmeticValid(
     if (key.reconciledA == null || key.reconciledB == null) return false;
     return Math.abs(key.reconciledA - key.reconciledB) < EPS;
   }
+  if (check === "numeric_match") {
+    const rows = key.solutionRows ?? [];
+    if (rows.length === 0 || !key.valueKey) return false;
+    // Every solution row must carry a numeric value in the value column.
+    const allNumeric = rows.every((r) => {
+      const v = r[key.valueKey!];
+      return typeof v === "number" || (typeof v === "string" && v.trim() !== "");
+    });
+    if (!allNumeric) return false;
+    // If the key declares a balance identity, it must actually hold.
+    if (key.balanceA != null && key.balanceB != null) {
+      return Math.abs(key.balanceA - key.balanceB) < EPS;
+    }
+    return true;
+  }
   return true;
 }
 
@@ -64,6 +79,44 @@ export function gradeNumericRows(
 
   const subRows = submission.rows ?? [];
   const points: CodeGrade["points"] = [];
+
+  if (check === "numeric_match") {
+    // Compare each of the learner's figures to the key by identifier column.
+    const solRows = key.solutionRows ?? [];
+    const vKey = key.valueKey!;
+    const idKeys =
+      key.idKeys && key.idKeys.length
+        ? key.idKeys
+        : solRows.length
+          ? Object.keys(solRows[0]).filter((k) => k !== vKey)
+          : [];
+    let correct = 0;
+    let close = 0;
+    for (const sol of solRows) {
+      const sig = idKeys.map((k) => norm(sol[k])).join("|");
+      const cand = subRows.find(
+        (r) => idKeys.map((k) => norm(r[k])).join("|") === sig,
+      );
+      const label = idKeys.map((k) => sol[k]).join(" ");
+      if (!cand) {
+        points.push({ label, status: "missing", comment: "Line not found in your answer." });
+        continue;
+      }
+      const expected = num(sol[vKey]);
+      const got = num(cand[vKey]);
+      const tol = Math.max(EPS, Math.abs(expected) * 0.01); // 1% tolerance
+      if (Math.abs(got - expected) <= tol) {
+        correct++;
+        points.push({ label, status: "correct", comment: "Correct figure." });
+      } else {
+        close++;
+        points.push({ label, status: "partial", comment: "Figure differs from the worked solution." });
+      }
+    }
+    const total = Math.max(solRows.length, 1);
+    const score = Math.max(0, Math.min(1, (correct + 0.3 * close) / total));
+    return { score, points };
+  }
 
   if (check === "reconciles") {
     // The user submits adjusted balances in two fields; we re-tie them.

@@ -26,21 +26,15 @@ Honest list of what is intentionally incomplete or worth improving.
 - **Login rate-limiting is in-memory.** Fine for a single instance; swap for a
   durable store (e.g. Upstash/Redis) when running multiple instances.
 
-- **Code arithmetic validation covers the three core numeric types** — journal
-  entries, trial-balance correction, and bank reconciliation are re-checked in
-  code before serving and on grading. Adjusting entries, financial-statement
-  prep, ratios, and costing are AI-graded; extending the in-code arithmetic
-  re-check to those is a good next step. Control-deficiency answers use free-text
-  fields rather than a strict three-column table.
-
-- **Excel module is a starting slice** — lookups and pivot tables are authored;
-  conditional logic, data validation, Power Query, and simple modelling are
-  worth adding as topics.
-
-- **One task type is unmapped: `costing`** (variance analysis, breakeven, simple
-  budgets). The engine supports it, but the §13 seed curriculum has no
-  management-accounting topic to attach it to yet — add one and reference
-  `costing` in its skill-spec.
+- **Numeric answers are code-checked; some by balance, some by comparison.**
+  Journal, adjusting, and trial-balance tasks are re-checked in code for debit =
+  credit and a match to the key; bank reconciliation is re-tied; statement prep,
+  ratios, and costing compare each figure to the worked solution within a small
+  tolerance (the interpretation is AI-graded and blended in). The comparison
+  checks the learner's numbers against the key rather than re-deriving them from
+  first principles — good enough to catch wrong figures, but not a full symbolic
+  re-computation. Control-deficiency answers use free-text fields rather than a
+  strict three-column table.
 
 - **Practice depth varies by topic.** The assessment engine is wired across the
   foundation and the audit/freelance skill-specs, but not every topic has a
