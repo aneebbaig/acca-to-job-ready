@@ -37,6 +37,11 @@ Honest list of what is intentionally incomplete or worth improving.
   conditional logic, data validation, Power Query, and simple modelling are
   worth adding as topics.
 
+- **One task type is unmapped: `costing`** (variance analysis, breakeven, simple
+  budgets). The engine supports it, but the §13 seed curriculum has no
+  management-accounting topic to attach it to yet — add one and reference
+  `costing` in its skill-spec.
+
 - **Practice depth varies by topic.** The assessment engine is wired across the
   foundation and the audit/freelance skill-specs, but not every topic has a
   skill-spec yet. Topics without one show a "practice coming" note.

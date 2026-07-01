@@ -163,7 +163,7 @@ export const foundation: Module[] = [
             "Assembling a trial balance from ledger balances",
             "Locating and correcting posting errors so it balances",
           ],
-          taskTypes: ["trial_balance_correction", "warmup_mcq"],
+          taskTypes: ["trial_balance_correction", "error_spotting", "warmup_mcq"],
           difficulty: { min: 2, max: 5 },
           rubric: [
             "All corrections identified.",

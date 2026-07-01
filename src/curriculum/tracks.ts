@@ -106,8 +106,11 @@ export const tracks: Track[] = [
                 ],
                 resourceSlotHints: ["A list of common audit procedures", "Assertion-to-procedure examples"],
                 skillSpec: {
-                  concepts: ["Designing audit procedures for a given assertion"],
-                  taskTypes: ["audit_procedures", "technical_viva"],
+                  concepts: [
+                    "Designing audit procedures for a given assertion",
+                    "Justifying an evidence and sampling approach",
+                  ],
+                  taskTypes: ["audit_procedures", "evidence_sampling", "technical_viva"],
                   difficulty: { min: 3, max: 5 },
                   rubric: [
                     "Procedures genuinely test the named assertion.",
