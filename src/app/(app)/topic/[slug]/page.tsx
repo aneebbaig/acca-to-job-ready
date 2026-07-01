@@ -80,8 +80,9 @@ export default async function TopicPage({
         )}
       </nav>
 
-      {/* Sequence tracker: always visible, one current step highlighted. */}
-      <div className="bg-card rounded-xl border p-2">
+      {/* Sequence tracker: sticky so the current step stays in view while
+          scrolling a long topic. */}
+      <div className="bg-card/95 sticky top-2 z-10 rounded-xl border p-2 shadow-sm backdrop-blur">
         <TopicStepper
           completed={progress?.completed ?? false}
           hasScore={progress?.bestScore != null}
