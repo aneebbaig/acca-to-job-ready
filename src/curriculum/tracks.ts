@@ -156,6 +156,474 @@ export const tracks: Track[] = [
             ],
           },
           {
+            slug: "ea-planning-risk",
+            title: "Planning and risk assessment",
+            summary: "How auditors decide where the danger is and plan effort around it.",
+            topics: [
+              {
+                slug: "ea-understanding-entity",
+                title: "Understanding the entity",
+                status: "stub",
+                intro:
+                  "You can't audit what you don't understand. Learning the business, its industry, and how it makes money is the first real planning step.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "What to understand",
+                    points: [
+                      "The industry, regulation, and how the business earns and spends.",
+                      "Its accounting policies and any judgemental areas.",
+                      "Who runs it and how they're incentivised (fraud risk).",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An overview of business understanding in audit"],
+                skillSpec: {
+                  concepts: ["Explaining why and how auditors understand a business before auditing it"],
+                  taskTypes: ["technical_viva", "explain_to_client"],
+                  difficulty: { min: 2, max: 4 },
+                  rubric: ["Covers business, industry, and risk", "Clear reasoning"],
+                  generatorNotes: "Invent a Pakistani business. No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "ea-materiality-concepts",
+                title: "Materiality (as a concept)",
+                status: "stub",
+                intro:
+                  "Auditors don't chase every rupee. Materiality is the size of error that would change a user's decision, and it shapes the whole audit.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "The idea",
+                    points: [
+                      "Material = big enough to influence a user's decision.",
+                      "Set for the accounts as a whole, and lower for testing (performance materiality).",
+                      "It's a judgement, revisited as the audit progresses.",
+                    ],
+                  },
+                  {
+                    kind: "verify",
+                    heading: "Benchmarks and figures",
+                    note: "Any specific materiality percentage or benchmark is a firm/standard judgement, not a rule. Don't memorise a number.",
+                    link: { label: "ACCA (official)", url: "https://www.accaglobal.com" },
+                  },
+                ],
+                resourceSlotHints: ["A plain explainer on materiality"],
+                skillSpec: {
+                  concepts: ["Explaining materiality and performance materiality conceptually"],
+                  taskTypes: ["technical_viva"],
+                  difficulty: { min: 2, max: 5 },
+                  rubric: ["Correct concept", "Distinguishes overall vs performance materiality", "No invented figures"],
+                  generatorNotes: "Conceptual only. No specific percentages (§3.2).",
+                },
+              },
+              {
+                slug: "ea-risk-of-misstatement",
+                title: "Risks of material misstatement",
+                status: "stub",
+                intro:
+                  "The heart of planning: spot where the accounts are most likely to be wrong, and why, so testing goes there.",
+                cheatsheet: [
+                  {
+                    kind: "terms",
+                    heading: "The risk model",
+                    terms: [
+                      { term: "Inherent risk", def: "Susceptibility to misstatement before controls." },
+                      { term: "Control risk", def: "Risk controls won't prevent or catch it." },
+                      { term: "Detection risk", def: "Risk the auditor's own work misses it." },
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A worked risk-assessment example"],
+                skillSpec: {
+                  concepts: ["Identifying risks of material misstatement in a scenario and why they arise"],
+                  taskTypes: ["risk_identification", "technical_viva"],
+                  difficulty: { min: 2, max: 5 },
+                  rubric: ["Real, relevant risks", "Each explained", "Sensible spread"],
+                  generatorNotes: "Invent a Pakistani company scenario. No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "ea-analytical-procedures",
+                title: "Analytical procedures",
+                status: "stub",
+                intro:
+                  "Comparing numbers to what you'd expect, ratios, trends, relationships, flags where something looks off. Used at planning and throughout.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "How they work",
+                    points: [
+                      "Form an expectation, compare to the actual, investigate differences.",
+                      "Compare to prior year, budget, industry, and related figures.",
+                      "Cheap and powerful for spotting risk areas.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A guide to analytical procedures"],
+                skillSpec: {
+                  concepts: ["Designing and interpreting analytical procedures"],
+                  taskTypes: ["audit_procedures", "evidence_sampling"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Sensible expectation formed", "Right comparisons", "Follows up differences"],
+                  generatorNotes: "Invent figures (PKR, self-consistent). No standard numbers (§3.2).",
+                },
+              },
+            ],
+          },
+          {
+            slug: "ea-internal-control",
+            title: "Internal control",
+            summary: "Understanding and testing the controls the numbers depend on.",
+            topics: [
+              {
+                slug: "ea-control-environment",
+                title: "The control environment",
+                status: "stub",
+                intro:
+                  "Controls only work if the tone at the top supports them. The control environment is the culture the rest of the controls sit inside.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Signs of a strong environment",
+                    points: [
+                      "Clear responsibilities and segregation of duties.",
+                      "Management that takes controls seriously.",
+                      "Competent, supervised staff.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An overview of the control environment"],
+              },
+              {
+                slug: "ea-tests-of-controls",
+                title: "Tests of controls",
+                status: "stub",
+                intro:
+                  "If you plan to rely on a control, you have to prove it actually worked all year, not just that it exists on paper.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Common tests",
+                    points: [
+                      "Inspect evidence the control ran (signatures, reviews, reconciliations).",
+                      "Reperform the control on a sample.",
+                      "Observe it happening; enquire and corroborate.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["Examples of control tests"],
+                skillSpec: {
+                  concepts: ["Designing tests of controls for a stated control"],
+                  taskTypes: ["audit_procedures", "technical_viva"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Test actually proves the control operated", "Specific and doable"],
+                  generatorNotes: "Invent a control and process. No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "ea-control-deficiencies",
+                title: "Control deficiencies",
+                status: "stub",
+                intro:
+                  "When a control is missing or weak, you report it the same way every time: what's wrong, what could go wrong, and what to do about it.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Deficiency, implication, recommendation",
+                    points: [
+                      "Deficiency: the weakness or missing control.",
+                      "Implication: what could go wrong because of it.",
+                      "Recommendation: a practical, proportionate fix.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An example deficiencies letter"],
+                skillSpec: {
+                  concepts: ["Analysing a control deficiency: implication and recommendation"],
+                  taskTypes: ["control_deficiency", "case_analysis"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Deficiency identified", "Realistic implication", "Practical recommendation"],
+                  generatorNotes: "Invent a process with a real weakness (PKR where relevant).",
+                },
+              },
+            ],
+          },
+          {
+            slug: "ea-specific-areas",
+            title: "Auditing specific areas",
+            summary: "How you actually test the big balances in a set of accounts.",
+            topics: [
+              {
+                slug: "ea-audit-receivables",
+                title: "Auditing receivables",
+                status: "stub",
+                intro:
+                  "Are the amounts customers owe real, complete, and collectable? Receivables testing is a rite of passage for juniors.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Key procedures",
+                    points: [
+                      "Confirmations to customers (existence, rights).",
+                      "After-date cash: did they pay after year-end?",
+                      "Review the aged listing for old, doubtful balances (valuation).",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A receivables audit programme"],
+                skillSpec: {
+                  concepts: ["Designing procedures for receivables assertions"],
+                  taskTypes: ["audit_procedures", "working_paper_note"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Procedures match the assertion", "Specific and practical"],
+                  generatorNotes: "Invent balances (PKR). No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "ea-audit-payables",
+                title: "Auditing payables",
+                status: "stub",
+                intro:
+                  "With payables the worry is understatement, missing liabilities. Completeness is the assertion that keeps auditors up at night.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Key procedures",
+                    points: [
+                      "Search for unrecorded liabilities (post year-end invoices/payments).",
+                      "Supplier statement reconciliations.",
+                      "Cut-off around the year-end.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A payables audit programme"],
+                skillSpec: {
+                  concepts: ["Designing procedures for payables, focusing on completeness"],
+                  taskTypes: ["audit_procedures"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Targets completeness", "Specific procedures"],
+                  generatorNotes: "Invent balances (PKR). No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "ea-audit-inventory",
+                title: "Auditing inventory",
+                status: "stub",
+                intro:
+                  "Inventory is physical, valued with judgement, and easy to get wrong, which is why auditors attend the count.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Key procedures",
+                    points: [
+                      "Attend the count: observe, test-count both ways.",
+                      "Valuation: lower of cost and net realisable value.",
+                      "Cut-off: last goods in/out before year-end.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An inventory count guide"],
+                skillSpec: {
+                  concepts: ["Designing inventory procedures, count and valuation"],
+                  taskTypes: ["audit_procedures", "technical_viva"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Covers existence and valuation", "Count attendance understood"],
+                  generatorNotes: "Invent a scenario. No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "ea-audit-cash",
+                title: "Auditing cash and bank",
+                status: "stub",
+                intro:
+                  "Cash is small in value but high in risk, easy to steal, easy to manipulate at year-end. Confirmations and reconciliations do the heavy lifting.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Key procedures",
+                    points: [
+                      "Bank confirmations direct from the bank.",
+                      "Review the year-end bank reconciliation.",
+                      "Watch for window-dressing around the cut-off.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A cash and bank audit programme"],
+                skillSpec: {
+                  concepts: ["Designing procedures for cash and bank"],
+                  taskTypes: ["audit_procedures"],
+                  difficulty: { min: 2, max: 4 },
+                  rubric: ["Confirmation + reconciliation covered", "Cut-off considered"],
+                  generatorNotes: "Invent balances (PKR). No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "ea-audit-nca",
+                title: "Auditing non-current assets",
+                status: "stub",
+                intro:
+                  "Big, long-lived assets: do they exist, are they owned, and are they carried at a sensible amount after depreciation?",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Key procedures",
+                    points: [
+                      "Physically verify a sample; inspect ownership documents.",
+                      "Recompute depreciation; assess useful lives.",
+                      "Check additions and disposals are real and complete.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A non-current assets audit programme"],
+                skillSpec: {
+                  concepts: ["Designing procedures for non-current assets"],
+                  taskTypes: ["audit_procedures", "working_paper_note"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Existence, rights, valuation covered", "Depreciation checked"],
+                  generatorNotes: "Invent figures (PKR). No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "ea-audit-revenue",
+                title: "Auditing revenue",
+                status: "stub",
+                intro:
+                  "Revenue is where the pressure to look good bites hardest, so it usually carries a presumed fraud risk. Cut-off and occurrence matter most.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Key procedures",
+                    points: [
+                      "Cut-off: sales recorded in the right period.",
+                      "Occurrence: the sales are real (trace to dispatch/cash).",
+                      "Analytical review of margins and trends.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A revenue audit approach"],
+                skillSpec: {
+                  concepts: ["Identifying revenue risks and designing procedures"],
+                  taskTypes: ["risk_identification", "audit_procedures"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Cut-off and occurrence addressed", "Fraud risk understood"],
+                  generatorNotes: "Invent a business (PKR). No standard numbers (§3.2).",
+                },
+              },
+            ],
+          },
+          {
+            slug: "ea-completion-reporting",
+            title: "Completion and reporting",
+            summary: "Wrapping up the audit and forming the opinion, the part everyone reads.",
+            topics: [
+              {
+                slug: "ea-going-concern",
+                title: "Going concern",
+                status: "stub",
+                intro:
+                  "Can the business keep trading for the foreseeable future? If that's in doubt, the accounts, and the audit report, change.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "Indicators to watch",
+                    points: [
+                      "Losses, negative cash flow, breached loan terms.",
+                      "Suppliers on cash-only, key customers lost.",
+                      "Consider management's plans and their realism.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A going-concern explainer"],
+                skillSpec: {
+                  concepts: ["Spotting going-concern indicators and the audit response"],
+                  taskTypes: ["risk_identification", "technical_viva"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Relevant indicators", "Sensible response"],
+                  generatorNotes: "Invent a struggling business (PKR). No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "ea-subsequent-events",
+                title: "Subsequent events",
+                status: "stub",
+                intro:
+                  "Things that happen after year-end but before the report can still change the accounts. Auditors keep looking right up to signing.",
+                cheatsheet: [
+                  {
+                    kind: "terms",
+                    heading: "Two kinds",
+                    terms: [
+                      { term: "Adjusting", def: "Confirms a condition that existed at year-end, adjust the accounts." },
+                      { term: "Non-adjusting", def: "New condition after year-end, disclose if material." },
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["A subsequent-events explainer"],
+                skillSpec: {
+                  concepts: ["Classifying subsequent events and the response"],
+                  taskTypes: ["technical_viva", "case_analysis"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Correct classification", "Right accounting response"],
+                  generatorNotes: "Invent events. No standard numbers (§3.2).",
+                },
+              },
+              {
+                slug: "ea-written-representations",
+                title: "Written representations",
+                status: "stub",
+                intro:
+                  "A signed letter from management confirming things only they can, that they've told you everything, judgements are reasonable, and so on.",
+                cheatsheet: [
+                  {
+                    kind: "points",
+                    heading: "What they are and aren't",
+                    points: [
+                      "Audit evidence, but weak on its own.",
+                      "Used where other evidence can't reasonably exist.",
+                      "Never a substitute for testing.",
+                    ],
+                  },
+                ],
+                resourceSlotHints: ["An example representation letter"],
+              },
+              {
+                slug: "ea-audit-opinions",
+                title: "Types of audit opinion",
+                status: "stub",
+                intro:
+                  "The opinion is the whole point. Know the difference between a clean report and the ways it can be modified, in plain terms.",
+                cheatsheet: [
+                  {
+                    kind: "terms",
+                    heading: "The opinions",
+                    terms: [
+                      { term: "Unmodified", def: "Clean, accounts give a true and fair view." },
+                      { term: "Qualified", def: "'Except for' a specific issue." },
+                      { term: "Adverse", def: "Accounts as a whole do not give a true and fair view." },
+                      { term: "Disclaimer", def: "Couldn't get enough evidence to form an opinion." },
+                    ],
+                  },
+                  {
+                    kind: "verify",
+                    heading: "Report wording and standards",
+                    note: "Exact report wording and the standards behind it are prescribed and updated. Confirm current wording rather than memorising it.",
+                    link: { label: "ACCA (official)", url: "https://www.accaglobal.com" },
+                  },
+                ],
+                resourceSlotHints: ["A plain guide to audit opinions"],
+                skillSpec: {
+                  concepts: ["Choosing the right opinion for a situation and explaining why"],
+                  taskTypes: ["technical_viva", "case_analysis"],
+                  difficulty: { min: 3, max: 5 },
+                  rubric: ["Correct opinion", "Sound reasoning (material vs pervasive)"],
+                  generatorNotes: "Invent a scenario (misstatement or evidence limitation). No exact report wording (§3.2).",
+                },
+              },
+            ],
+          },
+          {
             slug: "ea-firm-interview-prep",
             title: "Firm interview & training-contract prep",
             summary: "Getting through a Pakistani firm's interview and into a training contract.",
