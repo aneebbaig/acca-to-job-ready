@@ -358,17 +358,37 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-receivables",
                 title: "Auditing receivables",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Are the amounts customers owe real, complete, and collectable? Receivables testing is a rite of passage for juniors.",
+                  "Receivables are one of the first balances a junior is handed. The questions are always the same: are the amounts customers owe real, is anything missing, and will the money actually come in? Your job is to gather evidence for each of those.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Key procedures",
+                    heading: "Core procedures",
                     points: [
-                      "Confirmations to customers (existence, rights).",
-                      "After-date cash: did they pay after year-end?",
-                      "Review the aged listing for old, doubtful balances (valuation).",
+                      "Send confirmations to a sample of customers and follow up non-replies.",
+                      "Check after-date cash: which balances were settled after year-end?",
+                      "Review the aged listing; investigate old balances for recoverability.",
+                      "Test cut-off: are sales near year-end in the right period?",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "Which assertion each test supports",
+                    terms: [
+                      { term: "Existence", def: "Confirmations and after-date cash prove the debtor is real." },
+                      { term: "Valuation", def: "Aged listing review and the allowance for doubtful debts." },
+                      { term: "Completeness", def: "Less of a worry here; the risk is overstatement, not omission." },
+                      { term: "Cut-off", def: "Sales recorded in the correct accounting period." },
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "What juniors get wrong",
+                    points: [
+                      "Treating a non-reply to a confirmation as 'fine' instead of doing alternative procedures.",
+                      "Forgetting that a paid-after-date balance still needs the sale to be genuine.",
+                      "Not questioning a suspiciously old balance still shown as fully collectable.",
                     ],
                   },
                 ],
@@ -384,17 +404,35 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-payables",
                 title: "Auditing payables",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "With payables the worry is understatement, missing liabilities. Completeness is the assertion that keeps auditors up at night.",
+                  "Receivables and payables mirror each other, and the risk flips. A business is tempted to overstate what it's owed and understate what it owes, so with payables the danger is a missing liability. Completeness is the assertion you chase hardest here.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Key procedures",
+                    heading: "Core procedures",
                     points: [
-                      "Search for unrecorded liabilities (post year-end invoices/payments).",
-                      "Supplier statement reconciliations.",
-                      "Cut-off around the year-end.",
+                      "Search for unrecorded liabilities: review post year-end invoices and payments.",
+                      "Reconcile supplier statements to the ledger and explain differences.",
+                      "Test cut-off: are purchases near year-end in the right period?",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why the search for unrecorded liabilities matters",
+                    points: [
+                      "Invoices that arrive after year-end often relate to goods received before it.",
+                      "A payment made after year-end is a clue to a liability that existed at it.",
+                      "Missing these overstates profit and understates what the business owes.",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "The key assertions",
+                    terms: [
+                      { term: "Completeness", def: "The main risk: are all liabilities recorded?" },
+                      { term: "Cut-off", def: "Purchases in the correct period." },
+                      { term: "Existence", def: "Recorded payables are genuine obligations." },
                     ],
                   },
                 ],
@@ -410,17 +448,37 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-inventory",
                 title: "Auditing inventory",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Inventory is physical, valued with judgement, and easy to get wrong, which is why auditors attend the count.",
+                  "Inventory is physical, it moves, and its value depends on judgement, so it carries risk on several fronts at once. That is why the auditor turns up in person on count day rather than trusting a spreadsheet.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Key procedures",
+                    heading: "At the count",
                     points: [
-                      "Attend the count: observe, test-count both ways.",
-                      "Valuation: lower of cost and net realisable value.",
-                      "Cut-off: last goods in/out before year-end.",
+                      "Observe whether the client's count is done properly and controlled.",
+                      "Test-count both ways: from the floor to the records, and records to the floor.",
+                      "Note damaged or slow-moving items that may not be worth full value.",
+                      "Record cut-off details: the last goods received and dispatched.",
+                    ],
+                  },
+                  {
+                    kind: "formula",
+                    heading: "The valuation rule",
+                    formulas: [
+                      {
+                        name: "Inventory value",
+                        expr: "Lower of cost and net realisable value",
+                        means: "If it can only be sold for less than it cost, write it down to that lower figure.",
+                      },
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "The two directions of test-counting",
+                    terms: [
+                      { term: "Floor to records", def: "Proves completeness: everything present is recorded." },
+                      { term: "Records to floor", def: "Proves existence: everything recorded is actually there." },
                     ],
                   },
                 ],
@@ -436,17 +494,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-cash",
                 title: "Auditing cash and bank",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Cash is small in value but high in risk, easy to steal, easy to manipulate at year-end. Confirmations and reconciliations do the heavy lifting.",
+                  "The cash figure is usually small, but the risk is not. Cash is the easiest thing to steal and the easiest to dress up at year-end, so the auditor leans on independent confirmation and a careful look at the reconciliation.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Key procedures",
+                    heading: "Core procedures",
                     points: [
-                      "Bank confirmations direct from the bank.",
-                      "Review the year-end bank reconciliation.",
-                      "Watch for window-dressing around the cut-off.",
+                      "Get a bank confirmation directly from the bank, not from the client.",
+                      "Agree the confirmed balance to the year-end bank reconciliation.",
+                      "Check the reconciling items are real and clear shortly after year-end.",
+                      "Watch for window-dressing: cheques written but held back, or transfers timed to flatter cash.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why the confirmation comes from the bank",
+                    points: [
+                      "A client-provided statement can be altered; a direct confirmation cannot.",
+                      "It also surfaces things the client might not mention: loans, guarantees, other accounts.",
                     ],
                   },
                 ],
@@ -462,17 +529,28 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-nca",
                 title: "Auditing non-current assets",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Big, long-lived assets: do they exist, are they owned, and are they carried at a sensible amount after depreciation?",
+                  "These are the big, long-lived things a business owns: property, plant, machinery, vehicles. Three questions run through the whole area: do they exist, does the business actually own them, and are they carried at a sensible value after depreciation?",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Key procedures",
+                    heading: "Core procedures",
                     points: [
-                      "Physically verify a sample; inspect ownership documents.",
-                      "Recompute depreciation; assess useful lives.",
-                      "Check additions and disposals are real and complete.",
+                      "Physically inspect a sample of assets from the register.",
+                      "Inspect ownership evidence: title deeds, registration, invoices.",
+                      "Recompute depreciation and challenge the useful lives used.",
+                      "Vouch a sample of additions and disposals to supporting documents.",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "The assertions in play",
+                    terms: [
+                      { term: "Existence", def: "Physical inspection: the asset is really there." },
+                      { term: "Rights", def: "Ownership documents: the business actually owns it." },
+                      { term: "Valuation", def: "Depreciation is reasonable and impairment considered." },
+                      { term: "Completeness", def: "Additions and disposals are all recorded." },
                     ],
                   },
                 ],
@@ -488,17 +566,27 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-revenue",
                 title: "Auditing revenue",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Revenue is where the pressure to look good bites hardest, so it usually carries a presumed fraud risk. Cut-off and occurrence matter most.",
+                  "Revenue is where the pressure to look good bites hardest, so auditing standards treat it as carrying a built-in fraud risk unless you can argue otherwise. The two questions that matter most are whether the sales are real, and whether they landed in the right year.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Key procedures",
+                    heading: "Core procedures",
                     points: [
-                      "Cut-off: sales recorded in the right period.",
-                      "Occurrence: the sales are real (trace to dispatch/cash).",
-                      "Analytical review of margins and trends.",
+                      "Occurrence: trace a sample of sales to dispatch notes and cash received.",
+                      "Cut-off: check sales either side of year-end are in the correct period.",
+                      "Analytical review: do margins and monthly trends make sense?",
+                      "Test for unusual entries, like large sales just before year-end that reverse after.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Common revenue manipulations to look for",
+                    points: [
+                      "Recording sales early to pull next year's revenue into this year.",
+                      "Invented sales to customers who never received goods.",
+                      "Round-tripping: selling and quietly buying back to inflate turnover.",
                     ],
                   },
                 ],
