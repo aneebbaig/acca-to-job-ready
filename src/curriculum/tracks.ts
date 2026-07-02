@@ -1444,18 +1444,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-quickbooks",
                 title: "QuickBooks Online basics",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Most small-business clients are on QuickBooks Online. Knowing the day-to-day flow, invoices, bills, bank feeds, reconciliation, is what they hire for.",
+                  "QuickBooks Online is the platform most small-business clients are already on, so being fluent in it is often the thing that gets you hired. The day-to-day is invoices, bills, bank feeds, and reconciliation, done consistently.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "The daily flow",
                     points: [
-                      "Connect the bank feed; categorise transactions.",
-                      "Raise invoices and record bills.",
-                      "Reconcile accounts regularly.",
-                      "Run the basic reports the client wants.",
+                      "Connect the bank feed and categorise imported transactions.",
+                      "Raise invoices to customers and record bills from suppliers.",
+                      "Reconcile the bank and card accounts regularly.",
+                      "Run the reports the client actually looks at.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Getting good, fast",
+                    points: [
+                      "Use the free QuickBooks sample company to practise without risk.",
+                      "Learn keyboard shortcuts and bank rules to speed up categorising.",
+                      "The QuickBooks ProAdvisor programme is free and teaches the platform.",
                     ],
                   },
                 ],
@@ -1464,17 +1473,25 @@ export const tracks: Track[] = [
               {
                 slug: "fl-xero",
                 title: "Xero basics",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Xero is the other major platform. The concepts carry over from QuickBooks; the buttons move.",
+                  "Xero is the other major cloud platform, popular with UK and Australian clients. The concepts are the same as QuickBooks, only the buttons move, so once you know one, the second is mostly about learning the layout.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "What transfers",
+                    heading: "What transfers from QuickBooks",
                     points: [
                       "Same core flow: bank feeds, invoices, bills, reconciliation.",
-                      "Learn where reconciliation and reporting live.",
-                      "Being comfortable in both is a selling point.",
+                      "The concepts (double-entry, reconciliation) are identical.",
+                      "You mainly relearn where features live and what they are called.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why learn both",
+                    points: [
+                      "Clients are split across the two; knowing both widens your market.",
+                      "Xero has its own free certification and demo company to practise on.",
                     ],
                   },
                 ],
@@ -1483,9 +1500,9 @@ export const tracks: Track[] = [
               {
                 slug: "fl-bank-feeds",
                 title: "Bank feeds and reconciliation",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Most day-to-day bookkeeping is categorising bank transactions and reconciling. Get fast and accurate at this and clients keep you.",
+                  "The bulk of day-to-day bookkeeping is categorising bank transactions and reconciling. It sounds dull, but doing it fast and accurately is exactly what keeps a client paying you every month.",
                 cheatsheet: [
                   {
                     kind: "points",
@@ -1493,8 +1510,17 @@ export const tracks: Track[] = [
                     points: [
                       "Connect the bank feed so transactions import automatically.",
                       "Categorise each transaction to the right account.",
-                      "Match payments to invoices and bills.",
+                      "Match payments to the invoices and bills they settle.",
                       "Reconcile so the software balance ties to the bank statement.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Working faster",
+                    points: [
+                      "Set up bank rules to auto-categorise repeat transactions.",
+                      "Deal with anything you cannot categorise by asking the client, not guessing.",
+                      "Reconcile little and often rather than a monthly scramble.",
                     ],
                   },
                 ],
@@ -1503,17 +1529,26 @@ export const tracks: Track[] = [
               {
                 slug: "fl-chart-of-accounts",
                 title: "Setting up a chart of accounts",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "The chart of accounts is the list of categories everything gets sorted into. A clean one makes every report readable.",
+                  "The chart of accounts is the list of categories every transaction gets sorted into. Get it right and every report reads clearly; get it wrong and the accounts are a mess no matter how carefully you post.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Keep it usable",
                     points: [
                       "Group by type: income, cost of sales, expenses, assets, liabilities, equity.",
-                      "Enough detail to be useful, not so much it's noise.",
-                      "Match it to how the owner thinks about the business.",
+                      "Enough detail to be useful, not so much it becomes noise.",
+                      "Match it to how the owner actually thinks about the business.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Common mistakes",
+                    points: [
+                      "Too many accounts nobody uses: harder to categorise, harder to read.",
+                      "Mixing types, like an expense sitting under income.",
+                      "Renaming defaults without thinking about the reports they feed.",
                     ],
                   },
                 ],
@@ -1529,17 +1564,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-recording-transactions",
                 title: "Recording transactions cleanly",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Sales, purchases, expenses, and payments recorded consistently, with the right dates and categories. Boring done well is the job.",
+                  "Sales, purchases, expenses, and payments, recorded consistently with the right dates and categories. It is not glamorous, but boring done reliably is exactly what a client pays a bookkeeper for.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Habits that keep books clean",
                     points: [
-                      "One consistent method for each transaction type.",
-                      "Attach the receipt or invoice where you can.",
-                      "Never guess a category, ask the client if unsure.",
+                      "Use one consistent method for each transaction type.",
+                      "Attach the receipt or invoice to the entry where you can.",
+                      "Never guess a category; ask the client when unsure.",
+                      "Record in real time, not in a year-end panic.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why consistency matters",
+                    points: [
+                      "Inconsistent categorising makes reports meaningless.",
+                      "Clean books make month-end and tax time fast.",
+                      "It is far cheaper to record right than to clean up later.",
                     ],
                   },
                 ],
@@ -1555,17 +1600,26 @@ export const tracks: Track[] = [
               {
                 slug: "fl-ap-ar",
                 title: "Managing bills and invoices",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Keeping track of what the client owes and what they're owed, and chasing the gaps, is a service owners value highly.",
+                  "Keeping track of what the client owes suppliers and what customers owe them, and chasing the gaps, is a service owners value highly because it directly affects their cash. Do it well and you become indispensable.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "What good looks like",
                     points: [
-                      "Raise and send invoices promptly; record bills when they arrive.",
+                      "Raise and send invoices promptly; record bills the day they arrive.",
                       "Keep the aged receivables and payables lists current.",
-                      "Flag overdue amounts so nothing slips.",
+                      "Flag overdue customer amounts so nothing slips.",
+                      "Schedule supplier payments so nothing is late or missed.",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "The two sides",
+                    terms: [
+                      { term: "Accounts receivable", def: "Money customers owe the business. Chase it in." },
+                      { term: "Accounts payable", def: "Money the business owes suppliers. Pay it on time, not early." },
                     ],
                   },
                 ],
@@ -1574,7 +1628,7 @@ export const tracks: Track[] = [
               {
                 slug: "fl-sales-tax-basics",
                 title: "Sales tax basics (Pakistan)",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Some clients are registered for sales tax. Know the mechanics of recording it, and always confirm current rates and rules at the source.",
                 cheatsheet: [
@@ -1599,17 +1653,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-bookkeeping-cleanup",
                 title: "Cleaning up messy books",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "New clients often arrive with a year of muddled records. Fixing them is a common, well-paid first job.",
+                  "New clients often arrive with a year of muddled, half-done records. Fixing them is one of the most common and best-paid first jobs a freelance bookkeeper gets, and a clean set of books is often the start of an ongoing engagement.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "A clean-up approach",
                     points: [
-                      "Reconcile every account to a known-correct balance first.",
-                      "Fix miscategorised and duplicated transactions.",
+                      "Reconcile every account back to a known-correct balance first.",
+                      "Fix miscategorised, duplicated, and missing transactions.",
+                      "Deal with the opening balances so the starting point is right.",
                       "Document what you changed and why.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Protect yourself",
+                    points: [
+                      "Agree the scope and a fixed fee before you start; clean-ups can balloon.",
+                      "Keep a log of issues found in case questions come later.",
+                      "Turn the clean-up into a monthly retainer if it goes well.",
                     ],
                   },
                 ],
@@ -1625,18 +1689,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-month-end-close",
                 title: "The month-end close",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "A reliable monthly close is what separates a bookkeeper a client trusts from one they don't. It's a checklist done consistently.",
+                  "A reliable monthly close is what separates a bookkeeper a client trusts from one they check up on. There is nothing clever about it, just a checklist done the same way every month so the numbers can be relied on.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "A close checklist",
                     points: [
                       "Reconcile every bank and card account.",
-                      "Post accruals, prepayments, depreciation.",
-                      "Review the trial balance for oddities.",
-                      "Produce the management report.",
+                      "Post accruals, prepayments, and depreciation.",
+                      "Review the trial balance for anything that looks odd.",
+                      "Produce the management report and send it on time.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why a consistent close matters",
+                    points: [
+                      "The owner gets numbers they can act on, on a predictable date.",
+                      "Errors are caught monthly, not discovered at year-end.",
+                      "A repeatable checklist means you can hand it over or scale up.",
                     ],
                   },
                 ],
@@ -1645,7 +1718,7 @@ export const tracks: Track[] = [
               {
                 slug: "fl-management-accounts",
                 title: "Management accounts owners actually use",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Owners want a short monthly read on how the business is doing, not a pile of numbers. Turning the books into a clear summary is a premium service.",
                 cheatsheet: [
@@ -1671,7 +1744,7 @@ export const tracks: Track[] = [
               {
                 slug: "fl-cash-flow-forecast",
                 title: "Simple cash flow forecasting",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Profit is not cash. A short forecast of money in and out over the coming weeks is often the most valued thing you can give an owner.",
                 cheatsheet: [
@@ -1704,7 +1777,7 @@ export const tracks: Track[] = [
               {
                 slug: "fl-fbr-iris",
                 title: "FBR IRIS: the basics",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Clients will ask about filing. Know your way around the official FBR IRIS portal and always check current rates and deadlines at the source.",
                 cheatsheet: [
@@ -1736,17 +1809,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-upwork-profile",
                 title: "Setting up an Upwork / LinkedIn profile",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Clients hire a clear, credible profile. A focused niche and proof of skill beat a long list of everything.",
+                  "On a marketplace, your profile is your shopfront. Clients skim dozens of them, so a clear niche and visible proof of skill beat a long list of everything you can supposedly do.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "A profile that wins work",
                     points: [
-                      "Pick a clear niche (e.g. 'QuickBooks bookkeeping for small UK/US firms').",
-                      "Show proof: sample work, a portfolio piece, a certification.",
-                      "Write the headline around the client's problem, not your titles.",
+                      "Pick a clear niche, like 'QuickBooks bookkeeping for small UK and US firms'.",
+                      "Show proof: a sample month-end pack, a portfolio piece, a certification.",
+                      "Write the headline around the client's problem, not your job titles.",
+                      "Use a clear photo and specific, results-focused wording.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Getting the first reviews",
+                    points: [
+                      "Early on, take a couple of smaller jobs to build reviews.",
+                      "Over-deliver on those first clients; reviews are your reputation.",
+                      "Keep the profile updated as your niche sharpens.",
                     ],
                   },
                 ],
@@ -1755,7 +1838,7 @@ export const tracks: Track[] = [
               {
                 slug: "fl-client-communication",
                 title: "Explaining numbers to clients",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Freelancing rewards clear communication. Clients aren't accountants, explaining plainly builds trust and repeat work.",
                 cheatsheet: [
@@ -1781,17 +1864,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-pricing",
                 title: "Pricing your services",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Charging too little is the most common mistake new freelancers make. Price for the value and the time, not just the hour.",
+                  "Charging too little is the most common mistake new freelancers make, and it is hard to undo once a client is used to it. Price for the value you provide and the time it takes, not just a bare hourly rate.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Ways to price",
                     points: [
-                      "Fixed monthly fee for a defined scope (owners like predictability).",
+                      "Fixed monthly fee for a defined scope; owners like the predictability.",
                       "Per-project for one-off jobs like a clean-up.",
-                      "Raise your rate as your proof and speed grow.",
+                      "Hourly only where scope is genuinely unknown, and cap it.",
+                      "Raise your rate as your proof, speed, and reviews grow.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Avoiding the underpricing trap",
+                    points: [
+                      "Price the outcome for the client, not just your cost.",
+                      "Include a little room for the inevitable extra questions.",
+                      "It is easier to start at a fair price than to raise one later.",
                     ],
                   },
                 ],
@@ -1800,7 +1893,7 @@ export const tracks: Track[] = [
               {
                 slug: "fl-proposals",
                 title: "Writing proposals that win",
-                status: "stub",
+                status: "ready",
                 intro:
                   "A good proposal shows you understood the client's problem and can solve it. Most freelancers write about themselves instead.",
                 cheatsheet: [
@@ -1826,17 +1919,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-client-onboarding",
                 title: "Onboarding a new client",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "A smooth start sets the tone. Agreeing scope, getting access, and setting expectations early prevents most later problems.",
+                  "A smooth start sets the tone for the whole relationship. Agreeing scope, getting the right access, and setting expectations in the first week prevents most of the problems that sour engagements later.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "First-week checklist",
                     points: [
-                      "Agree scope and fee in writing.",
+                      "Agree scope and fee in writing before any work.",
                       "Get access to the accounting software and bank feeds.",
-                      "Set how and when you'll communicate and report.",
+                      "Collect opening balances and prior records.",
+                      "Set how and when you will communicate and report.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Set boundaries early",
+                    points: [
+                      "Be clear what is in scope and what costs extra.",
+                      "Agree response times so expectations are realistic.",
+                      "A short engagement letter protects both sides.",
                     ],
                   },
                 ],
@@ -1845,17 +1948,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-portfolio",
                 title: "Building a portfolio",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "With no job history, proof of work is what wins clients. A small portfolio of clean sample work does the job.",
+                  "With no job history, proof of work is what wins clients. You do not need real clients to start: a small portfolio of clean, made-up sample work shows you can do the job and gives a nervous first client confidence.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "What to include",
                     points: [
-                      "A sample month-end pack (with made-up figures).",
+                      "A sample month-end pack built from made-up figures.",
                       "A before-and-after of a books clean-up.",
-                      "A short note on the tools you use.",
+                      "A short note on the tools and process you use.",
+                      "Any certifications (QuickBooks, Xero, ACCA progress).",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Using it",
+                    points: [
+                      "Link it from your Upwork and LinkedIn profiles.",
+                      "Reference the most relevant piece in each proposal.",
+                      "Swap sample work for real (anonymised) work as you get it.",
                     ],
                   },
                 ],
