@@ -4,7 +4,7 @@ import type { ProviderId, ProviderMeta } from "./types";
 export const PROVIDERS: Record<ProviderId, ProviderMeta> = {
   anthropic: {
     id: "anthropic",
-    label: "Anthropic (Claude)",
+    label: "Anthropic",
     defaultModel: "claude-opus-4-8",
     keysUrl: "https://console.anthropic.com/settings/keys",
   },

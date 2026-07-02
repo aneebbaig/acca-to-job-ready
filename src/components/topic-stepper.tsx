@@ -17,7 +17,7 @@ export function TopicStepper({
   hasScore: boolean;
   hasPractice: boolean;
 }) {
-  // One, and only one, step is "current" — the next thing to do.
+  // One, and only one, step is "current", the next thing to do.
   const steps: { id: string; label: string; state: StepState }[] = [
     {
       id: "read",
