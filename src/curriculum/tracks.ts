@@ -32,7 +32,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-overview",
                 title: "What an audit actually is",
-                status: "stub",
+                status: "ready",
                 intro:
                   "An audit gives users reasonable assurance that financial statements are free from material misstatement. Knowing the why and the shape of it sets up everything else.",
                 cheatsheet: [
@@ -57,7 +57,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-risk-and-materiality",
                 title: "Risk and materiality (concepts)",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Auditors focus effort where things are most likely to go materially wrong. Understanding risk and materiality as ideas, not formulas, is what's tested.",
                 cheatsheet: [
@@ -95,18 +95,38 @@ export const tracks: Track[] = [
               {
                 slug: "ea-evidence-and-procedures",
                 title: "Evidence, assertions, and procedures",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Audit work is gathering evidence that the numbers say what they should. Linking assertions to procedures is a skill juniors use daily.",
+                  "All of audit comes down to one loop: for each thing the accounts claim (an assertion), gather enough good evidence to support it. Learning to name the assertion and pick a procedure that tests it is the single most useful audit skill.",
                 cheatsheet: [
                   {
                     kind: "terms",
-                    heading: "Assertions (what we're proving)",
+                    heading: "Assertions (what you are proving)",
                     terms: [
-                      { term: "Existence", def: "The asset/transaction is real." },
-                      { term: "Completeness", def: "Nothing is missing." },
+                      { term: "Existence", def: "The asset or transaction is real." },
+                      { term: "Completeness", def: "Nothing that should be recorded is missing." },
                       { term: "Valuation", def: "Recorded at the right amount." },
-                      { term: "Rights & obligations", def: "The entity actually owns/owes it." },
+                      { term: "Rights & obligations", def: "The entity actually owns or owes it." },
+                      { term: "Cut-off", def: "Recorded in the correct period." },
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "What makes evidence good",
+                    points: [
+                      "More reliable from outside the entity than from inside it.",
+                      "More reliable when the auditor obtains it directly.",
+                      "Written beats verbal; originals beat copies.",
+                      "Enough of it (sufficiency) and the right kind (appropriateness).",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Common procedure verbs",
+                    points: [
+                      "Inspect, observe, enquire, confirm.",
+                      "Recalculate, reperform.",
+                      "Analytical procedures (compare and investigate).",
                     ],
                   },
                 ],
@@ -129,18 +149,27 @@ export const tracks: Track[] = [
               {
                 slug: "ea-working-papers",
                 title: "Documentation and working papers",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "If it isn't documented, it didn't happen. Clear working papers are most of a junior's actual output.",
+                  "In audit, if it is not documented, it did not happen. Working papers are the record of what you did, what you found, and why you concluded what you did. They are most of a junior's actual output, and the thing your manager reviews.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "A good working paper",
                     points: [
                       "States the objective and the work done.",
-                      "Shows the evidence and the source.",
-                      "Reaches a clear conclusion.",
-                      "Is reviewable by someone else without you explaining it.",
+                      "Shows the evidence, the sample, and the source.",
+                      "Reaches a clear conclusion that answers the objective.",
+                      "Can be re-performed by someone else without you explaining it.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Practical habits",
+                    points: [
+                      "Reference and cross-reference so a reviewer can follow the trail.",
+                      "Note who did it, who reviewed it, and when.",
+                      "Explain exceptions and how they were resolved, not just the clean items.",
                     ],
                   },
                 ],
@@ -308,17 +337,27 @@ export const tracks: Track[] = [
               {
                 slug: "ea-control-environment",
                 title: "The control environment",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Controls only work if the tone at the top supports them. The control environment is the culture the rest of the controls sit inside.",
+                  "Individual controls only work if the culture around them supports them. The control environment is that culture, the tone at the top, and it sets whether the rest of the controls are worth relying on at all.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Signs of a strong environment",
                     points: [
-                      "Clear responsibilities and segregation of duties.",
-                      "Management that takes controls seriously.",
-                      "Competent, supervised staff.",
+                      "Clear responsibilities and genuine segregation of duties.",
+                      "Management that takes controls and ethics seriously.",
+                      "Competent, adequately supervised staff.",
+                      "An audit committee or board that actually challenges.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why it matters to the auditor",
+                    points: [
+                      "A weak environment undermines every specific control below it.",
+                      "It raises control risk, so you rely less on controls and test more directly.",
+                      "It is also a fraud-risk signal.",
                     ],
                   },
                 ],
@@ -327,17 +366,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-tests-of-controls",
                 title: "Tests of controls",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "If you plan to rely on a control, you have to prove it actually worked all year, not just that it exists on paper.",
+                  "If you plan to rely on a control to reduce your other testing, you first have to prove it actually operated throughout the year, not just that it exists on paper. That proof is a test of controls.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Common tests",
                     points: [
-                      "Inspect evidence the control ran (signatures, reviews, reconciliations).",
-                      "Reperform the control on a sample.",
-                      "Observe it happening; enquire and corroborate.",
+                      "Inspect evidence the control ran: signatures, review notes, reconciliations.",
+                      "Reperform the control yourself on a sample.",
+                      "Observe it happening, and enquire then corroborate.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Controls vs substantive testing",
+                    points: [
+                      "Tests of controls ask: did the control work?",
+                      "Substantive tests ask: is the figure itself correct?",
+                      "Strong, tested controls let you do less substantive work, not none.",
                     ],
                   },
                 ],
@@ -353,17 +401,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-control-deficiencies",
                 title: "Control deficiencies",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "When a control is missing or weak, you report it the same way every time: what's wrong, what could go wrong, and what to do about it.",
+                  "When a control is missing or weak, you report it to management in a consistent shape every time: what is wrong, what could go wrong because of it, and what to do about it. This deficiency-implication-recommendation table is a classic exam and on-the-job task.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Deficiency, implication, recommendation",
                     points: [
-                      "Deficiency: the weakness or missing control.",
-                      "Implication: what could go wrong because of it.",
-                      "Recommendation: a practical, proportionate fix.",
+                      "Deficiency: the specific weakness or missing control.",
+                      "Implication: the error or fraud it could allow, in business terms.",
+                      "Recommendation: a practical, proportionate fix, not 'add more controls'.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Writing it well",
+                    points: [
+                      "Be specific: name the control and the process, not a vague area.",
+                      "Make the implication concrete: what actually goes wrong, and the cost.",
+                      "Recommend something the business can realistically do.",
                     ],
                   },
                 ],
@@ -765,7 +822,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-technical-interview",
                 title: "Technical interview questions",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Firms test whether you can think on your feet about accounts and audit. Practising spoken-style answers is the best preparation.",
                 cheatsheet: [
@@ -797,7 +854,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-hr-interview",
                 title: "HR and behavioural questions",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Why audit? Strengths and weaknesses? Firms care how you handle pressure and deadlines. Structure beats waffle.",
                 cheatsheet: [
