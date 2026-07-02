@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0](https://github.com/aneebbaig/acca-to-job-ready/compare/v1.1.0...v1.2.0) (2026-07-02)
+
+
+### Features
+
+* complete external audit content (evidence, working papers, internal control) ([#29](https://github.com/aneebbaig/acca-to-job-ready/issues/29)) ([a00f8fa](https://github.com/aneebbaig/acca-to-job-ready/commit/a00f8fa69c6198c505d2d76c04b386cacd3eac38))
+* full content for IT and forensic audit branches ([#31](https://github.com/aneebbaig/acca-to-job-ready/issues/31)) ([f00e3f2](https://github.com/aneebbaig/acca-to-job-ready/commit/f00e3f2aceab0cced5a1bcca67facb9deded16a9))
+* full content for the freelance bookkeeping track ([#32](https://github.com/aneebbaig/acca-to-job-ready/issues/32)) ([b01558c](https://github.com/aneebbaig/acca-to-job-ready/commit/b01558c3b344a9b3b744f4391f4b99a5d7fb6c5c))
+* full content for the internal audit branch ([#30](https://github.com/aneebbaig/acca-to-job-ready/issues/30)) ([c623a52](https://github.com/aneebbaig/acca-to-job-ready/commit/c623a527e81598f048b248aa37593795cd3026d5))
+
 ## [1.1.0](https://github.com/aneebbaig/acca-to-job-ready/compare/v1.0.0...v1.1.0) (2026-07-02)
 
 
