@@ -44,6 +44,19 @@ pushes**, everything goes through a pull request that CI must pass.
 5. Open a PR into `develop`. CI (lint + type-check + build) must be green before
    it can merge.
 
+### Merging
+
+This repo uses **auto-merge**: a PR merges itself as soon as CI passes, and the
+branch is deleted automatically. Enable it when you open the PR:
+
+```bash
+gh pr merge <number> --squash --auto
+```
+
+You don't need to sit and watch CI. If checks fail, the merge is cancelled and
+you fix and push again. `main` is the production branch (deployed on Vercel);
+`develop` is the integration branch, and releases are promoted `develop -> main`.
+
 ## Good first tasks
 
 The best contribution right now is a **domain-expert review of the curriculum**
