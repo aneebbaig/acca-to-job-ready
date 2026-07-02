@@ -163,17 +163,27 @@ export const tracks: Track[] = [
               {
                 slug: "ea-understanding-entity",
                 title: "Understanding the entity",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "You can't audit what you don't understand. Learning the business, its industry, and how it makes money is the first real planning step.",
+                  "You cannot audit what you do not understand. Before any testing, the auditor builds a picture of the business, its industry, and how it makes and spends money. That picture is what lets you spot where the accounts are likely to be wrong.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "What to understand",
                     points: [
-                      "The industry, regulation, and how the business earns and spends.",
-                      "Its accounting policies and any judgemental areas.",
-                      "Who runs it and how they're incentivised (fraud risk).",
+                      "The industry and regulation, and how the business earns and spends.",
+                      "Its accounting policies and the areas that rely on judgement.",
+                      "Who runs it and how they are rewarded, a pointer to fraud risk.",
+                      "The systems and controls that produce the numbers.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "How you get that understanding",
+                    points: [
+                      "Talk to management and staff; walk through key processes.",
+                      "Read board minutes, budgets, and prior-year files.",
+                      "Do preliminary analytical review to see what stands out.",
                     ],
                   },
                 ],
@@ -189,7 +199,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-materiality-concepts",
                 title: "Materiality (as a concept)",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Auditors don't chase every rupee. Materiality is the size of error that would change a user's decision, and it shapes the whole audit.",
                 cheatsheet: [
@@ -221,17 +231,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-risk-of-misstatement",
                 title: "Risks of material misstatement",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "The heart of planning: spot where the accounts are most likely to be wrong, and why, so testing goes there.",
+                  "This is the heart of planning. You work out where the accounts are most likely to be materially wrong, and why, so that your effort goes to the risky areas instead of being spread evenly. The auditor cannot change the business's risk, only how much testing they do in response.",
                 cheatsheet: [
                   {
                     kind: "terms",
                     heading: "The risk model",
                     terms: [
-                      { term: "Inherent risk", def: "Susceptibility to misstatement before controls." },
-                      { term: "Control risk", def: "Risk controls won't prevent or catch it." },
-                      { term: "Detection risk", def: "Risk the auditor's own work misses it." },
+                      { term: "Inherent risk", def: "How prone the area is to error before any controls." },
+                      { term: "Control risk", def: "Risk the client's controls fail to prevent or catch it." },
+                      { term: "Detection risk", def: "Risk the auditor's own work misses it, the part you control." },
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Turning risk into a plan",
+                    points: [
+                      "High inherent and control risk means you must lower detection risk.",
+                      "You lower detection risk by doing more, and more targeted, testing.",
+                      "Low-risk areas get lighter testing; that is how effort is prioritised.",
                     ],
                   },
                 ],
@@ -247,17 +266,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-analytical-procedures",
                 title: "Analytical procedures",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Comparing numbers to what you'd expect, ratios, trends, relationships, flags where something looks off. Used at planning and throughout.",
+                  "Numbers do not sit in isolation; they relate to each other and to last year. Analytical procedures use those relationships to spot what looks wrong. Form an expectation, compare it to what the client reported, and chase the differences.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "How they work",
                     points: [
-                      "Form an expectation, compare to the actual, investigate differences.",
-                      "Compare to prior year, budget, industry, and related figures.",
-                      "Cheap and powerful for spotting risk areas.",
+                      "Form an expectation, compare to the actual, investigate the gap.",
+                      "Compare against prior year, budget, industry norms, and related figures.",
+                      "Used at planning to find risk, and again at completion as a sense-check.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Examples you will actually use",
+                    points: [
+                      "Gross margin moved sharply with no business reason: possible cut-off or fraud.",
+                      "Payroll up but headcount flat: unrecorded leavers or ghost employees.",
+                      "Receivables days rising: collection problems or overstated sales.",
                     ],
                   },
                 ],
@@ -358,17 +386,37 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-receivables",
                 title: "Auditing receivables",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Are the amounts customers owe real, complete, and collectable? Receivables testing is a rite of passage for juniors.",
+                  "Receivables are one of the first balances a junior is handed. The questions are always the same: are the amounts customers owe real, is anything missing, and will the money actually come in? Your job is to gather evidence for each of those.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Key procedures",
+                    heading: "Core procedures",
                     points: [
-                      "Confirmations to customers (existence, rights).",
-                      "After-date cash: did they pay after year-end?",
-                      "Review the aged listing for old, doubtful balances (valuation).",
+                      "Send confirmations to a sample of customers and follow up non-replies.",
+                      "Check after-date cash: which balances were settled after year-end?",
+                      "Review the aged listing; investigate old balances for recoverability.",
+                      "Test cut-off: are sales near year-end in the right period?",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "Which assertion each test supports",
+                    terms: [
+                      { term: "Existence", def: "Confirmations and after-date cash prove the debtor is real." },
+                      { term: "Valuation", def: "Aged listing review and the allowance for doubtful debts." },
+                      { term: "Completeness", def: "Less of a worry here; the risk is overstatement, not omission." },
+                      { term: "Cut-off", def: "Sales recorded in the correct accounting period." },
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "What juniors get wrong",
+                    points: [
+                      "Treating a non-reply to a confirmation as 'fine' instead of doing alternative procedures.",
+                      "Forgetting that a paid-after-date balance still needs the sale to be genuine.",
+                      "Not questioning a suspiciously old balance still shown as fully collectable.",
                     ],
                   },
                 ],
@@ -384,17 +432,35 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-payables",
                 title: "Auditing payables",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "With payables the worry is understatement, missing liabilities. Completeness is the assertion that keeps auditors up at night.",
+                  "Receivables and payables mirror each other, and the risk flips. A business is tempted to overstate what it's owed and understate what it owes, so with payables the danger is a missing liability. Completeness is the assertion you chase hardest here.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Key procedures",
+                    heading: "Core procedures",
                     points: [
-                      "Search for unrecorded liabilities (post year-end invoices/payments).",
-                      "Supplier statement reconciliations.",
-                      "Cut-off around the year-end.",
+                      "Search for unrecorded liabilities: review post year-end invoices and payments.",
+                      "Reconcile supplier statements to the ledger and explain differences.",
+                      "Test cut-off: are purchases near year-end in the right period?",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why the search for unrecorded liabilities matters",
+                    points: [
+                      "Invoices that arrive after year-end often relate to goods received before it.",
+                      "A payment made after year-end is a clue to a liability that existed at it.",
+                      "Missing these overstates profit and understates what the business owes.",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "The key assertions",
+                    terms: [
+                      { term: "Completeness", def: "The main risk: are all liabilities recorded?" },
+                      { term: "Cut-off", def: "Purchases in the correct period." },
+                      { term: "Existence", def: "Recorded payables are genuine obligations." },
                     ],
                   },
                 ],
@@ -410,17 +476,37 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-inventory",
                 title: "Auditing inventory",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Inventory is physical, valued with judgement, and easy to get wrong, which is why auditors attend the count.",
+                  "Inventory is physical, it moves, and its value depends on judgement, so it carries risk on several fronts at once. That is why the auditor turns up in person on count day rather than trusting a spreadsheet.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Key procedures",
+                    heading: "At the count",
                     points: [
-                      "Attend the count: observe, test-count both ways.",
-                      "Valuation: lower of cost and net realisable value.",
-                      "Cut-off: last goods in/out before year-end.",
+                      "Observe whether the client's count is done properly and controlled.",
+                      "Test-count both ways: from the floor to the records, and records to the floor.",
+                      "Note damaged or slow-moving items that may not be worth full value.",
+                      "Record cut-off details: the last goods received and dispatched.",
+                    ],
+                  },
+                  {
+                    kind: "formula",
+                    heading: "The valuation rule",
+                    formulas: [
+                      {
+                        name: "Inventory value",
+                        expr: "Lower of cost and net realisable value",
+                        means: "If it can only be sold for less than it cost, write it down to that lower figure.",
+                      },
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "The two directions of test-counting",
+                    terms: [
+                      { term: "Floor to records", def: "Proves completeness: everything present is recorded." },
+                      { term: "Records to floor", def: "Proves existence: everything recorded is actually there." },
                     ],
                   },
                 ],
@@ -436,17 +522,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-cash",
                 title: "Auditing cash and bank",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Cash is small in value but high in risk, easy to steal, easy to manipulate at year-end. Confirmations and reconciliations do the heavy lifting.",
+                  "The cash figure is usually small, but the risk is not. Cash is the easiest thing to steal and the easiest to dress up at year-end, so the auditor leans on independent confirmation and a careful look at the reconciliation.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Key procedures",
+                    heading: "Core procedures",
                     points: [
-                      "Bank confirmations direct from the bank.",
-                      "Review the year-end bank reconciliation.",
-                      "Watch for window-dressing around the cut-off.",
+                      "Get a bank confirmation directly from the bank, not from the client.",
+                      "Agree the confirmed balance to the year-end bank reconciliation.",
+                      "Check the reconciling items are real and clear shortly after year-end.",
+                      "Watch for window-dressing: cheques written but held back, or transfers timed to flatter cash.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why the confirmation comes from the bank",
+                    points: [
+                      "A client-provided statement can be altered; a direct confirmation cannot.",
+                      "It also surfaces things the client might not mention: loans, guarantees, other accounts.",
                     ],
                   },
                 ],
@@ -462,17 +557,28 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-nca",
                 title: "Auditing non-current assets",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Big, long-lived assets: do they exist, are they owned, and are they carried at a sensible amount after depreciation?",
+                  "These are the big, long-lived things a business owns: property, plant, machinery, vehicles. Three questions run through the whole area: do they exist, does the business actually own them, and are they carried at a sensible value after depreciation?",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Key procedures",
+                    heading: "Core procedures",
                     points: [
-                      "Physically verify a sample; inspect ownership documents.",
-                      "Recompute depreciation; assess useful lives.",
-                      "Check additions and disposals are real and complete.",
+                      "Physically inspect a sample of assets from the register.",
+                      "Inspect ownership evidence: title deeds, registration, invoices.",
+                      "Recompute depreciation and challenge the useful lives used.",
+                      "Vouch a sample of additions and disposals to supporting documents.",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "The assertions in play",
+                    terms: [
+                      { term: "Existence", def: "Physical inspection: the asset is really there." },
+                      { term: "Rights", def: "Ownership documents: the business actually owns it." },
+                      { term: "Valuation", def: "Depreciation is reasonable and impairment considered." },
+                      { term: "Completeness", def: "Additions and disposals are all recorded." },
                     ],
                   },
                 ],
@@ -488,17 +594,27 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-revenue",
                 title: "Auditing revenue",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Revenue is where the pressure to look good bites hardest, so it usually carries a presumed fraud risk. Cut-off and occurrence matter most.",
+                  "Revenue is where the pressure to look good bites hardest, so auditing standards treat it as carrying a built-in fraud risk unless you can argue otherwise. The two questions that matter most are whether the sales are real, and whether they landed in the right year.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Key procedures",
+                    heading: "Core procedures",
                     points: [
-                      "Cut-off: sales recorded in the right period.",
-                      "Occurrence: the sales are real (trace to dispatch/cash).",
-                      "Analytical review of margins and trends.",
+                      "Occurrence: trace a sample of sales to dispatch notes and cash received.",
+                      "Cut-off: check sales either side of year-end are in the correct period.",
+                      "Analytical review: do margins and monthly trends make sense?",
+                      "Test for unusual entries, like large sales just before year-end that reverse after.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Common revenue manipulations to look for",
+                    points: [
+                      "Recording sales early to pull next year's revenue into this year.",
+                      "Invented sales to customers who never received goods.",
+                      "Round-tripping: selling and quietly buying back to inflate turnover.",
                     ],
                   },
                 ],
@@ -521,17 +637,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-going-concern",
                 title: "Going concern",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Can the business keep trading for the foreseeable future? If that's in doubt, the accounts, and the audit report, change.",
+                  "Accounts are normally prepared on the assumption the business will keep trading. If that assumption is in doubt, both the accounts and the audit report have to change. Judging going concern is one of the most important calls an auditor makes.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Indicators to watch",
+                    heading: "Warning signs",
                     points: [
-                      "Losses, negative cash flow, breached loan terms.",
-                      "Suppliers on cash-only, key customers lost.",
-                      "Consider management's plans and their realism.",
+                      "Financial: losses, negative cash flow, breached or unrenewed loan terms.",
+                      "Operational: key customers or suppliers lost, staff leaving, cash-only terms.",
+                      "External: a downturn, new regulation, or a legal claim the business can't absorb.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "What the auditor does",
+                    points: [
+                      "Assess management's own going-concern assessment and its assumptions.",
+                      "Look for realistic plans to survive: new finance, cost cuts, support letters.",
+                      "If a material uncertainty remains, it must be disclosed, and the report reflects it.",
                     ],
                   },
                 ],
@@ -547,7 +672,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-subsequent-events",
                 title: "Subsequent events",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Things that happen after year-end but before the report can still change the accounts. Auditors keep looking right up to signing.",
                 cheatsheet: [
@@ -572,17 +697,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-written-representations",
                 title: "Written representations",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "A signed letter from management confirming things only they can, that they've told you everything, judgements are reasonable, and so on.",
+                  "Near the end of the audit, management signs a letter confirming things only they can vouch for: that they have given you everything, that their judgements are reasonable, and that they take responsibility for the accounts. It is evidence, but the weakest kind.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "What they are and aren't",
+                    heading: "What they are, and are not",
                     points: [
-                      "Audit evidence, but weak on its own.",
-                      "Used where other evidence can't reasonably exist.",
-                      "Never a substitute for testing.",
+                      "Audit evidence, but weak on its own because it comes from management.",
+                      "Used where no better evidence can reasonably exist (intentions, completeness of disclosures).",
+                      "Never a substitute for testing something you could have tested.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "If management won't sign",
+                    points: [
+                      "Refusal to provide a representation is itself a serious problem.",
+                      "It casts doubt on their integrity and everything else they've told you.",
+                      "It can lead to a modified opinion or even withdrawal.",
                     ],
                   },
                 ],
@@ -591,7 +725,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-opinions",
                 title: "Types of audit opinion",
-                status: "stub",
+                status: "ready",
                 intro:
                   "The opinion is the whole point. Know the difference between a clean report and the ways it can be modified, in plain terms.",
                 cheatsheet: [
