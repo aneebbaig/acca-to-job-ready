@@ -1135,17 +1135,27 @@ export const tracks: Track[] = [
               {
                 slug: "ita-general-controls",
                 title: "General IT controls",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Before testing the numbers, you test the systems that produce them: who can access what, and whether data stays intact.",
+                  "Before you can trust the numbers a system produces, you have to trust the system. General IT controls are the broad controls over the whole environment, who can get in, how changes are made, and whether data survives intact. If these are weak, nothing the system reports can be relied on.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Areas to know",
+                    heading: "The main areas",
                     points: [
-                      "Access controls, least privilege, segregation of duties.",
-                      "Change management, controlled, tested changes.",
-                      "Data integrity and backups.",
+                      "Access: least privilege and segregation of duties.",
+                      "Change management: changes are requested, tested, and approved.",
+                      "Operations: backups, job scheduling, incident handling.",
+                      "Physical and network security around the systems.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why they come first",
+                    points: [
+                      "They underpin every application control above them.",
+                      "Weak general controls mean you cannot rely on any automated control.",
+                      "So the auditor tests these before relying on system-generated data.",
                     ],
                   },
                 ],
@@ -1154,17 +1164,26 @@ export const tracks: Track[] = [
               {
                 slug: "ita-application-controls",
                 title: "Application controls",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Controls built into a specific system: the checks that stop bad data going in and catch it if it does.",
+                  "Where general controls protect the whole environment, application controls sit inside one specific system, the checks that stop bad data going in, keep processing correct, and flag problems on the way out. They map neatly onto input, processing, and output.",
                 cheatsheet: [
                   {
+                    kind: "terms",
+                    heading: "The three stages",
+                    terms: [
+                      { term: "Input", def: "Validation, range checks, mandatory fields, format checks." },
+                      { term: "Processing", def: "Control totals and reconciliations that must agree." },
+                      { term: "Output", def: "Reviews and distribution controls over what the system produced." },
+                    ],
+                  },
+                  {
                     kind: "points",
-                    heading: "Types to know",
+                    heading: "Why they only work with strong general controls",
                     points: [
-                      "Input controls: validation, range checks, mandatory fields.",
-                      "Processing controls: totals that must reconcile.",
-                      "Output controls: reviews of what the system produced.",
+                      "An input validation is worthless if someone can change the program.",
+                      "So application controls rely on the general controls underneath.",
+                      "Auditors test both together to decide how much to rely on the system.",
                     ],
                   },
                 ],
@@ -1173,17 +1192,27 @@ export const tracks: Track[] = [
               {
                 slug: "ita-access-management",
                 title: "Access and segregation of duties",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Who can do what in a system is a top risk. The goal is least privilege and no one person controlling a whole transaction.",
+                  "Who can do what inside a system is one of the biggest IT risks. The goal is least privilege, everyone has only the access their job needs, and no single person can run a whole transaction from start to finish unchecked.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "What to check",
                     points: [
-                      "Users have only the access their job needs.",
-                      "Incompatible duties are split across people.",
-                      "Leavers lose access promptly; access is reviewed.",
+                      "Users have only the access their role requires.",
+                      "Incompatible duties are split across different people.",
+                      "Leavers lose access promptly and access is reviewed regularly.",
+                      "Admin and superuser accounts are tightly controlled and logged.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Classic segregation splits",
+                    points: [
+                      "Whoever raises a payment cannot also approve it.",
+                      "Whoever records cash cannot also reconcile the bank.",
+                      "Whoever sets up a supplier cannot also pay it.",
                     ],
                   },
                 ],
@@ -1199,17 +1228,26 @@ export const tracks: Track[] = [
               {
                 slug: "ita-change-management",
                 title: "Change management",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "When systems change, uncontrolled changes break things or hide fraud. Changes should be requested, tested, approved, and logged.",
+                  "Systems change constantly, and an uncontrolled change can quietly break a control or hide a fraud. Good change management means no change reaches the live system without being requested, tested, approved, and logged.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "A controlled change",
                     points: [
-                      "Requested and approved before it happens.",
-                      "Tested away from live data.",
+                      "Requested and approved before any work starts.",
+                      "Developed and tested away from live data.",
+                      "Approved for release by someone other than the developer.",
                       "Logged, so you can see who changed what and when.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "The risk it manages",
+                    points: [
+                      "A developer who can change code and push it live can bypass every control.",
+                      "Separating development, testing, and release breaks that power.",
                     ],
                   },
                 ],
@@ -1218,17 +1256,25 @@ export const tracks: Track[] = [
               {
                 slug: "ita-caats",
                 title: "Computer-assisted audit techniques",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Instead of testing a sample, tools let you test whole populations: every transaction, checked by rule. This is where audit is heading.",
+                  "Instead of testing a small sample by hand, CAATs use software to test whole populations, every transaction checked against a rule. This is where audit is heading, and being comfortable with data tools is increasingly what sets a junior apart.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "What CAATs let you do",
                     points: [
                       "Test 100% of transactions against rules, not just a sample.",
-                      "Spot duplicates, gaps, and outliers automatically.",
-                      "Re-run the same tests next year in seconds.",
+                      "Spot duplicates, gaps in sequences, and outliers automatically.",
+                      "Re-run the exact same tests next year in seconds.",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "Two broad kinds",
+                    terms: [
+                      { term: "Audit software", def: "Interrogates the client's data: extract, filter, recalculate, find exceptions." },
+                      { term: "Test data", def: "Puts known inputs through the system to check the controls respond correctly." },
                     ],
                   },
                 ],
@@ -1253,18 +1299,27 @@ export const tracks: Track[] = [
               {
                 slug: "fa-fraud-indicators",
                 title: "Fraud indicators (red flags)",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Forensic work starts with noticing what doesn't add up. Knowing common red flags and handling evidence properly is the core idea.",
+                  "Forensic work starts with noticing what does not add up. No single red flag proves fraud, but a cluster of them tells you where to look harder. Learning to spot them is the first skill of an investigator.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Common red flags",
+                    heading: "Behavioural red flags",
                     points: [
-                      "Lifestyle out of step with salary.",
-                      "Reluctance to take leave or share duties.",
-                      "Round-sum or just-under-approval-limit transactions.",
-                      "Missing or altered documentation.",
+                      "Lifestyle clearly out of step with salary.",
+                      "Reluctance to take leave or let anyone else do their job.",
+                      "Defensiveness or secrecy about their work.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Transaction red flags",
+                    points: [
+                      "Round-sum amounts, or just under an approval limit.",
+                      "Payments to new or unusual suppliers, or duplicated payments.",
+                      "Missing, altered, or photocopied supporting documents.",
+                      "Adjustments and reversals clustered around period-end.",
                     ],
                   },
                 ],
@@ -1273,7 +1328,7 @@ export const tracks: Track[] = [
               {
                 slug: "fa-fraud-triangle",
                 title: "The fraud triangle",
-                status: "stub",
+                status: "ready",
                 intro:
                   "A simple model for why people commit fraud. It helps you see where risk builds up and where to look.",
                 cheatsheet: [
@@ -1299,17 +1354,28 @@ export const tracks: Track[] = [
               {
                 slug: "fa-investigation-approach",
                 title: "The investigative approach",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "A forensic investigation is careful and planned, not a witch-hunt. You gather facts quietly, keep an open mind, and protect the evidence.",
+                  "A forensic investigation is careful and planned, not a witch-hunt. You gather facts quietly, keep an open mind, and protect the evidence, because a clumsy investigation can tip off the suspect, harm the innocent, or wreck the case.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "How to work",
                     points: [
-                      "Plan the scope before you start.",
-                      "Stay objective; follow the evidence, not a hunch.",
-                      "Keep it confidential to protect people and the case.",
+                      "Plan the scope and objectives before you touch anything.",
+                      "Stay objective: follow the evidence, not a hunch.",
+                      "Keep it confidential to protect both the case and innocent people.",
+                      "Preserve evidence from the start; do not alter originals.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "A rough sequence",
+                    points: [
+                      "Understand the suspected fraud and plan.",
+                      "Secure and gather evidence.",
+                      "Analyse, interview where appropriate, and conclude.",
+                      "Report, and support any legal or disciplinary action.",
                     ],
                   },
                 ],
@@ -1318,17 +1384,26 @@ export const tracks: Track[] = [
               {
                 slug: "fa-evidence-handling",
                 title: "Handling evidence",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "If evidence might be used in a dispute or court, how you handle it matters as much as what it says. Sloppy handling can sink a case.",
+                  "If evidence might end up in a dispute or a court, how you handle it matters as much as what it says. Sloppy handling can make solid proof inadmissible and sink an otherwise strong case.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Protecting evidence",
                     points: [
-                      "Keep an unbroken chain of custody: who held it, when.",
+                      "Keep an unbroken chain of custody: who held it, and when.",
                       "Preserve originals; work from copies.",
-                      "Document everything you do to it.",
+                      "Document everything you do to it, step by step.",
+                      "Store it securely so it cannot be altered or lost.",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "Two ideas that decide admissibility",
+                    terms: [
+                      { term: "Chain of custody", def: "A documented trail of who handled the evidence and when." },
+                      { term: "Integrity", def: "Proof the evidence has not been changed since it was collected." },
                     ],
                   },
                 ],
