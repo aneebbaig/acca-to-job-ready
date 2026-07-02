@@ -163,17 +163,27 @@ export const tracks: Track[] = [
               {
                 slug: "ea-understanding-entity",
                 title: "Understanding the entity",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "You can't audit what you don't understand. Learning the business, its industry, and how it makes money is the first real planning step.",
+                  "You cannot audit what you do not understand. Before any testing, the auditor builds a picture of the business, its industry, and how it makes and spends money. That picture is what lets you spot where the accounts are likely to be wrong.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "What to understand",
                     points: [
-                      "The industry, regulation, and how the business earns and spends.",
-                      "Its accounting policies and any judgemental areas.",
-                      "Who runs it and how they're incentivised (fraud risk).",
+                      "The industry and regulation, and how the business earns and spends.",
+                      "Its accounting policies and the areas that rely on judgement.",
+                      "Who runs it and how they are rewarded, a pointer to fraud risk.",
+                      "The systems and controls that produce the numbers.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "How you get that understanding",
+                    points: [
+                      "Talk to management and staff; walk through key processes.",
+                      "Read board minutes, budgets, and prior-year files.",
+                      "Do preliminary analytical review to see what stands out.",
                     ],
                   },
                 ],
@@ -189,7 +199,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-materiality-concepts",
                 title: "Materiality (as a concept)",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Auditors don't chase every rupee. Materiality is the size of error that would change a user's decision, and it shapes the whole audit.",
                 cheatsheet: [
@@ -221,17 +231,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-risk-of-misstatement",
                 title: "Risks of material misstatement",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "The heart of planning: spot where the accounts are most likely to be wrong, and why, so testing goes there.",
+                  "This is the heart of planning. You work out where the accounts are most likely to be materially wrong, and why, so that your effort goes to the risky areas instead of being spread evenly. The auditor cannot change the business's risk, only how much testing they do in response.",
                 cheatsheet: [
                   {
                     kind: "terms",
                     heading: "The risk model",
                     terms: [
-                      { term: "Inherent risk", def: "Susceptibility to misstatement before controls." },
-                      { term: "Control risk", def: "Risk controls won't prevent or catch it." },
-                      { term: "Detection risk", def: "Risk the auditor's own work misses it." },
+                      { term: "Inherent risk", def: "How prone the area is to error before any controls." },
+                      { term: "Control risk", def: "Risk the client's controls fail to prevent or catch it." },
+                      { term: "Detection risk", def: "Risk the auditor's own work misses it, the part you control." },
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Turning risk into a plan",
+                    points: [
+                      "High inherent and control risk means you must lower detection risk.",
+                      "You lower detection risk by doing more, and more targeted, testing.",
+                      "Low-risk areas get lighter testing; that is how effort is prioritised.",
                     ],
                   },
                 ],
@@ -247,17 +266,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-analytical-procedures",
                 title: "Analytical procedures",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Comparing numbers to what you'd expect, ratios, trends, relationships, flags where something looks off. Used at planning and throughout.",
+                  "Numbers do not sit in isolation; they relate to each other and to last year. Analytical procedures use those relationships to spot what looks wrong. Form an expectation, compare it to what the client reported, and chase the differences.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "How they work",
                     points: [
-                      "Form an expectation, compare to the actual, investigate differences.",
-                      "Compare to prior year, budget, industry, and related figures.",
-                      "Cheap and powerful for spotting risk areas.",
+                      "Form an expectation, compare to the actual, investigate the gap.",
+                      "Compare against prior year, budget, industry norms, and related figures.",
+                      "Used at planning to find risk, and again at completion as a sense-check.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Examples you will actually use",
+                    points: [
+                      "Gross margin moved sharply with no business reason: possible cut-off or fraud.",
+                      "Payroll up but headcount flat: unrecorded leavers or ghost employees.",
+                      "Receivables days rising: collection problems or overstated sales.",
                     ],
                   },
                 ],
@@ -609,17 +637,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-going-concern",
                 title: "Going concern",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Can the business keep trading for the foreseeable future? If that's in doubt, the accounts, and the audit report, change.",
+                  "Accounts are normally prepared on the assumption the business will keep trading. If that assumption is in doubt, both the accounts and the audit report have to change. Judging going concern is one of the most important calls an auditor makes.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Indicators to watch",
+                    heading: "Warning signs",
                     points: [
-                      "Losses, negative cash flow, breached loan terms.",
-                      "Suppliers on cash-only, key customers lost.",
-                      "Consider management's plans and their realism.",
+                      "Financial: losses, negative cash flow, breached or unrenewed loan terms.",
+                      "Operational: key customers or suppliers lost, staff leaving, cash-only terms.",
+                      "External: a downturn, new regulation, or a legal claim the business can't absorb.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "What the auditor does",
+                    points: [
+                      "Assess management's own going-concern assessment and its assumptions.",
+                      "Look for realistic plans to survive: new finance, cost cuts, support letters.",
+                      "If a material uncertainty remains, it must be disclosed, and the report reflects it.",
                     ],
                   },
                 ],
@@ -635,7 +672,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-subsequent-events",
                 title: "Subsequent events",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Things that happen after year-end but before the report can still change the accounts. Auditors keep looking right up to signing.",
                 cheatsheet: [
@@ -660,17 +697,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-written-representations",
                 title: "Written representations",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "A signed letter from management confirming things only they can, that they've told you everything, judgements are reasonable, and so on.",
+                  "Near the end of the audit, management signs a letter confirming things only they can vouch for: that they have given you everything, that their judgements are reasonable, and that they take responsibility for the accounts. It is evidence, but the weakest kind.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "What they are and aren't",
+                    heading: "What they are, and are not",
                     points: [
-                      "Audit evidence, but weak on its own.",
-                      "Used where other evidence can't reasonably exist.",
-                      "Never a substitute for testing.",
+                      "Audit evidence, but weak on its own because it comes from management.",
+                      "Used where no better evidence can reasonably exist (intentions, completeness of disclosures).",
+                      "Never a substitute for testing something you could have tested.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "If management won't sign",
+                    points: [
+                      "Refusal to provide a representation is itself a serious problem.",
+                      "It casts doubt on their integrity and everything else they've told you.",
+                      "It can lead to a modified opinion or even withdrawal.",
                     ],
                   },
                 ],
@@ -679,7 +725,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-opinions",
                 title: "Types of audit opinion",
-                status: "stub",
+                status: "ready",
                 intro:
                   "The opinion is the whole point. Know the difference between a clean report and the ways it can be modified, in plain terms.",
                 cheatsheet: [
