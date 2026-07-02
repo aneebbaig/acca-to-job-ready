@@ -896,17 +896,27 @@ export const tracks: Track[] = [
               {
                 slug: "ia-vs-external",
                 title: "How internal audit differs from external",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Same toolkit, different purpose: internal audit serves management and is ongoing; external audit serves shareholders and gives a yearly opinion.",
+                  "Internal and external audit share a toolkit but exist for different reasons. Internal audit works for the organisation itself, all year round, on controls and efficiency. External audit works for the shareholders, once a year, to give an opinion on the accounts. Confusing the two is a classic interview slip.",
                 cheatsheet: [
                   {
                     kind: "terms",
                     heading: "Key differences",
                     terms: [
-                      { term: "Reports to", def: "Internal: management/board. External: shareholders." },
-                      { term: "Focus", def: "Internal: controls & efficiency. External: true & fair view." },
-                      { term: "Timing", def: "Internal: continuous. External: periodic." },
+                      { term: "Reports to", def: "Internal: management and the audit committee. External: shareholders." },
+                      { term: "Focus", def: "Internal: controls, risk, efficiency. External: true and fair view." },
+                      { term: "Timing", def: "Internal: continuous. External: periodic (usually yearly)." },
+                      { term: "Employed by", def: "Internal: the organisation (or outsourced). External: independent firm." },
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "What they share",
+                    points: [
+                      "Similar techniques: testing controls, sampling, working papers.",
+                      "External auditors may rely on internal audit's work if it's good enough.",
+                      "Both need objectivity, though internal audit's is harder to protect.",
                     ],
                   },
                 ],
@@ -915,17 +925,26 @@ export const tracks: Track[] = [
               {
                 slug: "ia-control-testing",
                 title: "Testing controls and reporting deficiencies",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Internal auditors find weak controls and recommend fixes. The deficiency → implication → recommendation table is the bread and butter.",
+                  "The core of internal audit work: pick a process, test whether its controls actually work, and report the gaps in a way that gets acted on. The deficiency-implication-recommendation table is the bread and butter you will write again and again.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "The three columns",
                     points: [
-                      "Deficiency: what's weak or missing.",
+                      "Deficiency: what is weak or missing.",
                       "Implication: what could go wrong because of it.",
-                      "Recommendation: a practical fix.",
+                      "Recommendation: a practical, proportionate fix.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "How to test a control",
+                    points: [
+                      "Walk through the process to understand how it should work.",
+                      "Inspect, reperform, or observe the control on a sample.",
+                      "Conclude: does it operate as intended, or is there a gap?",
                     ],
                   },
                 ],
@@ -945,17 +964,26 @@ export const tracks: Track[] = [
               {
                 slug: "ia-governance",
                 title: "Corporate governance basics",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Internal audit exists to serve good governance. Knowing what governance is, and who internal audit answers to, frames the whole role.",
+                  "Internal audit exists to serve good governance, so you need to know what governance is and who internal audit answers to. Governance is the system of rules, roles, and oversight that keeps an organisation honest and well run.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "The essentials",
                     points: [
                       "Governance is how an organisation is directed and held to account.",
-                      "Internal audit reports to the audit committee, not just management.",
-                      "That reporting line protects its independence.",
+                      "Internal audit reports to the audit committee, not just to management.",
+                      "That reporting line is what protects its independence.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "The audit committee",
+                    points: [
+                      "A committee of non-executive directors that oversees financial reporting and audit.",
+                      "It hires and hears both internal and external audit.",
+                      "It gives internal audit a place to raise issues management might bury.",
                     ],
                   },
                 ],
@@ -964,17 +992,26 @@ export const tracks: Track[] = [
               {
                 slug: "ia-three-lines",
                 title: "The three lines model",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "A simple map of who owns risk. It shows where internal audit sits and why it stays independent of the work it reviews.",
+                  "A simple map of who owns and oversees risk in an organisation. It explains where internal audit sits, the third line, and why it must stay independent of the work it reviews. Expect to be asked to place a function on one of the lines.",
                 cheatsheet: [
                   {
                     kind: "terms",
                     heading: "The three lines",
                     terms: [
-                      { term: "First line", def: "Management, who own and manage risk day to day." },
-                      { term: "Second line", def: "Risk and compliance functions that support and monitor." },
-                      { term: "Third line", def: "Internal audit, independent assurance to the board." },
+                      { term: "First line", def: "Management and operational staff, who own and manage risk day to day." },
+                      { term: "Second line", def: "Risk and compliance functions that support, monitor, and set policy." },
+                      { term: "Third line", def: "Internal audit, giving independent assurance to the board." },
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why independence matters",
+                    points: [
+                      "Internal audit reviews the first and second lines, so it cannot be part of them.",
+                      "If internal audit designs a control, it cannot objectively assure it.",
+                      "That is why it reports to the audit committee, not to line management.",
                     ],
                   },
                 ],
@@ -983,17 +1020,28 @@ export const tracks: Track[] = [
               {
                 slug: "ia-risk-management",
                 title: "Risk management",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Internal audit checks that risks are identified and managed. Understanding the risk cycle lets you judge whether that's happening.",
+                  "A big part of internal audit is checking that the business actually identifies and manages its risks, rather than just hoping for the best. Understanding the risk cycle lets you judge whether that is happening and where the gaps are.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "The risk cycle",
                     points: [
-                      "Identify risks, assess likelihood and impact.",
+                      "Identify the risks the business faces.",
+                      "Assess each by likelihood and impact.",
                       "Respond: accept, reduce, transfer, or avoid.",
                       "Monitor and review as things change.",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "The four responses",
+                    terms: [
+                      { term: "Accept", def: "Live with it; the cost of acting outweighs the risk." },
+                      { term: "Reduce", def: "Put controls in place to lower likelihood or impact." },
+                      { term: "Transfer", def: "Shift it, e.g. insurance or outsourcing." },
+                      { term: "Avoid", def: "Stop doing the activity that creates the risk." },
                     ],
                   },
                 ],
@@ -1009,17 +1057,25 @@ export const tracks: Track[] = [
               {
                 slug: "ia-planning",
                 title: "Planning an internal audit",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Internal audit works to a plan driven by risk, and each review has its own scope and objectives. Planning is where the value is set.",
+                  "Internal audit works to an annual plan driven by risk, and each individual review has its own scope and objectives. Planning is where most of the value is set, because it decides where the effort goes.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "How a review is scoped",
                     points: [
-                      "Pick areas by risk, not by habit.",
-                      "Set clear objectives and scope for each assignment.",
+                      "Choose areas by risk, not by habit or what is easy.",
+                      "Set clear objectives and a defined scope for each assignment.",
                       "Agree what good looks like before you start testing.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Two levels of planning",
+                    points: [
+                      "Annual plan: which areas to review across the year, by risk.",
+                      "Assignment plan: the objectives, scope, and approach for one review.",
                     ],
                   },
                 ],
@@ -1028,17 +1084,26 @@ export const tracks: Track[] = [
               {
                 slug: "ia-reporting",
                 title: "Reporting to management",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Findings only matter if they land. A good internal audit report is clear, fair, and drives action, not defensiveness.",
+                  "Findings only matter if they land. A good internal audit report is clear, fair, and drives action instead of defensiveness. How you write and rank findings decides whether anything actually changes.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "A report that gets acted on",
                     points: [
-                      "Rank findings by risk so attention goes to what matters.",
-                      "Be factual and balanced; agree facts with management first.",
-                      "Every finding has an owner and a date.",
+                      "Rank findings by risk so attention goes to what matters most.",
+                      "Be factual and balanced; agree the facts with management first.",
+                      "Every finding has an owner and a target date.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Getting management on side",
+                    points: [
+                      "Discuss findings before the report so there are no surprises.",
+                      "Include management's response and agreed actions.",
+                      "Follow up later: were the actions actually done?",
                     ],
                   },
                 ],
