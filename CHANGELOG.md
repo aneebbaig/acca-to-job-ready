@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/aneebbaig/acca-to-job-ready/compare/v1.0.0...v1.1.0) (2026-07-02)
+
+
+### Features
+
+* deepen audit planning, risk, and completion topics into full content ([#25](https://github.com/aneebbaig/acca-to-job-ready/issues/25)) ([4da53c8](https://github.com/aneebbaig/acca-to-job-ready/commit/4da53c8eb3751ca1be15864a9b4237b5eaf4047d))
+* deepen auditing-specific-areas topics into full content ([#24](https://github.com/aneebbaig/acca-to-job-ready/issues/24)) ([d074eee](https://github.com/aneebbaig/acca-to-job-ready/commit/d074eeef72912a4b5d4517016a24022dd8df155a))
+
 ## 1.0.0 (2026-07-01)
 
 
