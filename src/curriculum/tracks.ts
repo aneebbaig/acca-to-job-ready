@@ -32,7 +32,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-audit-overview",
                 title: "What an audit actually is",
-                status: "stub",
+                status: "ready",
                 intro:
                   "An audit gives users reasonable assurance that financial statements are free from material misstatement. Knowing the why and the shape of it sets up everything else.",
                 cheatsheet: [
@@ -57,7 +57,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-risk-and-materiality",
                 title: "Risk and materiality (concepts)",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Auditors focus effort where things are most likely to go materially wrong. Understanding risk and materiality as ideas, not formulas, is what's tested.",
                 cheatsheet: [
@@ -95,18 +95,38 @@ export const tracks: Track[] = [
               {
                 slug: "ea-evidence-and-procedures",
                 title: "Evidence, assertions, and procedures",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Audit work is gathering evidence that the numbers say what they should. Linking assertions to procedures is a skill juniors use daily.",
+                  "All of audit comes down to one loop: for each thing the accounts claim (an assertion), gather enough good evidence to support it. Learning to name the assertion and pick a procedure that tests it is the single most useful audit skill.",
                 cheatsheet: [
                   {
                     kind: "terms",
-                    heading: "Assertions (what we're proving)",
+                    heading: "Assertions (what you are proving)",
                     terms: [
-                      { term: "Existence", def: "The asset/transaction is real." },
-                      { term: "Completeness", def: "Nothing is missing." },
+                      { term: "Existence", def: "The asset or transaction is real." },
+                      { term: "Completeness", def: "Nothing that should be recorded is missing." },
                       { term: "Valuation", def: "Recorded at the right amount." },
-                      { term: "Rights & obligations", def: "The entity actually owns/owes it." },
+                      { term: "Rights & obligations", def: "The entity actually owns or owes it." },
+                      { term: "Cut-off", def: "Recorded in the correct period." },
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "What makes evidence good",
+                    points: [
+                      "More reliable from outside the entity than from inside it.",
+                      "More reliable when the auditor obtains it directly.",
+                      "Written beats verbal; originals beat copies.",
+                      "Enough of it (sufficiency) and the right kind (appropriateness).",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Common procedure verbs",
+                    points: [
+                      "Inspect, observe, enquire, confirm.",
+                      "Recalculate, reperform.",
+                      "Analytical procedures (compare and investigate).",
                     ],
                   },
                 ],
@@ -129,18 +149,27 @@ export const tracks: Track[] = [
               {
                 slug: "ea-working-papers",
                 title: "Documentation and working papers",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "If it isn't documented, it didn't happen. Clear working papers are most of a junior's actual output.",
+                  "In audit, if it is not documented, it did not happen. Working papers are the record of what you did, what you found, and why you concluded what you did. They are most of a junior's actual output, and the thing your manager reviews.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "A good working paper",
                     points: [
                       "States the objective and the work done.",
-                      "Shows the evidence and the source.",
-                      "Reaches a clear conclusion.",
-                      "Is reviewable by someone else without you explaining it.",
+                      "Shows the evidence, the sample, and the source.",
+                      "Reaches a clear conclusion that answers the objective.",
+                      "Can be re-performed by someone else without you explaining it.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Practical habits",
+                    points: [
+                      "Reference and cross-reference so a reviewer can follow the trail.",
+                      "Note who did it, who reviewed it, and when.",
+                      "Explain exceptions and how they were resolved, not just the clean items.",
                     ],
                   },
                 ],
@@ -308,17 +337,27 @@ export const tracks: Track[] = [
               {
                 slug: "ea-control-environment",
                 title: "The control environment",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Controls only work if the tone at the top supports them. The control environment is the culture the rest of the controls sit inside.",
+                  "Individual controls only work if the culture around them supports them. The control environment is that culture, the tone at the top, and it sets whether the rest of the controls are worth relying on at all.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Signs of a strong environment",
                     points: [
-                      "Clear responsibilities and segregation of duties.",
-                      "Management that takes controls seriously.",
-                      "Competent, supervised staff.",
+                      "Clear responsibilities and genuine segregation of duties.",
+                      "Management that takes controls and ethics seriously.",
+                      "Competent, adequately supervised staff.",
+                      "An audit committee or board that actually challenges.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why it matters to the auditor",
+                    points: [
+                      "A weak environment undermines every specific control below it.",
+                      "It raises control risk, so you rely less on controls and test more directly.",
+                      "It is also a fraud-risk signal.",
                     ],
                   },
                 ],
@@ -327,17 +366,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-tests-of-controls",
                 title: "Tests of controls",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "If you plan to rely on a control, you have to prove it actually worked all year, not just that it exists on paper.",
+                  "If you plan to rely on a control to reduce your other testing, you first have to prove it actually operated throughout the year, not just that it exists on paper. That proof is a test of controls.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Common tests",
                     points: [
-                      "Inspect evidence the control ran (signatures, reviews, reconciliations).",
-                      "Reperform the control on a sample.",
-                      "Observe it happening; enquire and corroborate.",
+                      "Inspect evidence the control ran: signatures, review notes, reconciliations.",
+                      "Reperform the control yourself on a sample.",
+                      "Observe it happening, and enquire then corroborate.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Controls vs substantive testing",
+                    points: [
+                      "Tests of controls ask: did the control work?",
+                      "Substantive tests ask: is the figure itself correct?",
+                      "Strong, tested controls let you do less substantive work, not none.",
                     ],
                   },
                 ],
@@ -353,17 +401,26 @@ export const tracks: Track[] = [
               {
                 slug: "ea-control-deficiencies",
                 title: "Control deficiencies",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "When a control is missing or weak, you report it the same way every time: what's wrong, what could go wrong, and what to do about it.",
+                  "When a control is missing or weak, you report it to management in a consistent shape every time: what is wrong, what could go wrong because of it, and what to do about it. This deficiency-implication-recommendation table is a classic exam and on-the-job task.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Deficiency, implication, recommendation",
                     points: [
-                      "Deficiency: the weakness or missing control.",
-                      "Implication: what could go wrong because of it.",
-                      "Recommendation: a practical, proportionate fix.",
+                      "Deficiency: the specific weakness or missing control.",
+                      "Implication: the error or fraud it could allow, in business terms.",
+                      "Recommendation: a practical, proportionate fix, not 'add more controls'.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Writing it well",
+                    points: [
+                      "Be specific: name the control and the process, not a vague area.",
+                      "Make the implication concrete: what actually goes wrong, and the cost.",
+                      "Recommend something the business can realistically do.",
                     ],
                   },
                 ],
@@ -765,7 +822,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-technical-interview",
                 title: "Technical interview questions",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Firms test whether you can think on your feet about accounts and audit. Practising spoken-style answers is the best preparation.",
                 cheatsheet: [
@@ -797,7 +854,7 @@ export const tracks: Track[] = [
               {
                 slug: "ea-hr-interview",
                 title: "HR and behavioural questions",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Why audit? Strengths and weaknesses? Firms care how you handle pressure and deadlines. Structure beats waffle.",
                 cheatsheet: [
@@ -839,17 +896,27 @@ export const tracks: Track[] = [
               {
                 slug: "ia-vs-external",
                 title: "How internal audit differs from external",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Same toolkit, different purpose: internal audit serves management and is ongoing; external audit serves shareholders and gives a yearly opinion.",
+                  "Internal and external audit share a toolkit but exist for different reasons. Internal audit works for the organisation itself, all year round, on controls and efficiency. External audit works for the shareholders, once a year, to give an opinion on the accounts. Confusing the two is a classic interview slip.",
                 cheatsheet: [
                   {
                     kind: "terms",
                     heading: "Key differences",
                     terms: [
-                      { term: "Reports to", def: "Internal: management/board. External: shareholders." },
-                      { term: "Focus", def: "Internal: controls & efficiency. External: true & fair view." },
-                      { term: "Timing", def: "Internal: continuous. External: periodic." },
+                      { term: "Reports to", def: "Internal: management and the audit committee. External: shareholders." },
+                      { term: "Focus", def: "Internal: controls, risk, efficiency. External: true and fair view." },
+                      { term: "Timing", def: "Internal: continuous. External: periodic (usually yearly)." },
+                      { term: "Employed by", def: "Internal: the organisation (or outsourced). External: independent firm." },
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "What they share",
+                    points: [
+                      "Similar techniques: testing controls, sampling, working papers.",
+                      "External auditors may rely on internal audit's work if it's good enough.",
+                      "Both need objectivity, though internal audit's is harder to protect.",
                     ],
                   },
                 ],
@@ -858,17 +925,26 @@ export const tracks: Track[] = [
               {
                 slug: "ia-control-testing",
                 title: "Testing controls and reporting deficiencies",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Internal auditors find weak controls and recommend fixes. The deficiency → implication → recommendation table is the bread and butter.",
+                  "The core of internal audit work: pick a process, test whether its controls actually work, and report the gaps in a way that gets acted on. The deficiency-implication-recommendation table is the bread and butter you will write again and again.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "The three columns",
                     points: [
-                      "Deficiency: what's weak or missing.",
+                      "Deficiency: what is weak or missing.",
                       "Implication: what could go wrong because of it.",
-                      "Recommendation: a practical fix.",
+                      "Recommendation: a practical, proportionate fix.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "How to test a control",
+                    points: [
+                      "Walk through the process to understand how it should work.",
+                      "Inspect, reperform, or observe the control on a sample.",
+                      "Conclude: does it operate as intended, or is there a gap?",
                     ],
                   },
                 ],
@@ -888,17 +964,26 @@ export const tracks: Track[] = [
               {
                 slug: "ia-governance",
                 title: "Corporate governance basics",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Internal audit exists to serve good governance. Knowing what governance is, and who internal audit answers to, frames the whole role.",
+                  "Internal audit exists to serve good governance, so you need to know what governance is and who internal audit answers to. Governance is the system of rules, roles, and oversight that keeps an organisation honest and well run.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "The essentials",
                     points: [
                       "Governance is how an organisation is directed and held to account.",
-                      "Internal audit reports to the audit committee, not just management.",
-                      "That reporting line protects its independence.",
+                      "Internal audit reports to the audit committee, not just to management.",
+                      "That reporting line is what protects its independence.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "The audit committee",
+                    points: [
+                      "A committee of non-executive directors that oversees financial reporting and audit.",
+                      "It hires and hears both internal and external audit.",
+                      "It gives internal audit a place to raise issues management might bury.",
                     ],
                   },
                 ],
@@ -907,17 +992,26 @@ export const tracks: Track[] = [
               {
                 slug: "ia-three-lines",
                 title: "The three lines model",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "A simple map of who owns risk. It shows where internal audit sits and why it stays independent of the work it reviews.",
+                  "A simple map of who owns and oversees risk in an organisation. It explains where internal audit sits, the third line, and why it must stay independent of the work it reviews. Expect to be asked to place a function on one of the lines.",
                 cheatsheet: [
                   {
                     kind: "terms",
                     heading: "The three lines",
                     terms: [
-                      { term: "First line", def: "Management, who own and manage risk day to day." },
-                      { term: "Second line", def: "Risk and compliance functions that support and monitor." },
-                      { term: "Third line", def: "Internal audit, independent assurance to the board." },
+                      { term: "First line", def: "Management and operational staff, who own and manage risk day to day." },
+                      { term: "Second line", def: "Risk and compliance functions that support, monitor, and set policy." },
+                      { term: "Third line", def: "Internal audit, giving independent assurance to the board." },
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why independence matters",
+                    points: [
+                      "Internal audit reviews the first and second lines, so it cannot be part of them.",
+                      "If internal audit designs a control, it cannot objectively assure it.",
+                      "That is why it reports to the audit committee, not to line management.",
                     ],
                   },
                 ],
@@ -926,17 +1020,28 @@ export const tracks: Track[] = [
               {
                 slug: "ia-risk-management",
                 title: "Risk management",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Internal audit checks that risks are identified and managed. Understanding the risk cycle lets you judge whether that's happening.",
+                  "A big part of internal audit is checking that the business actually identifies and manages its risks, rather than just hoping for the best. Understanding the risk cycle lets you judge whether that is happening and where the gaps are.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "The risk cycle",
                     points: [
-                      "Identify risks, assess likelihood and impact.",
+                      "Identify the risks the business faces.",
+                      "Assess each by likelihood and impact.",
                       "Respond: accept, reduce, transfer, or avoid.",
                       "Monitor and review as things change.",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "The four responses",
+                    terms: [
+                      { term: "Accept", def: "Live with it; the cost of acting outweighs the risk." },
+                      { term: "Reduce", def: "Put controls in place to lower likelihood or impact." },
+                      { term: "Transfer", def: "Shift it, e.g. insurance or outsourcing." },
+                      { term: "Avoid", def: "Stop doing the activity that creates the risk." },
                     ],
                   },
                 ],
@@ -952,17 +1057,25 @@ export const tracks: Track[] = [
               {
                 slug: "ia-planning",
                 title: "Planning an internal audit",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Internal audit works to a plan driven by risk, and each review has its own scope and objectives. Planning is where the value is set.",
+                  "Internal audit works to an annual plan driven by risk, and each individual review has its own scope and objectives. Planning is where most of the value is set, because it decides where the effort goes.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "How a review is scoped",
                     points: [
-                      "Pick areas by risk, not by habit.",
-                      "Set clear objectives and scope for each assignment.",
+                      "Choose areas by risk, not by habit or what is easy.",
+                      "Set clear objectives and a defined scope for each assignment.",
                       "Agree what good looks like before you start testing.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Two levels of planning",
+                    points: [
+                      "Annual plan: which areas to review across the year, by risk.",
+                      "Assignment plan: the objectives, scope, and approach for one review.",
                     ],
                   },
                 ],
@@ -971,17 +1084,26 @@ export const tracks: Track[] = [
               {
                 slug: "ia-reporting",
                 title: "Reporting to management",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Findings only matter if they land. A good internal audit report is clear, fair, and drives action, not defensiveness.",
+                  "Findings only matter if they land. A good internal audit report is clear, fair, and drives action instead of defensiveness. How you write and rank findings decides whether anything actually changes.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "A report that gets acted on",
                     points: [
-                      "Rank findings by risk so attention goes to what matters.",
-                      "Be factual and balanced; agree facts with management first.",
-                      "Every finding has an owner and a date.",
+                      "Rank findings by risk so attention goes to what matters most.",
+                      "Be factual and balanced; agree the facts with management first.",
+                      "Every finding has an owner and a target date.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Getting management on side",
+                    points: [
+                      "Discuss findings before the report so there are no surprises.",
+                      "Include management's response and agreed actions.",
+                      "Follow up later: were the actions actually done?",
                     ],
                   },
                 ],
@@ -1013,17 +1135,27 @@ export const tracks: Track[] = [
               {
                 slug: "ita-general-controls",
                 title: "General IT controls",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Before testing the numbers, you test the systems that produce them: who can access what, and whether data stays intact.",
+                  "Before you can trust the numbers a system produces, you have to trust the system. General IT controls are the broad controls over the whole environment, who can get in, how changes are made, and whether data survives intact. If these are weak, nothing the system reports can be relied on.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Areas to know",
+                    heading: "The main areas",
                     points: [
-                      "Access controls, least privilege, segregation of duties.",
-                      "Change management, controlled, tested changes.",
-                      "Data integrity and backups.",
+                      "Access: least privilege and segregation of duties.",
+                      "Change management: changes are requested, tested, and approved.",
+                      "Operations: backups, job scheduling, incident handling.",
+                      "Physical and network security around the systems.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why they come first",
+                    points: [
+                      "They underpin every application control above them.",
+                      "Weak general controls mean you cannot rely on any automated control.",
+                      "So the auditor tests these before relying on system-generated data.",
                     ],
                   },
                 ],
@@ -1032,17 +1164,26 @@ export const tracks: Track[] = [
               {
                 slug: "ita-application-controls",
                 title: "Application controls",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Controls built into a specific system: the checks that stop bad data going in and catch it if it does.",
+                  "Where general controls protect the whole environment, application controls sit inside one specific system, the checks that stop bad data going in, keep processing correct, and flag problems on the way out. They map neatly onto input, processing, and output.",
                 cheatsheet: [
                   {
+                    kind: "terms",
+                    heading: "The three stages",
+                    terms: [
+                      { term: "Input", def: "Validation, range checks, mandatory fields, format checks." },
+                      { term: "Processing", def: "Control totals and reconciliations that must agree." },
+                      { term: "Output", def: "Reviews and distribution controls over what the system produced." },
+                    ],
+                  },
+                  {
                     kind: "points",
-                    heading: "Types to know",
+                    heading: "Why they only work with strong general controls",
                     points: [
-                      "Input controls: validation, range checks, mandatory fields.",
-                      "Processing controls: totals that must reconcile.",
-                      "Output controls: reviews of what the system produced.",
+                      "An input validation is worthless if someone can change the program.",
+                      "So application controls rely on the general controls underneath.",
+                      "Auditors test both together to decide how much to rely on the system.",
                     ],
                   },
                 ],
@@ -1051,17 +1192,27 @@ export const tracks: Track[] = [
               {
                 slug: "ita-access-management",
                 title: "Access and segregation of duties",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Who can do what in a system is a top risk. The goal is least privilege and no one person controlling a whole transaction.",
+                  "Who can do what inside a system is one of the biggest IT risks. The goal is least privilege, everyone has only the access their job needs, and no single person can run a whole transaction from start to finish unchecked.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "What to check",
                     points: [
-                      "Users have only the access their job needs.",
-                      "Incompatible duties are split across people.",
-                      "Leavers lose access promptly; access is reviewed.",
+                      "Users have only the access their role requires.",
+                      "Incompatible duties are split across different people.",
+                      "Leavers lose access promptly and access is reviewed regularly.",
+                      "Admin and superuser accounts are tightly controlled and logged.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Classic segregation splits",
+                    points: [
+                      "Whoever raises a payment cannot also approve it.",
+                      "Whoever records cash cannot also reconcile the bank.",
+                      "Whoever sets up a supplier cannot also pay it.",
                     ],
                   },
                 ],
@@ -1077,17 +1228,26 @@ export const tracks: Track[] = [
               {
                 slug: "ita-change-management",
                 title: "Change management",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "When systems change, uncontrolled changes break things or hide fraud. Changes should be requested, tested, approved, and logged.",
+                  "Systems change constantly, and an uncontrolled change can quietly break a control or hide a fraud. Good change management means no change reaches the live system without being requested, tested, approved, and logged.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "A controlled change",
                     points: [
-                      "Requested and approved before it happens.",
-                      "Tested away from live data.",
+                      "Requested and approved before any work starts.",
+                      "Developed and tested away from live data.",
+                      "Approved for release by someone other than the developer.",
                       "Logged, so you can see who changed what and when.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "The risk it manages",
+                    points: [
+                      "A developer who can change code and push it live can bypass every control.",
+                      "Separating development, testing, and release breaks that power.",
                     ],
                   },
                 ],
@@ -1096,17 +1256,25 @@ export const tracks: Track[] = [
               {
                 slug: "ita-caats",
                 title: "Computer-assisted audit techniques",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Instead of testing a sample, tools let you test whole populations: every transaction, checked by rule. This is where audit is heading.",
+                  "Instead of testing a small sample by hand, CAATs use software to test whole populations, every transaction checked against a rule. This is where audit is heading, and being comfortable with data tools is increasingly what sets a junior apart.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "What CAATs let you do",
                     points: [
                       "Test 100% of transactions against rules, not just a sample.",
-                      "Spot duplicates, gaps, and outliers automatically.",
-                      "Re-run the same tests next year in seconds.",
+                      "Spot duplicates, gaps in sequences, and outliers automatically.",
+                      "Re-run the exact same tests next year in seconds.",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "Two broad kinds",
+                    terms: [
+                      { term: "Audit software", def: "Interrogates the client's data: extract, filter, recalculate, find exceptions." },
+                      { term: "Test data", def: "Puts known inputs through the system to check the controls respond correctly." },
                     ],
                   },
                 ],
@@ -1131,18 +1299,27 @@ export const tracks: Track[] = [
               {
                 slug: "fa-fraud-indicators",
                 title: "Fraud indicators (red flags)",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Forensic work starts with noticing what doesn't add up. Knowing common red flags and handling evidence properly is the core idea.",
+                  "Forensic work starts with noticing what does not add up. No single red flag proves fraud, but a cluster of them tells you where to look harder. Learning to spot them is the first skill of an investigator.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "Common red flags",
+                    heading: "Behavioural red flags",
                     points: [
-                      "Lifestyle out of step with salary.",
-                      "Reluctance to take leave or share duties.",
-                      "Round-sum or just-under-approval-limit transactions.",
-                      "Missing or altered documentation.",
+                      "Lifestyle clearly out of step with salary.",
+                      "Reluctance to take leave or let anyone else do their job.",
+                      "Defensiveness or secrecy about their work.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Transaction red flags",
+                    points: [
+                      "Round-sum amounts, or just under an approval limit.",
+                      "Payments to new or unusual suppliers, or duplicated payments.",
+                      "Missing, altered, or photocopied supporting documents.",
+                      "Adjustments and reversals clustered around period-end.",
                     ],
                   },
                 ],
@@ -1151,7 +1328,7 @@ export const tracks: Track[] = [
               {
                 slug: "fa-fraud-triangle",
                 title: "The fraud triangle",
-                status: "stub",
+                status: "ready",
                 intro:
                   "A simple model for why people commit fraud. It helps you see where risk builds up and where to look.",
                 cheatsheet: [
@@ -1177,17 +1354,28 @@ export const tracks: Track[] = [
               {
                 slug: "fa-investigation-approach",
                 title: "The investigative approach",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "A forensic investigation is careful and planned, not a witch-hunt. You gather facts quietly, keep an open mind, and protect the evidence.",
+                  "A forensic investigation is careful and planned, not a witch-hunt. You gather facts quietly, keep an open mind, and protect the evidence, because a clumsy investigation can tip off the suspect, harm the innocent, or wreck the case.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "How to work",
                     points: [
-                      "Plan the scope before you start.",
-                      "Stay objective; follow the evidence, not a hunch.",
-                      "Keep it confidential to protect people and the case.",
+                      "Plan the scope and objectives before you touch anything.",
+                      "Stay objective: follow the evidence, not a hunch.",
+                      "Keep it confidential to protect both the case and innocent people.",
+                      "Preserve evidence from the start; do not alter originals.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "A rough sequence",
+                    points: [
+                      "Understand the suspected fraud and plan.",
+                      "Secure and gather evidence.",
+                      "Analyse, interview where appropriate, and conclude.",
+                      "Report, and support any legal or disciplinary action.",
                     ],
                   },
                 ],
@@ -1196,17 +1384,26 @@ export const tracks: Track[] = [
               {
                 slug: "fa-evidence-handling",
                 title: "Handling evidence",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "If evidence might be used in a dispute or court, how you handle it matters as much as what it says. Sloppy handling can sink a case.",
+                  "If evidence might end up in a dispute or a court, how you handle it matters as much as what it says. Sloppy handling can make solid proof inadmissible and sink an otherwise strong case.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Protecting evidence",
                     points: [
-                      "Keep an unbroken chain of custody: who held it, when.",
+                      "Keep an unbroken chain of custody: who held it, and when.",
                       "Preserve originals; work from copies.",
-                      "Document everything you do to it.",
+                      "Document everything you do to it, step by step.",
+                      "Store it securely so it cannot be altered or lost.",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "Two ideas that decide admissibility",
+                    terms: [
+                      { term: "Chain of custody", def: "A documented trail of who handled the evidence and when." },
+                      { term: "Integrity", def: "Proof the evidence has not been changed since it was collected." },
                     ],
                   },
                 ],
@@ -1247,18 +1444,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-quickbooks",
                 title: "QuickBooks Online basics",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Most small-business clients are on QuickBooks Online. Knowing the day-to-day flow, invoices, bills, bank feeds, reconciliation, is what they hire for.",
+                  "QuickBooks Online is the platform most small-business clients are already on, so being fluent in it is often the thing that gets you hired. The day-to-day is invoices, bills, bank feeds, and reconciliation, done consistently.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "The daily flow",
                     points: [
-                      "Connect the bank feed; categorise transactions.",
-                      "Raise invoices and record bills.",
-                      "Reconcile accounts regularly.",
-                      "Run the basic reports the client wants.",
+                      "Connect the bank feed and categorise imported transactions.",
+                      "Raise invoices to customers and record bills from suppliers.",
+                      "Reconcile the bank and card accounts regularly.",
+                      "Run the reports the client actually looks at.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Getting good, fast",
+                    points: [
+                      "Use the free QuickBooks sample company to practise without risk.",
+                      "Learn keyboard shortcuts and bank rules to speed up categorising.",
+                      "The QuickBooks ProAdvisor programme is free and teaches the platform.",
                     ],
                   },
                 ],
@@ -1267,17 +1473,25 @@ export const tracks: Track[] = [
               {
                 slug: "fl-xero",
                 title: "Xero basics",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Xero is the other major platform. The concepts carry over from QuickBooks; the buttons move.",
+                  "Xero is the other major cloud platform, popular with UK and Australian clients. The concepts are the same as QuickBooks, only the buttons move, so once you know one, the second is mostly about learning the layout.",
                 cheatsheet: [
                   {
                     kind: "points",
-                    heading: "What transfers",
+                    heading: "What transfers from QuickBooks",
                     points: [
                       "Same core flow: bank feeds, invoices, bills, reconciliation.",
-                      "Learn where reconciliation and reporting live.",
-                      "Being comfortable in both is a selling point.",
+                      "The concepts (double-entry, reconciliation) are identical.",
+                      "You mainly relearn where features live and what they are called.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why learn both",
+                    points: [
+                      "Clients are split across the two; knowing both widens your market.",
+                      "Xero has its own free certification and demo company to practise on.",
                     ],
                   },
                 ],
@@ -1286,9 +1500,9 @@ export const tracks: Track[] = [
               {
                 slug: "fl-bank-feeds",
                 title: "Bank feeds and reconciliation",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Most day-to-day bookkeeping is categorising bank transactions and reconciling. Get fast and accurate at this and clients keep you.",
+                  "The bulk of day-to-day bookkeeping is categorising bank transactions and reconciling. It sounds dull, but doing it fast and accurately is exactly what keeps a client paying you every month.",
                 cheatsheet: [
                   {
                     kind: "points",
@@ -1296,8 +1510,17 @@ export const tracks: Track[] = [
                     points: [
                       "Connect the bank feed so transactions import automatically.",
                       "Categorise each transaction to the right account.",
-                      "Match payments to invoices and bills.",
+                      "Match payments to the invoices and bills they settle.",
                       "Reconcile so the software balance ties to the bank statement.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Working faster",
+                    points: [
+                      "Set up bank rules to auto-categorise repeat transactions.",
+                      "Deal with anything you cannot categorise by asking the client, not guessing.",
+                      "Reconcile little and often rather than a monthly scramble.",
                     ],
                   },
                 ],
@@ -1306,17 +1529,26 @@ export const tracks: Track[] = [
               {
                 slug: "fl-chart-of-accounts",
                 title: "Setting up a chart of accounts",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "The chart of accounts is the list of categories everything gets sorted into. A clean one makes every report readable.",
+                  "The chart of accounts is the list of categories every transaction gets sorted into. Get it right and every report reads clearly; get it wrong and the accounts are a mess no matter how carefully you post.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Keep it usable",
                     points: [
                       "Group by type: income, cost of sales, expenses, assets, liabilities, equity.",
-                      "Enough detail to be useful, not so much it's noise.",
-                      "Match it to how the owner thinks about the business.",
+                      "Enough detail to be useful, not so much it becomes noise.",
+                      "Match it to how the owner actually thinks about the business.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Common mistakes",
+                    points: [
+                      "Too many accounts nobody uses: harder to categorise, harder to read.",
+                      "Mixing types, like an expense sitting under income.",
+                      "Renaming defaults without thinking about the reports they feed.",
                     ],
                   },
                 ],
@@ -1332,17 +1564,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-recording-transactions",
                 title: "Recording transactions cleanly",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Sales, purchases, expenses, and payments recorded consistently, with the right dates and categories. Boring done well is the job.",
+                  "Sales, purchases, expenses, and payments, recorded consistently with the right dates and categories. It is not glamorous, but boring done reliably is exactly what a client pays a bookkeeper for.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Habits that keep books clean",
                     points: [
-                      "One consistent method for each transaction type.",
-                      "Attach the receipt or invoice where you can.",
-                      "Never guess a category, ask the client if unsure.",
+                      "Use one consistent method for each transaction type.",
+                      "Attach the receipt or invoice to the entry where you can.",
+                      "Never guess a category; ask the client when unsure.",
+                      "Record in real time, not in a year-end panic.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why consistency matters",
+                    points: [
+                      "Inconsistent categorising makes reports meaningless.",
+                      "Clean books make month-end and tax time fast.",
+                      "It is far cheaper to record right than to clean up later.",
                     ],
                   },
                 ],
@@ -1358,17 +1600,26 @@ export const tracks: Track[] = [
               {
                 slug: "fl-ap-ar",
                 title: "Managing bills and invoices",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Keeping track of what the client owes and what they're owed, and chasing the gaps, is a service owners value highly.",
+                  "Keeping track of what the client owes suppliers and what customers owe them, and chasing the gaps, is a service owners value highly because it directly affects their cash. Do it well and you become indispensable.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "What good looks like",
                     points: [
-                      "Raise and send invoices promptly; record bills when they arrive.",
+                      "Raise and send invoices promptly; record bills the day they arrive.",
                       "Keep the aged receivables and payables lists current.",
-                      "Flag overdue amounts so nothing slips.",
+                      "Flag overdue customer amounts so nothing slips.",
+                      "Schedule supplier payments so nothing is late or missed.",
+                    ],
+                  },
+                  {
+                    kind: "terms",
+                    heading: "The two sides",
+                    terms: [
+                      { term: "Accounts receivable", def: "Money customers owe the business. Chase it in." },
+                      { term: "Accounts payable", def: "Money the business owes suppliers. Pay it on time, not early." },
                     ],
                   },
                 ],
@@ -1377,7 +1628,7 @@ export const tracks: Track[] = [
               {
                 slug: "fl-sales-tax-basics",
                 title: "Sales tax basics (Pakistan)",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Some clients are registered for sales tax. Know the mechanics of recording it, and always confirm current rates and rules at the source.",
                 cheatsheet: [
@@ -1402,17 +1653,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-bookkeeping-cleanup",
                 title: "Cleaning up messy books",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "New clients often arrive with a year of muddled records. Fixing them is a common, well-paid first job.",
+                  "New clients often arrive with a year of muddled, half-done records. Fixing them is one of the most common and best-paid first jobs a freelance bookkeeper gets, and a clean set of books is often the start of an ongoing engagement.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "A clean-up approach",
                     points: [
-                      "Reconcile every account to a known-correct balance first.",
-                      "Fix miscategorised and duplicated transactions.",
+                      "Reconcile every account back to a known-correct balance first.",
+                      "Fix miscategorised, duplicated, and missing transactions.",
+                      "Deal with the opening balances so the starting point is right.",
                       "Document what you changed and why.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Protect yourself",
+                    points: [
+                      "Agree the scope and a fixed fee before you start; clean-ups can balloon.",
+                      "Keep a log of issues found in case questions come later.",
+                      "Turn the clean-up into a monthly retainer if it goes well.",
                     ],
                   },
                 ],
@@ -1428,18 +1689,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-month-end-close",
                 title: "The month-end close",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "A reliable monthly close is what separates a bookkeeper a client trusts from one they don't. It's a checklist done consistently.",
+                  "A reliable monthly close is what separates a bookkeeper a client trusts from one they check up on. There is nothing clever about it, just a checklist done the same way every month so the numbers can be relied on.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "A close checklist",
                     points: [
                       "Reconcile every bank and card account.",
-                      "Post accruals, prepayments, depreciation.",
-                      "Review the trial balance for oddities.",
-                      "Produce the management report.",
+                      "Post accruals, prepayments, and depreciation.",
+                      "Review the trial balance for anything that looks odd.",
+                      "Produce the management report and send it on time.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Why a consistent close matters",
+                    points: [
+                      "The owner gets numbers they can act on, on a predictable date.",
+                      "Errors are caught monthly, not discovered at year-end.",
+                      "A repeatable checklist means you can hand it over or scale up.",
                     ],
                   },
                 ],
@@ -1448,7 +1718,7 @@ export const tracks: Track[] = [
               {
                 slug: "fl-management-accounts",
                 title: "Management accounts owners actually use",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Owners want a short monthly read on how the business is doing, not a pile of numbers. Turning the books into a clear summary is a premium service.",
                 cheatsheet: [
@@ -1474,7 +1744,7 @@ export const tracks: Track[] = [
               {
                 slug: "fl-cash-flow-forecast",
                 title: "Simple cash flow forecasting",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Profit is not cash. A short forecast of money in and out over the coming weeks is often the most valued thing you can give an owner.",
                 cheatsheet: [
@@ -1507,7 +1777,7 @@ export const tracks: Track[] = [
               {
                 slug: "fl-fbr-iris",
                 title: "FBR IRIS: the basics",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Clients will ask about filing. Know your way around the official FBR IRIS portal and always check current rates and deadlines at the source.",
                 cheatsheet: [
@@ -1539,17 +1809,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-upwork-profile",
                 title: "Setting up an Upwork / LinkedIn profile",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Clients hire a clear, credible profile. A focused niche and proof of skill beat a long list of everything.",
+                  "On a marketplace, your profile is your shopfront. Clients skim dozens of them, so a clear niche and visible proof of skill beat a long list of everything you can supposedly do.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "A profile that wins work",
                     points: [
-                      "Pick a clear niche (e.g. 'QuickBooks bookkeeping for small UK/US firms').",
-                      "Show proof: sample work, a portfolio piece, a certification.",
-                      "Write the headline around the client's problem, not your titles.",
+                      "Pick a clear niche, like 'QuickBooks bookkeeping for small UK and US firms'.",
+                      "Show proof: a sample month-end pack, a portfolio piece, a certification.",
+                      "Write the headline around the client's problem, not your job titles.",
+                      "Use a clear photo and specific, results-focused wording.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Getting the first reviews",
+                    points: [
+                      "Early on, take a couple of smaller jobs to build reviews.",
+                      "Over-deliver on those first clients; reviews are your reputation.",
+                      "Keep the profile updated as your niche sharpens.",
                     ],
                   },
                 ],
@@ -1558,7 +1838,7 @@ export const tracks: Track[] = [
               {
                 slug: "fl-client-communication",
                 title: "Explaining numbers to clients",
-                status: "stub",
+                status: "ready",
                 intro:
                   "Freelancing rewards clear communication. Clients aren't accountants, explaining plainly builds trust and repeat work.",
                 cheatsheet: [
@@ -1584,17 +1864,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-pricing",
                 title: "Pricing your services",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "Charging too little is the most common mistake new freelancers make. Price for the value and the time, not just the hour.",
+                  "Charging too little is the most common mistake new freelancers make, and it is hard to undo once a client is used to it. Price for the value you provide and the time it takes, not just a bare hourly rate.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "Ways to price",
                     points: [
-                      "Fixed monthly fee for a defined scope (owners like predictability).",
+                      "Fixed monthly fee for a defined scope; owners like the predictability.",
                       "Per-project for one-off jobs like a clean-up.",
-                      "Raise your rate as your proof and speed grow.",
+                      "Hourly only where scope is genuinely unknown, and cap it.",
+                      "Raise your rate as your proof, speed, and reviews grow.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Avoiding the underpricing trap",
+                    points: [
+                      "Price the outcome for the client, not just your cost.",
+                      "Include a little room for the inevitable extra questions.",
+                      "It is easier to start at a fair price than to raise one later.",
                     ],
                   },
                 ],
@@ -1603,7 +1893,7 @@ export const tracks: Track[] = [
               {
                 slug: "fl-proposals",
                 title: "Writing proposals that win",
-                status: "stub",
+                status: "ready",
                 intro:
                   "A good proposal shows you understood the client's problem and can solve it. Most freelancers write about themselves instead.",
                 cheatsheet: [
@@ -1629,17 +1919,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-client-onboarding",
                 title: "Onboarding a new client",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "A smooth start sets the tone. Agreeing scope, getting access, and setting expectations early prevents most later problems.",
+                  "A smooth start sets the tone for the whole relationship. Agreeing scope, getting the right access, and setting expectations in the first week prevents most of the problems that sour engagements later.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "First-week checklist",
                     points: [
-                      "Agree scope and fee in writing.",
+                      "Agree scope and fee in writing before any work.",
                       "Get access to the accounting software and bank feeds.",
-                      "Set how and when you'll communicate and report.",
+                      "Collect opening balances and prior records.",
+                      "Set how and when you will communicate and report.",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Set boundaries early",
+                    points: [
+                      "Be clear what is in scope and what costs extra.",
+                      "Agree response times so expectations are realistic.",
+                      "A short engagement letter protects both sides.",
                     ],
                   },
                 ],
@@ -1648,17 +1948,27 @@ export const tracks: Track[] = [
               {
                 slug: "fl-portfolio",
                 title: "Building a portfolio",
-                status: "stub",
+                status: "ready",
                 intro:
-                  "With no job history, proof of work is what wins clients. A small portfolio of clean sample work does the job.",
+                  "With no job history, proof of work is what wins clients. You do not need real clients to start: a small portfolio of clean, made-up sample work shows you can do the job and gives a nervous first client confidence.",
                 cheatsheet: [
                   {
                     kind: "points",
                     heading: "What to include",
                     points: [
-                      "A sample month-end pack (with made-up figures).",
+                      "A sample month-end pack built from made-up figures.",
                       "A before-and-after of a books clean-up.",
-                      "A short note on the tools you use.",
+                      "A short note on the tools and process you use.",
+                      "Any certifications (QuickBooks, Xero, ACCA progress).",
+                    ],
+                  },
+                  {
+                    kind: "points",
+                    heading: "Using it",
+                    points: [
+                      "Link it from your Upwork and LinkedIn profiles.",
+                      "Reference the most relevant piece in each proposal.",
+                      "Swap sample work for real (anonymised) work as you get it.",
                     ],
                   },
                 ],
