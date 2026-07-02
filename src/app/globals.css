@@ -11,7 +11,7 @@
   --font-sans: var(--font-sans);
   --font-heading: var(--font-heading);
   --font-mono: var(--font-mono-plex);
-  /* Signature accent — brass, used sparingly for achievement/readiness. */
+  /* Signature accent, brass, used sparingly for achievement/readiness. */
   --color-brass: var(--brass);
   --color-brass-foreground: var(--brass-foreground);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -53,9 +53,9 @@
 }
 
 /* ---------------------------------------------------------------------------
-   "In the black" — a ledger-and-ink identity. Cool ledger-paper ground, deep
-   ledger-green ink, brass reserved for achievement. Deliberately not the
-   cream/serif, near-black/acid, or broadsheet AI-default looks.
+   "In the black", a ledger-and-ink identity. Cool ledger-paper ground, deep
+   ledger-green ink, brass reserved for achievement. Deliberately avoids the
+   overused cream/serif, near-black/acid, and broadsheet default looks.
 --------------------------------------------------------------------------- */
 :root {
   --background: oklch(0.968 0.005 150);
@@ -152,7 +152,7 @@
   .font-mono {
     font-variant-numeric: tabular-nums;
   }
-  /* Respect reduced-motion — over-animation reads as AI-generated anyway. */
+  /* Respect reduced-motion; over-animation looks cheap anyway. */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
