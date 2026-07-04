@@ -13,7 +13,7 @@ import { db, schema } from "@/db";
 const ARGON = { memoryCost: 19456, timeCost: 2, parallelism: 1 };
 
 export const auth = betterAuth({
-  database: drizzleAdapter(db, { provider: "pg", schema }),
+  database: drizzleAdapter(db, { provider: "pg", schema, usePlural: true }),
   secret: process.env.BETTER_AUTH_SECRET ?? process.env.AUTH_SECRET,
   baseURL: process.env.BETTER_AUTH_URL,
   emailAndPassword: {
