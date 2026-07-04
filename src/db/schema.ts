@@ -47,6 +47,9 @@ export const users = pgTable(
     name: text("name").notNull(),
     role: roleEnum("role").notNull().default("user"),
     status: userStatusEnum("status").notNull().default("active"),
+    emailVerified: boolean("email_verified").notNull().default(false),
+    image: text("image"),
+    twoFactorEnabled: boolean("two_factor_enabled").default(false),
     createdAt: timestamp("created_at", { withTimezone: true })
       .notNull()
       .defaultNow(),
