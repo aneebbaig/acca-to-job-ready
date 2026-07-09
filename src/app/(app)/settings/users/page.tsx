@@ -19,7 +19,7 @@ export default async function UsersPage() {
       <UsersManager
         users={users}
         currentUserId={admin.id}
-        currentRole={admin.role}
+        currentRole={admin.role as "super_admin" | "admin" | "user"}
       />
     </div>
   );

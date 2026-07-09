@@ -1,15 +1,27 @@
-import NextAuth from "next-auth";
-import { authConfig } from "@/auth.config";
+import { NextResponse, type NextRequest } from "next/server";
+import { getSessionCookie } from "better-auth/cookies";
 
-// Next 16 proxy (formerly middleware), runs on the Node runtime. Auth gating
-// only, the authorized callback in auth.config decides page access. The
-// first-run setup redirect lives in server components, which can query the DB.
-const { auth } = NextAuth(authConfig);
+const PUBLIC_PATHS = ["/login", "/setup"];
+const PUBLIC_PREFIXES = ["/api/auth", "/_next", "/favicon"];
 
-export const proxy = auth;
+// Optimistic cookie check (edge-safe). Role checks stay server-side in
+// auth-guards (requireAdmin), not here.
+export default function proxy(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+  if (PUBLIC_PREFIXES.some((p) => pathname.startsWith(p))) return NextResponse.next();
+
+  const isPublic = PUBLIC_PATHS.some((p) => pathname === p || pathname.startsWith(`${p}/`));
+  const loggedIn = !!getSessionCookie(req);
+
+  if (!loggedIn && !isPublic) {
+    return NextResponse.redirect(new URL("/login", req.nextUrl));
+  }
+  if (loggedIn && isPublic) {
+    return NextResponse.redirect(new URL("/", req.nextUrl));
+  }
+  return NextResponse.next();
+}
 
 export const config = {
-  // Gate pages only. API routes do their own auth() + ownership checks and
-  // return 401/403 (a redirect is the wrong response for a fetch).
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\..*).*)"],
 };
